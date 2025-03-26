@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThermaHealth</title>
+</head>
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+</style>
+
+<body>
+    <h1>Simulador Financeiro <b style="color: #1774de">ThermaHealth</b></h1>
+    <p> Sistemas de climatização são necessários para garantir a qualidade do ar nos hospitais, <br>
+        sem a manutenção correta podem aumentar os gastos com energia em cerca de 20%.
+    </p>
+    <b>Você sabia que seu custo com climatização para as áreas do seu hospital todos os meses chega a 50% de toda a sua
+        conta de energia?
+        <br><br> E ser ainda maior caso as peças do seu ar-condicionado estejam se deteriorando mais rápido por conta da
+        umidade em excesso?
+    </b><br>
+
+    <h3>Multas:</h3>
+    <b><p style="color: red">Possíveis multas pela temperatura e umidade incorretas nos ambientes hospitalares de acordo com a LEI Nº 6.437, DE 20 DE AGOSTO DE 1977. </p></b>
+    <table>
+        <tr>
+          <th>Tipo</th>
+          <th>Valor</th>
+        </tr>
+        <tr>
+          <td>Leve</td>
+          <td>R$ 2.000,00 a R$ 75.000,00</td>
+        </tr>
+        <tr>
+            <td>Grave</td>
+            <td>R$ 75.000,00 a R$ 200.000,00</td>
+          </tr>
+          <tr>
+            <td>Gravísssima</td>
+            <td>R$ 200.000,00 a R$ 1.500.000,00</td>
+          </tr>
+      </table>
+
+    <div style="background-color: #dceafa">
+
+            <!--
+            var economia = 10000; 
+            var energia =  8000;
+            var acao = "economia";
+
+            if (a > b) {
+            acao = "acrescimo"
+}        
+
+            Mostrar de acordo com o valor inputado qual classe da multa que o cliente infringiu 
+
+            https://www.w3schools.com/tags/tag_table.asp -->
+
+        <p>Insira o seu gasto mensal com energia elétrica (R$):</p>
+        <input type="number" id="input_energia">
+        <br>
+        <p>Coloque qual a temperatura que seu ar-condicionado fica ligado na recepção (local com maior oscilação de
+            temperatura):</p>
+        <Select id="select_temp">
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+            <option>24</option>
+            <option>25</option>
+            <option>26</option>
+            <option>27</option>
+            <option>28</option>
+            <option>29</option>
+            <option>30</option>
+            <option>31</option>
+            <option>32</option>
+
+        </Select>
+        <br>
+        <p>Insira caso já tenha gasto com manutenção no ambiente hospitalar:</p>
+        <Select id="select_manutencao">
+            <option>Não</option>
+            <option>Sim</option>
+        </Select>
+        <br>
+        <p>Quanto? (Caso não tenha tido, apenas informe 0)</p>
+        <input type="number" id="input_valor_manutencao" value="0">
+        <br>
+        <p>Insira se já teve multa referente a temperatura do seu hospital:</p>
+        <Select id="select_multa">
+            <option>Não</option>
+            <option>Sim</option>
+        </Select>
+        <br>
+        <p>Quanto? (Caso não tenha tido, apenas informe 0)</p>
+        <input type="number" id="input_valor_multa" value="0">
+        <br>
+        <br>
+        <button onclick="calcular()">Calcular Gasto</button>
+        <br>
+    </div>
+    <br>
+    <br>
+    <div  id="div_mensagem"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    function calcular() {
+        // se já teve gasto com manutencao (umidade)
+
+        //se já teve multa
+
+        //mostrar dois cenários: 
+
+        //energia + multa + manutencao = 300
+
+        //sem multa e sem manutencao fica 100
+
+        //menos 20% vai sobrar 80%
+
+        //quanto que 80% representa de 300 = mostrar a porcentagem que ele economizou
+        var energia = Number(input_energia.value);
+        var temperatura = Number(select_temp.value);
+        var manutencao = select_multa.value;
+        var multa = select_multa.value;
+        var valorManutencao = Number(input_valor_manutencao.value);
+        var valorMulta = Number(input_valor_multa.value);
+        var consumoClimatizacao = energia / 2; //50% gasto apenas com climatização
+        var aumento = Number(0.035); // A cada grau aumentado ou diminuido da temperatura ideal (24°C) o consumo de energia aumenta em 3,5%
+        var temperatura_ideal = Number(24);
+        var valor_total = consumoClimatizacao;
+
+        //mostrar com as multas e manutencao
+        var total = valorManutencao + valorMulta;
+
+        //mostrar quanto reduziu
+        //20% da justificativa
+        var novoTotal = consumoClimatizacao * 0.8;
+
+        //economia 
+        var economia = consumoClimatizacao - novoTotal;
+
+        if(valorMulta >= 2000 && valorMulta <= 75000){
+            tipoMulta = "Leve";
+        } else if(valorMulta <= 200000){
+            tipoMulta = "Grave";
+        } else if(valorMulta <= 1500000){
+            tipoMulta = "Gravíssima";
+        }
+
+        if (multa == "Sim") {
+            mensagem_multa = `você levou uma multa do tipo <b><u>${tipoMulta}</b></u>, provemos dados para apoiar a sua decisão em zerar seu custo com as multas`;
+        } else if (multa == "Não") {
+            mensagem_multa = `provemos vocês com informações para a tomada de decisão, evitando custos adicionais com multas`;
+        }                      //Rever o Protegemos -- não vamos proteger apenas dar a opção dele se proteger
+
+        if (manutencao == "Sim") {
+            mensagem_manutencao = `Disponibilizamos informações para apoiar você na eliminação de custos com manutenções desnecessárias em ambientes hospitalares`;
+        } else if (manutencao == "Não") {
+            mensagem_manutencao = `oferecemos orientações para otimizar recursos, reduzindo despesas com manutenções desnecessárias em ambientes hospitalares,`;
+        }                          //Rever o Protegemos -- não vamos proteger apenas dar a opção dele se proteger
+
+        if (temperatura < temperatura_ideal) {
+            // Aumento do consumo caso a temperatura seja abaixo de 24°C
+            var diferenca = temperatura_ideal - temperatura;
+            var variavel = diferenca * 0.035
+            novoTotal = (((consumoClimatizacao * variavel) + consumoClimatizacao) * 0.8);
+            economia = consumoClimatizacao - novoTotal;
+        }
+        if (temperatura > temperatura_ideal) {
+            // Aumento do consumo caso a temperatura seja acima de 24°C
+            var diferenca = temperatura - temperatura_ideal;
+            var variavel = diferenca * 0.035
+            novoTotal = (((consumoClimatizacao * variavel) + consumoClimatizacao) * 0.8);
+            economia = consumoClimatizacao - novoTotal;
+        }
+
+        if (temperatura >= 16 && temperatura <= 32) {
+
+            div_mensagem.innerHTML = `
+   Seu consumo sendo de <b style="color: #1c66a6">R$${energia}</b>, o gasto de energia estimada com climatização é de <b style="color: #1c66a6">R$${consumoClimatizacao}</b> por mês. <br>
+   Manter a temperatura ideal de <b><u>${temperatura_ideal}°C</b></u> evita um acréscimo de <b><u>3,5%</b></u> no consumo de energia da climatização para cada grau ajustado. <br>
+   Com os nossos serviços, você pode conseguir diminuir sua conta com climatização em até <b><u>20%</b></u>, resultando em um novo custo de <b style="color: #1c66a6">R$${novoTotal}</b>. <br>
+   Dessa forma, ${mensagem_multa} e ${mensagem_manutencao} estimando uma <b><u>economia</b></u> de <b style="color: #1c66a6">R$${economia + total}</b> <br>
+   <b> O valor total da sua conta de energia será de <u style="color: #1c66a6">R$${novoTotal + consumoClimatizacao}</u></b> 
+
+   <p style="background-color: white; color: red;"> Possíveis multas de acordo com a LEI Nº 6.437, DE 20 DE AGOSTO DE 1977. <br>
+   Leves : Variam de  R$ 2.000,00 (dois mil reais) a R$ 75.000,00 (setenta e cinco mil reais)  <br>
+   Graves : Variam de  R$ 75.000,00 (setenta e cinco mil reais) a R$ 200.000,00 (duzentos mil reais) <br>
+   Gravíssimas : Variam de R$ 200.000,00 (duzentos mil reais) a R$ 1.500.000,00 (um milhão e quinhentos mil reais) </p>`
+        }
+      
+
+        
+        var acrescimo = economia + total
+        if (acrescimo < 0){
+        acrescimo = acrescimo * -1
+        div_mensagem.innerHTML = `
+   Seu consumo sendo de <b style="color: #1c66a6">R$${energia}</b>, o gasto de energia estimada com climatização é de <b style="color: #1c66a6">R$${consumoClimatizacao}</b> por mês. <br>
+   Manter a temperatura ideal de <b><u>${temperatura_ideal}°C</b></u> evita um acréscimo de <b><u>3,5%</b></u> no consumo de energia da climatização para cada grau ajustado. <br>
+   Com os nossos serviços,  você pode conseguir diminuir sua conta com climatização em até <b><u>20%</b></u>, resultando em um novo custo de <b style="color: #1c66a6">R$${novoTotal}</b>. <br>
+   Dessa forma, ${mensagem_multa} e ${mensagem_manutencao} estimando um <b><u>acrescimo</b></u> de <b style="color: #1c66a6">R$${acrescimo}</b> <br>
+   <b> O valor total da sua conta de energia será de <u style="color: #1c66a6">R$${novoTotal + consumoClimatizacao}</u> </b> 
+
+   <p style="background-color: white; color: red;"> Possíveis multas de acordo com a LEI Nº 6.437, DE 20 DE AGOSTO DE 1977. <br>
+   Leves : Variam de  R$ 2.000,00 (dois mil reais) a R$ 75.000,00 (setenta e cinco mil reais)  <br>
+   Graves : Variam de  R$ 75.000,00 (setenta e cinco mil reais) a R$ 200.000,00 (duzentos mil reais) <br>
+   Gravíssimas : Variam de R$ 200.000,00 (duzentos mil reais) a R$ 1.500.000,00 (um milhão e quinhentos mil reais) </p>`
+
+    }
+}
+
+</script>
