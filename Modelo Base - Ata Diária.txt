@@ -1,16 +1,34 @@
-Data:
-Participantes presentes :
-Participantes ausentes :
+Data: 28/03/2025 - Sábado as 20:00
+Participantes presentes : Todos
+Participantes ausentes : Nenhum
 
-Assuntos discutidos e principais decisões :
-• Inserir tópicos aqui
+--
+
+Assuntos discutidos e principais decisões : 
+• Será feito os slides;
+
+• Trazer o texto da apresentação (jogral) (word compartilhado);
+
+• Daily e depois reunião;
+
+• Desenvolvimento contexto inicial
+
+• Discutir atribuição de tarefas para a próxima sprint;
+
+• Avaliado tarefas do trello;
+
+• Discussão a respeito das dailys;
+
+• Discussão inicial a respeito das regras de equipe;
+
+--
 
 Plano de Ação – para a próxima semana :
-Responsável
-Item Exemplo dia/mes :
+Samuel
+Se propôs a fazer uma contraproposta de slide - Para sábado, 29/03;
 
-Responsável
-Item Exemplo dia/mes :
+Calil
+Molde base principal da execução do protótipo - Para (se possível até) quarta-feira, 02/04;
 
-Responsável
-Item Exemplo dia/mes :
+Koga
+Refazer o diagrama de solução, se inspirando no da equipe de Gustavo - Para até quinta-feira, 03/04;
