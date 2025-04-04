@@ -1,34 +1,34 @@
-Data: 28/03/2025 - Sábado as 20:00
-Participantes presentes : Todos
-Participantes ausentes : Nenhum
+Data: 03/04/2025
+ Participantes presentes : Gustavo, Luca, Marina, Rebeca, Samuel
+ Participantes ausentes : Lucas 
 
---
+ Assuntos discutidos e principais decisões : 
 
-Assuntos discutidos e principais decisões : 
-• Será feito os slides;
+• Emails para professores (Samuel e Koga);
 
-• Trazer o texto da apresentação (jogral) (word compartilhado);
+• Organização do trello;
 
-• Daily e depois reunião;
+• Enviar via online;informações da reunião do dia 01/04;
 
-• Desenvolvimento contexto inicial
+• Contexto sobre projeto;
 
-• Discutir atribuição de tarefas para a próxima sprint;
+• Nicho do projeto, trazer dados, Limitação por região (São Paulo com pensamento para expansão);
 
-• Avaliado tarefas do trello;
+• Pontos importantes online;
 
-• Discussão a respeito das dailys;
+ Plano de Ação – para a próxima semana : 
 
-• Discussão inicial a respeito das regras de equipe;
+Grupo Inteiro 
+Pautas e pontos para a reunião - 04/04
 
---
+Luca Dias
+Apresentação de contexto - justificativa - calcudora - 04/04;
 
-Plano de Ação – para a próxima semana :
-Samuel
-Se propôs a fazer uma contraproposta de slide - Para sábado, 29/03;
+Lucas Calil e Samuel Andrade
+Tela institucional em css e html - 03/04;
 
-Calil
-Molde base principal da execução do protótipo - Para (se possível até) quarta-feira, 02/04;
+Marina Koga
+Atualização do Diagrama de Visão de Negócio 04/04;
 
-Koga
-Refazer o diagrama de solução, se inspirando no da equipe de Gustavo - Para até quinta-feira, 03/04;
+Rebeca Oliveira e Gustavo Pereira
+Atualização de tabelas no MySQL - iniciar Modelagem lógica 04/04;
