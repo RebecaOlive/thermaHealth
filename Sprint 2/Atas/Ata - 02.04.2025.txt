@@ -1,0 +1,34 @@
+Data: 02/04/2025
+Participantes presentes : Gustavo, Marina, Rebeca, Samuel
+Participantes ausentes : Luca, Lucas
+
+Assuntos discutidos e principais decisões :
+
+Transmissão e transcrição do KT;
+
+Como será o funcionamento das dupla;
+
+Como serão definida as regras;
+
+Reunião com estimativa de 2hrs de duração definida para dia 03/04;
+
+Atualização a respeito de banco de dados (Samuel, Gustavo e Rebeca);
+
+
+
+
+
+Plano de Ação – para a próxima semana :
+Luca Dias
+Apresentação de contexto - justificativa - calculadora - 04/04;
+
+Lucas Calil e Samuel Andrade
+Tela institucional em css e html - 03/04;
+
+Marina Koga
+Atualização do Diagrama de Visão de Negócio 04/04;
+
+Atualização dos entregáveis no trello - 03/04
+
+Rebeca Oliveira e Gustavo Pereira
+Atualização de tabelas no MySQL - iniciar Modelagem lógica 04/04;
