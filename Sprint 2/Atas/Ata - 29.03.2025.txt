@@ -1,0 +1,61 @@
+Estavam: Todos;
+
+Luca - Discussão sobre alteração de contexto:
+
+Nichar para hospitais em São Paulo;
+
+Reforçar o contexto em relação a como a implementação de um gerenciamento de temperatura e umidade auxilia o hospital a ter um menor custo no tratamento de pacientes;
+
+Criar uma calculadora nova centrada nesse complemento do contexto;
+
+Modificar a justificativa para se adequar a esse complemento e diminuir o foco em multas;
+
+Nichar para monitoramento de temperatura e umidade de insumos do hospital.
+
+
+
+Rebeca - Discussão sobre aprimoramentos do Banco de Dados:
+
+Incrementação de Tabelas(Sala);
+
+Alteração de atributos de tabelas visando se adequar a realidade de hospitais.
+
+
+
+Koga - Demonstração, feedback e Direcionamento sobre o Diagrama de Visão de Negócio:
+
+Discussão sobre a objetividade do diagrama;
+
+
+
+Gustavo - Discussão sobre a organização das tarefas no Trello e Feedback sobre o roteiro de apresentação de TI(Kanban):
+
+Definição da organização das tarefas no Trello;
+
+
+
+Samuel - Demonstração, feedback e direcionamento sobre o slide da apresentação de TI(Kanban):
+
+Definição do estilo e fluxo da apresentação.
+
+
+
+Calil - Demonstração e feedback sobre o site institucional:
+
+Validação do processo de desenvolvimento e confirmação de prazos;
+
+
+
+Conclusão das Discussões:
+
+Validar essa mudanças no contexto com o professor Cláudio Frizzarini;
+
+Necessário análise e alteração do banco de dados;
+
+Roteiro e Apresentação de TI encaminhados;
+
+Organização no Trello definida;
+
+Diagrama precisa ser refinado;
+
+Site Institucional encaminhado.
