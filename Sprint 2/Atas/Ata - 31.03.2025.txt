@@ -1,0 +1,21 @@
+Data: 31/03/2025
+Participantes presentes : Gustavo, Luca, Lucas, Marina, Rebeca, Samuel
+Participantes ausentes : Nenhum
+
+Assuntos discutidos e principais decisões :
+• O que foi feito no final de semana;
+• Validação do script/slide para a apresentação de TI;
+• Foi discutido atualizações, dúvidas e avanços no Banco de dados e diagrama de negócio;
+
+Plano de Ação – para a próxima semana :
+Luca Dias
+Apresentação de contexto - justificativa - calcudora - 04/04;
+
+Lucas Calil e Samuel Andrade
+Tela institucional em css e html - 03/04;
+
+Marina Koga
+Atualização do Diagrama de Visão de Negócio 04/04;
+
+Rebeca Oliveira e Gustavo Pereira
+Atualização de tabelas no MySQL - iniciar Modelagem lógica 04/04;
