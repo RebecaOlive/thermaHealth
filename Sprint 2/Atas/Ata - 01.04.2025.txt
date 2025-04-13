@@ -1,0 +1,7 @@
+Estavam: todos;
+
+Foi falado a respeito das duplas;
+
+Rebeca e Gustavo se disponibilizaram para trabalhar no banco de dados.
+
+Foi-se sugerido a leitura de documentação e entregáveis da primeira sprint para trazer duvidas para o KT
