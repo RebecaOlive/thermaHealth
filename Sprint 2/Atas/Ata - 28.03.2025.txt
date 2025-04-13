@@ -1,0 +1,31 @@
+Estavam: todos;
+
+Calil- molde principal da execução do protótipo (entrega até quarta-feira se possível);
+
+Reunião no sábado as 20h;
+
+Será feito os slides;
+
+Trazer o texto da apresentação (jogral) (word compartilhado);
+
+Daily e depois reunião;
+
+Desenvolvimento contexto inicial
+
+Discutir atribuição de tarefas para a próxima sprint;
+
+Avaliado tarefas do trello;
+
+Discussão a respeito das dailys;
+
+Discussão inicial a respeito das regras de equipe;
+
+
+
+Samuel se propôs a fazer uma contra-proposta de slide;
+
+Samuel apresentou sua calculadora da equipe (ela havia sido elogiada analisada como pode ser implementada coisas em nossa calculadora);
+
+Koga vai fazer o diagrama de solução, se inspirando no da equipe de Gustavo, que foi elogiado.
+
+Acordo de estética padronizada para os entregáveis.
