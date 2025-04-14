@@ -1,0 +1,21 @@
+Data: 09/04/2025
+Participantes presentes : Gustavo, Marina, Rebeca, Samuel, Luca, Lucas
+Participantes ausentes :
+
+Assuntos discutidos e principais decisões :
+
+Questões da dupla
+
+Atividades da semana
+
+Distribuição de duplas e tarefas
+
+
+
+Plano de Ação – para a próxima semana :
+Samuel e Marina - Banco de Dados
+Rebeca e Gustavo - Site Login e Cadastro
+Calil e Marina - Planilha de riscos
+Luca e Gustavo - Documentação e calculadora atualizada
+Samuel e Calil - Diagrama de solução
+Samuel e Calil - backlog
