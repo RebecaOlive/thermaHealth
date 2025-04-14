@@ -27,5 +27,5 @@ Serial.print(";");
 Serial.println(temperaturaCelsius);
 
 }
-delay(2000); // tempo para realizar outra leitura
+delay(1000); // tempo para realizar outra leitura
 }
