@@ -1,0 +1,34 @@
+Data: 03/04/2025
+Participantes presentes : Gustavo, Luca, Marina, Rebeca, Samuel
+Participantes ausentes : Lucas
+
+Assuntos discutidos e principais decisões :
+
+Emails para professores (Samuel e Koga);
+
+Organização do trello;
+
+Enviar via whatsapp, informações da reunião do dia 01/04;
+
+Contexto sobre projeto;
+
+Nicho do projeto, trazer dados, Limitação por região (São Paulo com pensamento para expansão);
+
+Pontos importantes online;
+
+Plano de Ação – para a próxima semana :
+
+Grupo Inteiro
+Pautas e pontos para a reunião - 04/04
+
+Luca Dias
+Apresentação de contexto - justificativa - calcudora - 04/04;
+
+Lucas Calil e Samuel Andrade
+Tela institucional em css e html - 03/04;
+
+Marina Koga
+Atualização do Diagrama de Visão de Negócio 04/04;
+
+Rebeca Oliveira e Gustavo Pereira
+Atualização de tabelas no MySQL - iniciar Modelagem lógica 04/04;
