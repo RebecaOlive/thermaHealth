@@ -1,0 +1,18 @@
+Participantes presentes : Gustavo, Lucas,  Luca, Marina, Rebeca, Samuel
+Participantes ausentes :
+
+Assuntos discutidos na daily do dia 08/04:
+
+(Rebeca e Luca) - Concluído a atividade de Arqcomp de rodar a IDE, formatação do documento será feito ainda (Criação do documento);
+
+(Marina e Lucas) - Protótipos de sites institucionais feitos;
+
+(Samuel e Gustavo) - Modelagem de Banco de Dados finalizada;
+
+(Luca) Validado com Petry, documentação será reformulada na parte de contexto e justificativa, calculadora também será adaptada;
+
+(Samuel e Gustavo) - Reorganizarão o backlog de requisitos;
+
+Definido PO (Luca) e Scrum Master (Marina) até sexta dia 10/04;
+
+(Marina e Lucas) - Farão a Planilha de Riscos;
