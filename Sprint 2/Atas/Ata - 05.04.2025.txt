@@ -1,0 +1,34 @@
+Participantes presentes : Gustavo, Lucas,  Luca, Marina, Rebeca, Samuel
+Participantes ausentes :
+
+Assuntos discutidos e principais decisões :
+
+Separação as duplas para o desenvolvimento das tarefas da semana,
+
+Adicionar as etiquetas de entregáveis em todas as tarefas em produção;
+
+Desenvolvimento de sistemas de controle de tarefas para a semana.
+
+Foi-se checado sobre os e-mails que serão enviados ao Rafael Petry a respeito do Feedback sobre a apresentação do Kanban e também a respeito da possibilidade de uma apresentação antes da entrega da Sprint 2;
+
+Foi-se decidido que seria colocado o encaminhamento para as páginas de simulador financeiro;
+
+Será finalizado a entrega de S.O até domingo pelas duplas que ainda não entregaram;
+
+Decidido pela criação múltiplas atas de acordo com o dia;
+
+
+
+Plano de Ação – para a próxima semana :
+
+Será feito o inicio da produção da prototipagem;
+
+Será falado com o professor Rafael Petry a respeito da mudança e incrementação de contexto;
+
+As primeiras duplas seriam:
+
+Koga e Calil: Prototipo de cadastro e Login;
+
+Rebeca e Luca: Arq.Comp. e Planilha de riscos;
+
+Gustavo e Samuel: modelagem de dados e planilhas de requisitos;
