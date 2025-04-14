@@ -1,0 +1,21 @@
+Participantes presentes : Gustavo, Lucas,  Luca, Marina, Rebeca, Samuel
+Participantes ausentes :
+
+Assuntos discutidos e principais decisões :
+
+Dupla Rebeca e Luca: Planilha de riscos iniciada, até dia 08/04 boa parte concluída, estão fazendo Arq comp porém com dificuldades;
+
+Dupla Gustavo e Samuel: Modelagem lógica finalizada, e atualização do backlog iniciará dia 08/04 e caso seja finalizado antes da troca de duplas, será iniciado o script do banco de dados;
+
+Dupla Marina e Lucas: Prototipação da tela de cadastro e login no Figma iniciada.
+
+E-mail enviado para o Petry, porém sem resposta até o momento, então será feita uma conversa com ele durante a aula dia 08/04.
+
+Sugestão de Documentação do que será dito no Sprint Review: Documento que será padronizado, contendo um relatório do que foi feito na semana. Pois o professor Cláudio Frizzarini gostaria de ser tratado como um cliente.
+Invés de realizar a ata da reunião grande da semana, o líder da semana irá produzir a Documentação do Sprint Review.
+
+Definição do padrão da Documentação da Sprint Review.
+
+Sugestão de todas as quintas feiras a equipe ficar até mais tarde para produzir.
+
+Envio das atas para o GitHub será feito dia 08/04.
