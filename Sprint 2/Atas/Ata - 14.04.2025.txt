@@ -1,0 +1,38 @@
+Ata do dia 14/04 - Daily
+Presentes: Todos.
+
+
+SITE - TELA DE CADASTRO HTML E CSS (Gustavo e Rebeca): 
+-- Tela de Cadastro: Quase finalizada.
+-- Tela de Login: Ainda não iniciada.
+-- Prazo para Quarta-Feira 16/04.
+
+ESPECIFÍFICAÇÃO DA DASHBOARD (Rebeca e Gustavo):
+-- Envio do layout rascunhado para aprovação do grupo.
+
+SCRIPT BANCO DE DADOS (Marina e Samuel):
+-- Script: Falta apenas os Inserts.
+
+SITE - TELA DE DASHBOARD (Marina e Lucas):
+-- Tirada de dúvidas.
+
+BACKLOG (Samuel e Gustavo):
+-- Coleta de feedback e aprovação do grupo.
+-- Concluído.
+
+DIAGRAMA DE SOLUÇÃO (Samuel e Lucas):
+-- Coleta de feedback(Aumentar a quantidade de informações e Aprofundar como será feito o uso da VM).
+-- Refinamento do diagrama que foi produzido.
+-- Prazo para Quarta-Feira 16/04.
+
+
+DOCUMENTAÇÃO (Luca e Gustavo):
+-- Realização de diagrama (Luca e Rebeca).
+-- Coleta de mais fontes para aprofundamento.
+-- Solicitação de ajuda para dar continuidade.
+
+--------------------------------------------------------------
+
+Calculadora (Luca, Lucas e Marina):
+-- Luca fez sugestões de como atualizarmos a calculadora. 
+-- Aguardando resposta do e-mail enviado ao professor Cláudio Frizzarini.
