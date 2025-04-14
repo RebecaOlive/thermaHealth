@@ -645,3 +645,104 @@ hr{
     color: #e3e3e350;
 }
 
+/* TELA DE CADASTRO DE FUNCIONARIO */
+
+
+.div_5050{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 670px;
+
+    display: flex;
+    /* background-color: burlywood; */
+    border-radius: 12px;
+    justify-content: center;
+
+    background-color: #1c66a6;
+}
+
+.div_esquerdaCadastro{
+    height: 100%;
+    width: 50%;
+    background-color: #262626;
+
+}
+
+.div_direitaCadastro{
+    height: 100%;
+    width: 50%;
+    background-color: brown;
+    background-image: url(imagens/Background-Cadastro.png);
+    
+}
+
+.div_formulario{
+
+    display: flex;
+    background-color:#DCEAFA;
+    height: 100%;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.card-cadastro{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    height: 60%;
+    width: 70%;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10%;
+
+}
+
+
+.card-cadastro .formulario{
+    display: flex;
+    /* background-color: brown; */
+    height: 100%;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 15%;
+
+    /* background-color: aqua; */
+}
+
+
+.campo input, .campo select{
+    height: 80%;
+    min-height: 35px;
+    border-radius: 8px;
+    border: solid cyan 2px;
+    text-align: center;
+}
+
+.formulario button{
+
+    width: 40%;
+    height: 15%;
+
+    background-color: crimson;
+    border-radius: 8px;
+    border: none;
+    color: whitesmoke;
+    font-weight: 800;
+}
+
+
