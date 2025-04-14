@@ -1,0 +1,34 @@
+Participantes presentes : Gustavo, Lucas,  Luca, Marina, Rebeca, Samuel
+Participantes ausentes :
+
+
+
+Assuntos discutidos:
+
+Backlog de requisitos em processo;
+
+Diagrama de solução em processo
+
+Documentação em processo;
+
+Planilha de riscos entregue;
+
+Atividade Arq Comp entregue;
+
+HTML/CSS login e cadastro a fazer;
+
+Script banco de dados;
+
+Sensores particulares chegaram
+
+
+
+Plano de Ação – para a  semana :
+
+Terminar tarefas pendentes;
+
+Subir ATAs para o Github
+
+Mostrar HTML/CSS para validação;
+
+Apresentar contexto atualizado para o cliente.
