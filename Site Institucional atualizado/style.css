@@ -19,7 +19,7 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 120px;
+    height: 90px;
     background: rgb(255, 255, 255);
     align-items: center;
     justify-content: space-between;
@@ -660,32 +660,60 @@ hr{
     border-radius: 12px;
     justify-content: center;
 
-    background-color: #1c66a6;
+    /* background-color: #dbe6f3; */
+    /* background-color: red; */
 }
 
 .div_esquerdaCadastro{
     height: 100%;
     width: 50%;
-    background-color: #262626;
+    /* background-color: #262626; */
 
 }
 
 .div_direitaCadastro{
     height: 100%;
     width: 50%;
-    background-color: brown;
-    background-image: url(imagens/Background-Cadastro.png);
+    /* background: linear-gradient(left, #DCEAFA 100%, #0000 50% ); */
+    /* background-color: ; */
+    /* opacity: 30%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
+}
+.div_direitaCadastro .texto-d{
+    position: absolute;
+    font-size: 60px;
+    font-weight: 900;
+    opacity: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+.div_direitaCadastro #div_imgCadastro{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right,#dbe6f3, #DCEAFA 5%);
+
+
+}
+.div_direitaCadastro #div_imgCadastro img{
+    width: 100%;
+    height: 100%;
+    opacity: 30%;
 }
 
 .div_formulario{
 
     display: flex;
-    background-color:#DCEAFA;
+    background-image: linear-gradient(to left,#d9e3ed , #DCEAFA);
+
+
     height: 100%;
-    border-radius: 12px;
-    justify-content: center;
+    width: 100%;
+    /* border-radius: 12px; */
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 
 }
 
@@ -693,25 +721,25 @@ hr{
 .card-cadastro{
     display: flex;
     flex-direction: column;
-    background-color: whitesmoke;
-    height: 60%;
+    background-color: white;
+    height: 80%;
     width: 70%;
     border-radius: 12px;
     justify-content: center;
     align-items: center;
 
-    margin-top: 10%;
-
+    margin-top: 15%;
 }
-
 
 .card-cadastro .formulario{
     display: flex;
     /* background-color: brown; */
-    height: 100%;
+    height: 90%;
     width: 80%;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
     
 }
 
@@ -719,24 +747,54 @@ hr{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 15%;
+    height: 10%;
 
     /* background-color: aqua; */
 }
-
-
-.campo input, .campo select{
+.organiza-campo{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     height: 80%;
+
+    border: solid white;
+    background-color: white;
+    
+    border-radius: 3px;
+    filter: drop-shadow(1px 1px 1px );
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.organiza-campo input, .campo select{
+    height: 100%;
+    width: 100%;
     min-height: 35px;
-    border-radius: 8px;
-    border: solid cyan 2px;
-    text-align: center;
+    border: solid white;
+    text-align: left;
+}
+
+.organiza-campo input:focus, .campo select:focus{
+    
+    background-color: #0056b3;
+    
+    
+}
+
+.campo .icon{
+    height: 35px;
+    width: 35px;
+    /* border: solid black 1px ; */
+    border-left: solid gray 1px;
+    padding: 2%;
+    /* filter: drop-shadow(1px 1px 1px ); */
+
 }
 
 .formulario button{
-
     width: 40%;
-    height: 15%;
+    height: 10%;
 
     background-color: crimson;
     border-radius: 8px;
@@ -744,5 +802,10 @@ hr{
     color: whitesmoke;
     font-weight: 800;
 }
+
+.azul{
+    color: #1774DE;
+}
+
 
 
