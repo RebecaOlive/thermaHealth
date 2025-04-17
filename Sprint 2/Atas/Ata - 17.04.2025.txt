@@ -1,0 +1,45 @@
+Participantes: Samuel, Rebeca, Gustavo, Marina Koga, Lucas Calil
+
+Progresso: Lucas 
+
+ 
+Diagrama de solução Samuel e Lucas Calil em andamento;
+
+Lucas Calil script para a apresentação atribuido;
+
+Gustavo documentação em andamento;
+
+Slide Samuel atribuido;
+
+Documentaçaõ Gustavo em andamento;
+
+Dashboard Marina em andamento;
+
+Página de Login e Cadastro Rebeca em andamento;
+
+Banco de Dados Gustavo e Rebeca modificar; 
+
+Informações sobre estruturação do site;
+
+Entregas Definidas:
+
+Diagrama de Solução (Calil e Samuel) 
+Entrega dia 19/04/2025 - 23:59;
+
+Script apresentação (Calil)
+Entrega dia 21/04/2025 - 23:59;
+
+Slide de apresentação (Samuel)
+Entrega dia 20/04/2025 - 23:59;
+
+Documentação (Gustavo)
+Entrega dia 19/04/2025 - 23:59;
+
+Calculadora (Luca)
+Ausente;
+
+Dashboard (Marina)
+Entrega dia 18/04/2025 - 23:59;
+
+Página de Login e Cadastro (Rebeca)
+Entrega dia 19/04/2025 - 12:00;
