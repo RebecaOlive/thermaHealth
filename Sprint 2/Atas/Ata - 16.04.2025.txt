@@ -1,0 +1,25 @@
+Participantes: Todos estavam presentes.
+
+Progresso:
+
+Gustavo e Rebeca finalizaram o protótipo da página do dashboard;
+
+Marina Koga irá iniciar desenvolvimento do página da dashboard;
+
+Luca ficará com a calculadora financeira, tanto na reformulação de lógica quanto implementação do CSS;
+
+Com base nas pesquisas feitas, Gustavo fica de finalizar a reformulação da documentação implementando as modificações no texto;
+
+Samuel e Lucas Calil estão finalizando o diagrama de solução;
+
+Entregas Definidas:
+
+Diagrama de Solução (Calil e Samuel);
+
+Documentação (Gustavo);
+
+Calculadora (Luca);
+
+Dashboard (Marina);
+
+Página de Login e Cadastro (Rebeca);
