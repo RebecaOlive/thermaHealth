@@ -1,0 +1,38 @@
+**Atraso no horário marcado para a daily
+
+Participantes presentes : Gustavo, Lucas,  Luca, Marina, Rebeca
+Participantes ausentes : Samuel
+
+
+
+Assuntos discutidos:
+
+Inicio do HTML e CSS da calculadora financeira;
+
+CSS da página de login e cadastro em andamento;
+
+Site dashboard não inicializado, prazo adiado para 19/04;
+
+Diagrama de solução em andamento;
+
+Script e slide de apresentação para inicio;
+
+Documentação em andamento.
+
+
+
+Plano de Ação:
+
+Calculadora - 19/04 (Luca)
+
+Página login e cadastro - 19/04 (Rebeca)
+
+Site dashboard - 19/04 (Marina)
+
+Diagrama de solução - 19/04 (Calil e Samuel)
+
+Script apresentação - 21/04 (Samuel)
+
+Slide de apresentação - 20/04 (Calil)
+
+Documentação - 19/04 (Gustavo)
