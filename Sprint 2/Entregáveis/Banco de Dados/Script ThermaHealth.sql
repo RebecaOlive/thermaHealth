@@ -2,6 +2,8 @@
 CREATE DATABASE thermaHealth;
 USE thermaHealth;
 
+-- DROP database thermaHealth;
+
 -- Criação da tabela de hospitais
 CREATE TABLE hospital(
 	idHospital INT PRIMARY KEY AUTO_INCREMENT,
@@ -16,7 +18,7 @@ CREATE TABLE hospital(
 CREATE TABLE endereco(
 	idEndereco INT AUTO_INCREMENT,
 	fkHospital INT UNIQUE,
-    CONSTRAINT pkEndereco PRIMARY KEY(idEndereco, fkHospital),
+    constraint pkEndereco primary key(idEndereco, fkHospital),
     logradouro VARCHAR(200) NOT NULL,
 	numero INT NOT NULL,
 	complemento VARCHAR(200) NULL,
@@ -24,8 +26,8 @@ CREATE TABLE endereco(
 	cidade VARCHAR(200) NOT NULL,
 	estado VARCHAR(200) NOT NULL,
 	cep CHAR(9) NOT NULL,
-    CONSTRAINT fkHospitalEndereco 
-		FOREIGN KEY (fkHospital) REFERENCES hospital(idHospital)
+    constraint fkHospitalEndereco 
+		foreign key (fkHospital) references hospital(idHospital)
 );
 
 -- Criação da tabela de funcionários, permitindo hierarquia entre eles (supervisor)
@@ -73,8 +75,8 @@ CREATE TABLE sensor(
 	tipo VARCHAR(10) NOT NULL,
 	numeroSerie VARCHAR(22) NOT NULL UNIQUE,
 	statusSensor VARCHAR(45) NOT NULL,
-    CONSTRAINT chkStatusSensor
-		CHECK (statusSensor in('Ativo', 'Inativo', 'Manutenção')),
+    constraint chkStatusSensor
+		check (statusSensor in('Ativo', 'Inativo', 'Manutenção')),
 	fkSala INT NOT NULL,
 		constraint fkSensorSala foreign key (fkSala)
 			references sala(idSala)
@@ -82,12 +84,11 @@ CREATE TABLE sensor(
 
 -- Criação da tabela de registros de sensores (temperatura e umidade)
 CREATE TABLE registro(
-	idRegistro INT,
-	fkSensor INT NOT NULL,
-		CONSTRAINT pkRegistro primary key(idRegistro, fkSensor), 
+	idRegistro INT PRIMARY KEY AUTO_INCREMENT,
 	temperatura FLOAT NOT NULL,
 	umidade INT NOT NULL,
 	dtHora DATETIME default CURRENT_TIMESTAMP,
+	fkSensor INT NOT NULL,
 		constraint fkRegistroSensor foreign key (fkSensor)
 			references sensor(idSensor)
 );
@@ -96,7 +97,7 @@ CREATE TABLE registro(
 CREATE TABLE registroAlerta(
 	idRegistroAlerta INT AUTO_INCREMENT,
 	fkRegistro INT,
-		CONSTRAINT pkRegistroAlerta primary key(idRegistroAlerta, fkRegistro),
+		constraint pkRegistroAlerta primary key(idRegistroAlerta, fkRegistro),
 	aviso VARCHAR(10),
 	mensagem TEXT,
 	resolvido TINYINT,
@@ -155,13 +156,13 @@ INSERT INTO sensor (tipo, numeroSerie, statusSensor, fkSala) VALUES
 ('AMBI', 'SN-AMBI-0006', 'Ativo', 6);
 
 -- Inserção de registros de medições de sensores
-INSERT INTO registro (idRegistro, fkSensor, temperatura, umidade, dtHora) VALUES
-(1, 1, 21.5, 45, '2025-04-14 08:00:00'),
-(2, 1, 22.1, 47, '2025-04-14 09:00:00'),
-(1, 2, 21.2, 50, '2025-04-14 08:00:00'),
-(2, 2, 22.0, 52, '2025-04-14 09:00:00'),
-(1, 3, 20.8, 48, '2025-04-14 08:00:00'),
-(2, 3, 21.0, 49, '2025-04-14 09:00:00');
+INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES
+(21.5, 45, '2025-04-14 08:00:00', 1),
+(22.1, 47, '2025-04-14 09:00:00', 1),
+(21.2, 50, '2025-04-14 08:00:00', 2),
+(22.0, 52, '2025-04-14 09:00:00', 2),
+(20.8, 48, '2025-04-14 08:00:00', 3),
+(21.0, 49, '2025-04-14 09:00:00', 3);
 
 -- Inserção de alertas com base nos registros
 INSERT INTO registroAlerta (idRegistroAlerta, fkRegistro, aviso, mensagem, resolvido) VALUES
