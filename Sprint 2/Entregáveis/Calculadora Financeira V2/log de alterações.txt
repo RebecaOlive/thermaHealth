@@ -1,0 +1,10 @@
+- Reformular calculadora com base no novo contexto (feito);
+- Trazer dinamismo para os campos da calculadora (feito);
+- Etapa 1: Solicitação de Dados (feito);
+- Etapa 2: Diagnostico de Problema (feito);
+- Etapa 3: Implementação da Temperatura e Umidade (a fazer);
+- Formatação de texto (a fazer);
+- Implementação de CSS (a fazer);
+
+log registrado por Luca Dias Pereira (22/04/2025)
+(caso alguma implementação seja feita na calculadora, registrar no log)
