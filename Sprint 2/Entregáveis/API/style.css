@@ -365,13 +365,13 @@ html, body {
 .sensorBox1 h3 {
     margin: 20px;
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .sensorBox1 h4 {
-    margin: 15px;
+    margin: 10px;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .sensorBox1 .texto h4 {
@@ -381,7 +381,7 @@ html, body {
 .sensorBox1 .img {
     width: 40px;
     margin-bottom: 20px;
-    background-color: #77B6FF;
+    background-color: #9bc8fb;
     border-radius: 5px;
 }
 
@@ -401,13 +401,13 @@ html, body {
 .sensorBox2 h3 {
     margin: 20px;
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .sensorBox2 h4 {
-    margin: 15px;
+    margin: 10px;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .sensorBox2 .texto h4 {
@@ -417,7 +417,7 @@ html, body {
 .sensorBox2 .img {
     width: 50px;
     margin-bottom: 20px;
-    background-color: #77B6FF;
+    background-color: #9bc8fb;
     border-radius: 5px;
 }
 
@@ -437,13 +437,13 @@ html, body {
 .sensorBox3 h3 {
     margin: 20px;
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .sensorBox3 h4 {
-    margin: 15px;
+    margin: 10px;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .sensorBox3 .texto h4 {
@@ -453,7 +453,7 @@ html, body {
 .sensorBox3 .img {
     width: 50px;
     margin-bottom: 20px;
-    background-color: #77B6FF;
+    background-color: #9bc8fb;
     border-radius: 5px;
 }
 

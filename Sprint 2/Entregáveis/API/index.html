@@ -208,13 +208,32 @@
             data: {
                 labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'],
                 datasets: [{
-                    label: 'Temperatura',
-                    data: [24, 24, 23, 24, 23, 22, 24, 25, 27, 27],
+                    label: 'Registro',
+                    data: [24, 24, 23, 24, 23, 20.5, 24, 25, 27, 27],
                     borderWidth: 2,
-                    borderColor: '#0089FF',
+                    borderColor: 'black',
                     backgroundColor: 'white'
+                },
+
+                {
+                    label: 'Máximo',
+                    data: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+                    borderWidth: 2,
+                    borderColor: 'red',
+                    backgroundColor: 'white',
+                    pointRadius: 0
+                },
+
+                {
+                label: 'Mínimo',
+                data: [22, 22, 22, 22, 22, 22, 22, 22, 22, 22],
+                borderWidth: 2,
+                borderColor: '#0089FF',
+                backgroundColor: 'white',
+                pointRadius: 0
                 }]
             },
+
             options: {
                 scales: {
                     x: {
@@ -222,14 +241,14 @@
                             display: true,
                             text: 'Registros por minuto'
                         },
-                        beginAtZero: true
+                        beginAtZero: false
                     },
                     y: {
                         title: {
                             display: true,
                             text: 'Temperatura (Cº)'
                         },
-                        beginAtZero: true,
+                        beginAtZero: false,
                     },
                 },
             }
@@ -241,10 +260,28 @@
                 labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'],
                 datasets: [{
                     label: 'Umidade',
-                    data: [40, 45, 39, 44, 52, 45, 41, 34, 27, 33],
+                    data: [40, 45, 58, 67, 55, 45, 41, 34, 27, 33],
                     borderWidth: 2,
-                    borderColor: '#0089FF',
+                    borderColor: 'black',
                     backgroundColor: 'white'
+                },
+
+                {
+                    label: 'Máximo',
+                    data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60],
+                    borderWidth: 2,
+                    borderColor: 'red',
+                    backgroundColor: 'white',
+                    pointRadius: 0
+                },
+
+                {
+                label: 'Mínimo',
+                data: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+                borderWidth: 2,
+                borderColor: '#0089FF',
+                backgroundColor: 'white',
+                pointRadius: 0
                 }]
             },
             options: {
@@ -254,14 +291,14 @@
                             display: true,
                             text: 'Registros por minuto'
                         },
-                        beginAtZero: true
+                        beginAtZero: false
                     },
                     y: {
                         title: {
                             display: true,
                             text: 'Umidade (%)'
                         },
-                        beginAtZero: true
+                        beginAtZero: false
                     }
                 }
             }
