@@ -1,6 +1,6 @@
 # ThermaHealth
 
-<img src="img/pexels-chokniti-khongchum-1197604-3938022 1.png">
+<img src="img-readme/pexels-chokniti-khongchum-1197604-3938022 1.png">
 
 ## Índice
 
