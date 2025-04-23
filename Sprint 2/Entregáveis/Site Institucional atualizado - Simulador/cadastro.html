@@ -180,62 +180,79 @@
     var senhaConfimacao = confirmacao_senha_input.value;
     var mensagem = ``;
     var campoValidado = true;
+    var possibilidades = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    for (var contador = 1; contador <= 5; contador++) {
-      if (contador == 1 && cnpj.length == 14) {
-        if (cnpj.indexOf(`abc`) !== -1) {
-          mensagem = `Número de CNPJ não deve receber caracteres alfabéticos`;
+    if (cnpj == "" || nome == "" || email == "" || senha == "" || senhaConfimacao == "") {
+      mensagem = `É necessário preencher todos os campos!`;
+      campoValidado = false;
+
+    } else {
+      for (var contador = 1; contador <= 5; contador++) {
+        if (contador == 1 && cnpj.length == 14) {
+          if ((
+            cnpj.indexOf('a') !== -1 || cnpj.indexOf('b') !== -1 || cnpj.indexOf('c') !== -1 || cnpj.indexOf('d') !== -1 ||
+            cnpj.indexOf('e') !== -1 || cnpj.indexOf('f') !== -1 || cnpj.indexOf('g') !== -1 || cnpj.indexOf('h') !== -1 ||
+            cnpj.indexOf('i') !== -1 || cnpj.indexOf('j') !== -1 || cnpj.indexOf('k') !== -1 || cnpj.indexOf('l') !== -1 ||
+            cnpj.indexOf('m') !== -1 || cnpj.indexOf('n') !== -1 || cnpj.indexOf('o') !== -1 || cnpj.indexOf('p') !== -1 ||
+            cnpj.indexOf('q') !== -1 || cnpj.indexOf('r') !== -1 || cnpj.indexOf('s') !== -1 || cnpj.indexOf('t') !== -1 ||
+            cnpj.indexOf('u') !== -1 || cnpj.indexOf('v') !== -1 || cnpj.indexOf('w') !== -1 || cnpj.indexOf('x') !== -1 ||
+            cnpj.indexOf('y') !== -1 || cnpj.indexOf('z') !== -1 ||
+
+            cnpj.indexOf('A') !== -1 || cnpj.indexOf('B') !== -1 || cnpj.indexOf('C') !== -1 || cnpj.indexOf('D') !== -1 ||
+            cnpj.indexOf('E') !== -1 || cnpj.indexOf('F') !== -1 || cnpj.indexOf('G') !== -1 || cnpj.indexOf('H') !== -1 ||
+            cnpj.indexOf('I') !== -1 || cnpj.indexOf('J') !== -1 || cnpj.indexOf('K') !== -1 || cnpj.indexOf('L') !== -1 ||
+            cnpj.indexOf('M') !== -1 || cnpj.indexOf('N') !== -1 || cnpj.indexOf('O') !== -1 || cnpj.indexOf('P') !== -1 ||
+            cnpj.indexOf('Q') !== -1 || cnpj.indexOf('R') !== -1 || cnpj.indexOf('S') !== -1 || cnpj.indexOf('T') !== -1 ||
+            cnpj.indexOf('U') !== -1 || cnpj.indexOf('V') !== -1 || cnpj.indexOf('W') !== -1 || cnpj.indexOf('X') !== -1 ||
+            cnpj.indexOf('Y') !== -1 || cnpj.indexOf('Z') !== -1
+          )) {
+            mensagem = `Número de CNPJ não deve receber caracteres alfabéticos`;
+            campoValidado = false;
+            break;
+          }
+
+        } else if (cnpj.length < 14 || cnpj.length > 14) {
+          mensagem = `CNPJ deve conter 14 digitos`;
           campoValidado = false;
+          break;
+        } else if (contador == 2 && nome !== ``) {
+          if (nome.indexOf(` `)) {
+            campoValidado = true;
+
+          } else if (nome.indexOf(`1`) || nome.indexOf(`2`) || nome.indexOf(`3`) || nome.indexOf(`4`) || nome.indexOf(`5`) || nome.indexOf(`6`) || nome.indexOf(`7`) || nome.indexOf(`8`) || nome.indexOf(`9`) || nome.indexOf(`0`)) {
+            campoValidado = false;
+            mensagem = `Nome inválido! Campo deve conter apenas caracteres alfabéticos!`;
+            break;
+          }
+
+
+        } else if (contador == 3 && email !== ``) {
+          if ((email.indexOf(`@`) - 1) && email.endsWith(`.com`)) {
+            campoValidado = true;
+
+          } else {
+            mensagem = `É necessário inserir e-mail valido!`;
+            campoValidado = false;
+            break;
+          }
+
+        } else if (contador == 4 && senha !== ``) {
+          if (senha.indexOf("abc") !== -1 || senha.indexOf("123") !== -1 || senha.indexOf("senha") !== -1 || senha.length < 6 ||senha.indexOf(" ") !== -1) {
+            campoValidado = false;
+            mensagem = `Senha não pode conter sequências óbvias, espaços e use no mínimo 6 caracteres`;
+            break;
+          }
+
+        } else if (contador == 5 && senhaConfimacao !== ``) {
+          if (senha !== senhaConfimacao) {
+            mensagem = `Senhas não coincidem, tente novamente`
+            campoValidado = false;
+            break;
+          }
 
         }
-
-      } else if (cnpj.length < 14 || cnpj.length > 14) {
-        mensagem = `CNPJ deve conter 14 digitos`;
-        campoValidado = false;
-
       }
-      if (contador == 2 && nome !== ``) {
-        if (nome.indexOf(` `)) {
-          campoValidado = true;
-
-        } else if (nome.indexOf(`1`) || nome.indexOf(`2`) || nome.indexOf(`3`) || nome.indexOf(`4`) || nome.indexOf(`5`) || nome.indexOf(`6`) || nome.indexOf(`7`) || nome.indexOf(`8`) || nome.indexOf(`9`) || nome.indexOf(`0`)) {
-          campoValidado = false;
-          mensagem = `Nome inválido! Campo deve conter apenas caracteres alfabéticos!`;
-
-        }
-
-
-      }
-      if (contador == 3 && email !== ``) {
-        if ((email.indexOf(`@`) - 1) && email.endsWith(`.com`)) {
-          campoValidado = true;
-
-        } else {
-          mensagem = `É necessário inserir e-mail valido!`;
-          campoValidado = false;
-
-        }
-
-      }
-      if (contador == 4 && senha !== ``) {
-        if (senha.indexOf(`abc`) !== -1) {
-          campoValidado = false;
-          mensagem = `Senha não pode conter sequência alfabetica `;
-
-        }
-
-      }
-      if (contador == 5 && senhaConfimacao !== ``) {
-        if (senha !== senhaConfimacao) {
-          mensagem = `Senhas não coincidem, tente novamente`
-          campoValidado = false;
-
-        }
-
-      }
-    }
-
-    if (campoValidado) {
+    } if (campoValidado) {
       alert(`Cadastro realizado com sucesso! Enviamos um e-mail de confirmação!`);
 
     } else {
