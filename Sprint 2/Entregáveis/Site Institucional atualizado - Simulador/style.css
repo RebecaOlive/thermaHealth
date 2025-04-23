@@ -198,7 +198,7 @@ body {
 .container {
     position: relative;
     width: 340px;
-    height: 400px;
+    height: 350px;
     border-radius: 10px;
 
 }
@@ -243,6 +243,11 @@ body {
     align-items: center;
     font-weight: bold;
     color: white;
+
+}
+
+.nome {
+    font-size: larger;
 
 }
 
