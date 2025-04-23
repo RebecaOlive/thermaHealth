@@ -115,6 +115,27 @@ body {
     transform: translateY(3px);
 }
 
+/********************************************HEADER DASHBOARD****************************************/
+.menu-perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+
+}
+
+#ancora-nome {
+    font-size: medium;
+    width: 100%;
+    white-space: nowrap;
+}
+
+#ancora-sair {
+    color: black;
+    font-size: small;
+
+}
+
 /*DIV TITULO1*/
 
 .bloco {

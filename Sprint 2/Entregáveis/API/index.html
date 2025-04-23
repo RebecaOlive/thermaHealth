@@ -9,16 +9,16 @@
 </head>
 
 <body>
-<!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
+    <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
 
     <nav class="menu">
         <div class="logo">
             <img src="img/Logo ThermaHealth.png">
         </div>
-    
+
         <div class="menu-links">
-    
-            <a href="../Site Institucional atualizado - Simulador/index.html#home" class="menu-opcoes">Home</a> 
+
+            <a href="../Site Institucional atualizado - Simulador/index.html#home" class="menu-opcoes">Home</a>
             <a href="../Site Institucional atualizado - Simulador/index.html#quem-somos" class="menu-opcoes">Sobre nós</a>
             <a href="../Site Institucional atualizado - Simulador/index.html#equipe" class="menu-opcoes">Equipe</a>
             <a href="../Site Institucional atualizado - Simulador/index.html#servicos" class="menu-opcoes">Serviços</a>
@@ -26,182 +26,184 @@
             <div class="menu-links-direita">
                 <a href="#" class="menu-opcoes">Ajuda</a>
                 <span class="menu-barra">|</span>
-                <a href="#" class="menu-opcoes-servico">Login</a> 
-                <a href="#" class="menu-cadastro">Cadastro</a>
+                <div class="menu-perfil">
+                    <a id="ancora-nome">Olá, Cláudia</a>
+                    <a href="../Site Institucional atualizado - Simulador/login.html" id="ancora-sair">Sair</a>
+                </div>
             </div>
-    
+
         </div>
     </nav>
-<!------------------------------------------------------------------ DIV TITULO1 ---------------------->
+    <!------------------------------------------------------------------ DIV TITULO1 ---------------------->
     <div id="home" class="bloco">
         <div class="texto-a">
             Monitoramento de Salas
         </div>
     </div>
 
-<!-- DIV CARDS-->
+    <!-- DIV CARDS-->
 
-<div class="grafico">
+    <div class="grafico">
 
-    <div class="container">
-        <div class="card-grafico">
+        <div class="container">
+            <div class="card-grafico">
 
-            <div class="setores">
-            <select name="" id="select_setor">
-                <option value="setor1">Unidade de atendimento imediato</option>
-                <option value="setor2">Internação</option>
-                <option value="setor3">Unidade de queimados</option>
-                <option value="setor4">Centro Cirúrgico</option>
-                <option value="setor5">Central de material esterilizado</option>
-                <option value="setor6">Diagnóstico e terapia</option>
-                <option value="setor7">Apoio técnico/apoio logístico</option>
-                <option value="setor8">Ambientes diversos</option>
-            </select>
-            </div>
+                <div class="setores">
+                    <select name="" id="select_setor">
+                        <option value="setor1">Unidade de atendimento imediato</option>
+                        <option value="setor2">Internação</option>
+                        <option value="setor3">Unidade de queimados</option>
+                        <option value="setor4">Centro Cirúrgico</option>
+                        <option value="setor5">Central de material esterilizado</option>
+                        <option value="setor6">Diagnóstico e terapia</option>
+                        <option value="setor7">Apoio técnico/apoio logístico</option>
+                        <option value="setor8">Ambientes diversos</option>
+                    </select>
+                </div>
 
-            <div class="indicadores">
-
-                <div class="box">
-                    <div class="imagem1">
-                        <img src="img/Alert.png" alt="alerta">
-                    </div>
-                    <div class="frase1">
-                        <h4>Há 2 salas fora dos parâmetros ideais no setor</h4>
-                        <p>2/4 salas</p>
-                    </div> 
-                </div> 
-                
-                <div class="box2">
-                    <div class="imagem">
-                        <img src="img/Temperature.png" alt="temp">
-                    </div>
-                    <div class="frase2">
-                        <h4>Temperatura atual <br> na sala</h4>
-                        <h2>25ºC</h2>
-                        <p>Ideal: 22 - 25 Cº</p>
-                    </div> 
-                </div> 
-
-                <div class="box3">
-                    <div class="imagem">
-                        <img src="img/Group 3.png" alt="umidade">
-                    </div>
-                    <div class="frase3">
-                        <h4>Umidade atual na sala</h4>
-                        <h2>33%</h2>
-                        <p>Ideal: 30 - 60 %</p>
-                    </div> 
-                </div> 
-
-            </div>
-
-            <div class="salasTemperatura">
-                <div class="esquerdaSalas">
-
-                    <div class="box1">
-                        <div class="imagem">
-                            <img src="img/AlertBranco.png" alt="">
-                        </div>
-                        <div class="sala">
-                            <h2>Higienização</h2>
-                        </div>
-                    </div>
+                <div class="indicadores">
 
                     <div class="box">
-                        <div class="sala">
-                            <h2>Triagem</h2>
+                        <div class="imagem1">
+                            <img src="img/Alert.png" alt="alerta">
                         </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="sala">
-                            <h2>Inalação</h2>
+                        <div class="frase1">
+                            <h4>Há 2 salas fora dos parâmetros ideais no setor</h4>
+                            <p>2/4 salas</p>
                         </div>
                     </div>
 
                     <div class="box2">
                         <div class="imagem">
-                            <img src="img/AlertBranco.png" alt="">
+                            <img src="img/Temperature.png" alt="temp">
                         </div>
-                        <div class="sala">
-                            <h2>Emergência</h2>
+                        <div class="frase2">
+                            <h4>Temperatura atual <br> na sala</h4>
+                            <h2>25ºC</h2>
+                            <p>Ideal: 22 - 25 Cº</p>
+                        </div>
+                    </div>
+
+                    <div class="box3">
+                        <div class="imagem">
+                            <img src="img/Group 3.png" alt="umidade">
+                        </div>
+                        <div class="frase3">
+                            <h4>Umidade atual na sala</h4>
+                            <h2>33%</h2>
+                            <p>Ideal: 30 - 60 %</p>
                         </div>
                     </div>
 
                 </div>
-                    
-                <div class="direitaGrafico">
-                    <div class="temp">
-                        <canvas id="sensorAnalogico"></canvas>
+
+                <div class="salasTemperatura">
+                    <div class="esquerdaSalas">
+
+                        <div class="box1">
+                            <div class="imagem">
+                                <img src="img/AlertBranco.png" alt="">
+                            </div>
+                            <div class="sala">
+                                <h2>Higienização</h2>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="sala">
+                                <h2>Triagem</h2>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="sala">
+                                <h2>Inalação</h2>
+                            </div>
+                        </div>
+
+                        <div class="box2">
+                            <div class="imagem">
+                                <img src="img/AlertBranco.png" alt="">
+                            </div>
+                            <div class="sala">
+                                <h2>Emergência</h2>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="direitaGrafico">
+                        <div class="temp">
+                            <canvas id="sensorAnalogico"></canvas>
+                        </div>
                     </div>
                 </div>
+
+                <div class="sensores">
+
+                    <div class="espaçoSensor"></div>
+
+                    <div class="direitaSensor">
+
+                        <div class="sensorBox1">
+                            <h3>Sensor 1</h3>
+                            <div class="texto">
+                                <h4>Temperatura: 27ºC</h4>
+                            </div>
+                            <h4>Umidade: 33%</h4>
+                            <div class="img">
+                                <img src="img/superaquecimento 1.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="sensorBox2">
+                            <h3>Sensor 2</h3>
+                            <h4>Temperatura: 24ºC</h4>
+                            <div class="texto">
+                                <h4>Umidade: 27%</h4>
+                            </div>
+                            <div class="img">
+                                <img src="img/ar-condicionado 1.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="sensorBox3">
+                            <h3>Sensor 3</h3>
+                            <div class="texto">
+                                <h4>Temperatura: 25ºC</h4>
+                            </div>
+                            <h4>Umidade: 40%</h4>
+                            <div class="img">
+                                <img src="img/sem-sol 1.png" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="umidade">
+
+                    <div class="espaço"></div>
+
+                    <div class="direitaGrafico">
+                        <div>
+                            <canvas id="sensorDigital"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
             </div>
-            
-            <div class="sensores">
-
-                <div class="espaçoSensor"></div>
-
-                <div class="direitaSensor">
-
-                    <div class="sensorBox1">
-                        <h3>Sensor 1</h3>
-                        <div class="texto">
-                            <h4>Temperatura: 27ºC</h4>
-                        </div>
-                        <h4>Umidade: 33%</h4>
-                        <div class="img">
-                            <img src="img/superaquecimento 1.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="sensorBox2">
-                        <h3>Sensor 2</h3>
-                        <h4>Temperatura: 24ºC</h4>
-                        <div class="texto">
-                            <h4>Umidade: 27%</h4>
-                        </div>
-                        <div class="img">
-                            <img src="img/ar-condicionado 1.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="sensorBox3">
-                        <h3>Sensor 3</h3>
-                        <div class="texto">
-                            <h4>Temperatura: 25ºC</h4>
-                        </div>
-                        <h4>Umidade: 40%</h4>
-                        <div class="img">
-                            <img src="img/sem-sol 1.png" alt="">
-                        </div>
-                    </div>
-
-                </div>
-    
-            </div>
-
-            <div class="umidade">
-
-                <div class="espaço"></div>
-
-                <div class="direitaGrafico">
-                    <div>
-                        <canvas id="sensorDigital"></canvas>
-                    </div>
-                </div>
-                
-            </div>
-            
-            
-
-                
-
         </div>
     </div>
-</div>
 
 
-<!-- GRÁFICOS -->
+    <!-- GRÁFICOS -->
     <script>
         var sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
             type: 'line',
@@ -225,12 +227,12 @@
                 },
 
                 {
-                label: 'Mínimo',
-                data: [22, 22, 22, 22, 22, 22, 22, 22, 22, 22],
-                borderWidth: 2,
-                borderColor: '#0089FF',
-                backgroundColor: 'white',
-                pointRadius: 0
+                    label: 'Mínimo',
+                    data: [22, 22, 22, 22, 22, 22, 22, 22, 22, 22],
+                    borderWidth: 2,
+                    borderColor: '#0089FF',
+                    backgroundColor: 'white',
+                    pointRadius: 0
                 }]
             },
 
@@ -276,12 +278,12 @@
                 },
 
                 {
-                label: 'Mínimo',
-                data: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
-                borderWidth: 2,
-                borderColor: '#0089FF',
-                backgroundColor: 'white',
-                pointRadius: 0
+                    label: 'Mínimo',
+                    data: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+                    borderWidth: 2,
+                    borderColor: '#0089FF',
+                    backgroundColor: 'white',
+                    pointRadius: 0
                 }]
             },
             options: {
@@ -343,58 +345,58 @@
 
     </script>
 
-<!-- RODAPÉ -->
-<footer class="footer">
-    <div class="footer-container">
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="footer-container">
 
-        <div class="footer-logo">
-            <img class="logo2" src="img/Logo ThermaHealth.png" alt="Logo ThermaHealth">
-            <h2>Integrando tecnologia à saúde</h2>
-        </div>
-
-        <div class="footer-servicos">
-            <h2>Serviços</h2>
-            <br><br>
-            <h3>Análise</h3>
-            <h3>Monitoramento</h3>
-            <h3>Notificações</h3>
-        </div>
-
-        <div class="footer-empresa">
-            <h2>Empresa</h2>
-            <br><br>
-            <h3>Sobre nós</h3>
-            <h3>Equipe</h3>
-        </div>
-
-        <div class="footer-contato">
-            <h2>Contate-nos</h2>
-            <br><br>
-            <div class="contato-item">
-                <img src="img/o-email.png" alt="Ícone do e-mail">
-                <span>contato@thermahealth.com</span>
-            </div>
-            <div class="contato-item">
-                <img src="img/phone-call.png" alt="Ícone do telefone">
-                <span>(11) 12345-6789</span>
+            <div class="footer-logo">
+                <img class="logo2" src="img/Logo ThermaHealth.png" alt="Logo ThermaHealth">
+                <h2>Integrando tecnologia à saúde</h2>
             </div>
 
+            <div class="footer-servicos">
+                <h2>Serviços</h2>
+                <br><br>
+                <h3>Análise</h3>
+                <h3>Monitoramento</h3>
+                <h3>Notificações</h3>
+            </div>
+
+            <div class="footer-empresa">
+                <h2>Empresa</h2>
+                <br><br>
+                <h3>Sobre nós</h3>
+                <h3>Equipe</h3>
+            </div>
+
+            <div class="footer-contato">
+                <h2>Contate-nos</h2>
+                <br><br>
+                <div class="contato-item">
+                    <img src="img/o-email.png" alt="Ícone do e-mail">
+                    <span>contato@thermahealth.com</span>
+                </div>
+                <div class="contato-item">
+                    <img src="img/phone-call.png" alt="Ícone do telefone">
+                    <span>(11) 12345-6789</span>
+                </div>
+
+            </div>
+
+
         </div>
-
-
-    </div>
-    <hr>
-</footer>
-<footer class="footer2">
-    <div class="footer-container">
-        <p>Copyright © 2025 ThermaHealth</p>
-        <nav>
-            <a href="#">Todos os direitos reservados</a><span>|</span>
-            <a href="#">Política de Privacidade</a><span>|</span>
-            <a href="#">Termos e Condições</a>
-        </nav>
-    </div>
-</footer>
+        <hr>
+    </footer>
+    <footer class="footer2">
+        <div class="footer-container">
+            <p>Copyright © 2025 ThermaHealth</p>
+            <nav>
+                <a href="#">Todos os direitos reservados</a><span>|</span>
+                <a href="#">Política de Privacidade</a><span>|</span>
+                <a href="#">Termos e Condições</a>
+            </nav>
+        </div>
+    </footer>
 </body>
 
 </html>
