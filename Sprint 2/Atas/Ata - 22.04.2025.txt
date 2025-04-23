@@ -1,0 +1,52 @@
+ATA DA REUNIÃO DO DIA 22/04. -- AUTOR: Gustavo de Oliveira.
+
+HORÁRIO DE INÍCIO DA REUNIÃO: 19H. 
+AUSENTES:
+ATRASOS: Lucas Calil.
+
+TEMAS DISCUTIDOS:
+
+-- Discussão sobre as tarefas que foram organizadas para a semana:
+
+	Incrementação a respeito do direcionamento para a Calculadora - Koga - Concluído
+	
+	- [ ] Validação do registroAlerta (feita com o Petry), se seria plano futuro ou já aplicada (Grupo);
+	
+	- [ ] Tirar fotos Quarta-feira com a parte de cima branca (Grupo); 
+	- [ ] Troca das fotos no Site Institucional- quarta-feira - Calil;
+	- [X] Incremento do read.me do Github 22/04-  Koga;
+	- [ ] Roteiro 22/04;
+	- [ ] Ajeitar o Slide 22/04;
+	- [ ] Arrumar o conteúdo e informações do slide - 22/04 - Samuel; 
+	- [ ] Colocar KPI (Figma) da Dashboard no Github;
+	- [ ] Correção de tamanho da fonte e quadrado das fotos no site institucional 	(Rebeca);
+	- [ ] Calculadora linkada e completa (Luca);
+	- [ ] Tirar dúvida com o Cláudio Frizzarini se poderia ser Scrum Master ou P.O. 	(Rebeca);
+	- [ ] Decidir os comandos que serão feitos no cmd da VM (MySQL);
+	- [x] Incrementação a respeito do direcionamento para a Calculadora - Koga;
+	- [x] Discussão com o Luca/ Prototipagem da Calculadora - Koga;
+	- [x] Envio das atas 10/04 e 21/04;
+	- [x] Validação com o Arduino nosso 21/04 - (Rebeca);
+	- [x] Validação com o Arduino da sala- terça-feira - (Luca e/ou Gustavo);
+	- [x] Adaptação da API (Main.js, parte do Banco de dados) 21/04 - (Rebeca)
+	- [x] Colocar o direcionamento de páginas;
+	- [x] Trocar nome e posicionamento da calculadora;
+	- [x] Validação do Diagrama Técnico (Petry, Marcio, Matheus) - Samuel;
+	- [x] Subir a Header com o simulador 20/04 - (Calil);
+	- [x] Endereço do hospital (BD)- Samuel;
+	- [x] Selects (BD)- Samuel;
+
+
+-- Roteiro e Slides:
+	Foi feita a organização e decisão do que exatamente será dito em cada parte da apresentação, incluindo quem irá falar cada um os slides e sua dupla para jogral.
+		
+
+-- Apresentação da calculadora:
+	Feito um log do que deve ser feito;
+	Feedback do grupo sobre a calculadora
+
+-- Comandos que serão feitos na VM:
+
+	Pre-set: Adicionar uma sala;
+		 Permissão de apenas Selects para o pessoal da manutenção;
+		 Select mostrando os dados captados pelo sensor;
