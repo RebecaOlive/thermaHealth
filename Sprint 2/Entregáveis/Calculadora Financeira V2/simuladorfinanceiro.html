@@ -17,10 +17,14 @@
     
         <p>Informe a média de estadia dos pacientes na unidade:</p>
     
-        <input type="number" id="input_dias"> dias<br><br>
+        <input type="number" id="input_dias"> dias<br>
+
+        <p>Informe o percentual medio de retorno financeiro com base no gasto diario:<br>
+            (média comum entre 7% e 12%)</p>
+
+        <input type="number" id="input_percentual"> %<br><br>
     
-    
-        <button onclick="calcular()">Veja os Riscos!</button>
+        <div id="div_bt"><button onclick="calcular()">Veja os Riscos!</button></div>
 
         <div id="msg"></div>
 </body>
@@ -30,16 +34,19 @@
         // Captação das Variaveis:
         var gasto = Number(input_gasto.value);
         var dias = Number(input_dias.value);
-
-        // Calculos:
+        var percentual = Number(input_percentual.value);
         var media = gasto * dias; // Valor total do gasto hospitalar.
+        var mensagem = "";
 
+        // Declaração das Variaveis como Globais:
         window.gasto = gasto;
         window.dias = dias;
+        window.percentual = percentual;
         window.media = media;
 
         // Atualização de Exibição (Prejuizo):
-        mensagem = `<h4>O CUSTO TOTAL PARA MANTER O PACIENTE É DE R$${media}</h4><br>
+        mensagem = `
+        <h4>O CUSTO TOTAL PARA MANTER O PACIENTE É DE R$${media}</h4><br>
         <p>Quando a unidade não monitora os parâmetros de temperatura e umidade, o ambiente fica exposto a agentes externo que podem levar a contaminação dos pacientes. Caso o paciente seja contaminado, sua estadia é prolongada e seus tratamentos ficam propícios a serem glosados, transformando lucro em <b>prejuizo</b>.</p><br>
         <span>Caso a estadia dele tenha sido prolongada em...</span>
         <select id="select_prolongacao" onchange="aumentar()">
@@ -50,7 +57,9 @@
             <option value="7">7 dias</option>
         </select>
         <div id="div_prejuizo"></div>
-        <br><button onclick="solucionar()">Aplicando nossa solução!</button> `;
+        `;
+
+        div_bt.innerHTML = `<button onclick="solucionar()">Aplicando nossa solução!</button>`;
 
         msg.innerHTML = mensagem;
     }
@@ -67,7 +76,14 @@
         div_prejuizo.innerHTML = msgProlongacao;
     }
     function solucionar(){
-        msgSolucionar = "";
+        var msgSolucionar = "";
+        var lucro = (media * percentual) / 100;
 
+        msgSolucionar = `
+        <h4>COMO NOSSA SOLUÇÃO VOCÊ GARANTE SUA MARGEM DE LUCRO DE ${percentual} % EM CIMA DO CUSTO DE R$ ${media.toFixed(2)}, TOTALIZANDO UM RETORNO DE R$ ${lucro.toFixed(2)} DIARIO POR PACIENTE!</h4>
+        <p>(A margem de lucro de uma unidade hospitalar é entre 7% a 12% dos custos dos exames)</p>`;
+        msg.innerHTML = msgSolucionar;
+        div_bt.innerHTML = `<button onclick="calcular()">Veja os Riscos!</button>
+        `;
     }
 </script>
