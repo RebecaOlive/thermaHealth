@@ -236,20 +236,51 @@ body {
 }
 
 .verso {
-    background-color: blueviolet;
+    background-color: #1c66a6;
     transform: rotateY(180deg);
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     color: white;
-
+    
 }
 
 .nome {
     font-size: larger;
 
 }
+
+#gustavo {
+    background-image: url(./imagens/gustavo.jpg);
+    
+}
+    
+#luca {
+    background-image: url(./imagens/luca.jpeg);
+    
+}
+    
+#lucas {
+    background-image: url(./imagens/lucas.jpg);
+    
+}
+    
+#marina {
+    background-image: url(./imagens/marina.jpg);
+    
+}
+    
+#rebeca {
+    background-image: url(./imagens/rebeca.jpg);
+    
+}
+    
+#samuel {
+    background-image: url(./imagens/samuel.jpg);
+    
+}
+    
 
 /************************************************* BLOCO 5 - NOSSOS SERVIÇOS ****************/
 

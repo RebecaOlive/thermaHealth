@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/************************************** DIV PAI E BLOCO************************************/
+
+.pai {
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 5%;
+}
+
+.bloco {
+    display: flex;
+    gap: 30px;
+}
+
+
+/************************************** DIV 1 - INPUTS, BOTÃO E CIA ************************************/
+.container1{
+    background-color: rgb(196, 196, 241);
+    width: 50%;
+    height: 500px;
+    justify-items: center;
+    margin: 5% 0% 0% 10%;
+    padding: 15px;
+    border: solid gray 1px;
+    border-radius: 15px;
+}
+
+.container1 p{
+    font-size: 18px;
+    text-align: center;
+    margin: 5px;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+h3{
+    font-size: 25px;
+}
+
+.div_input{
+    text-align: center;
+}
+
+
+
+input{
+    width: 50%;
+    height: 30px;
+    margin: 5px;
+    border: solid gray 1px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+button{
+    width: 150px;
+    height: 35px;
+    border-radius: 7px;
+    font-size: 17px;
+}
+
+
+/************************************** DIV 2 - TEXTO RESULTADO ************************************/
+
+.container2{
+    display: flex;
+    background-color: rgb(196, 196, 241);
+    width: 30%;
+    height: 300px;
+    justify-items: center;
+    margin: 5% 0% 0% 10%;
+    padding: 15px;
+    border: solid gray 1px;
+    border-radius: 15px;  
+    
+}

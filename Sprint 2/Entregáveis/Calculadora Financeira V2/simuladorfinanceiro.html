@@ -4,29 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora 2</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h3>CALCULE O IMPACTO DA NOSSA SOLUÇÃO!</h3>
-
-    <p>Atender os parametros de temperatura e umidade garantem a segurança dos processos hospitalares. Vamos ver como <u>não segui-los</u> podem impactar negativamente o seu negocio!</p><br>
+    <div class="pai">
+        <div class="bloco">
+            <div class="container1">
+                <h3>CALCULE O IMPACTO DA NOSSA SOLUÇÃO!</h3>
     
-        <p>Informe quanto você gasta diariamente por paciente:</p>
-
-        R$ <input type="number" id="input_gasto"><br>
+                <p>Atender os parametros de temperatura e umidade garantem a segurança dos processos hospitalares. Vamos ver como <u>não segui-los</u> podem impactar negativamente o seu negocio!</p><br>
+                
+                <p>Informe quanto você gasta diariamente por paciente:</p>
+                R$ <input type="number" id="input_gasto"><br>
+                
+                <p>Informe a média de estadia dos pacientes na unidade:</p>
+                <input type="number" id="input_dias"> dias<br>
     
+                <p>Informe o percentual medio de retorno financeiro com base no gasto diario:<br>
+                        (média comum entre 7% e 12%)</p>
+                <input type="number" id="input_percentual"> %<br><br>
+                
+                <div id="div_bt"><button onclick="calcular()">Veja os Riscos!</button></div>
+            </div>
     
-        <p>Informe a média de estadia dos pacientes na unidade:</p>
-    
-        <input type="number" id="input_dias"> dias<br>
-
-        <p>Informe o percentual medio de retorno financeiro com base no gasto diario:<br>
-            (média comum entre 7% e 12%)</p>
-
-        <input type="number" id="input_percentual"> %<br><br>
-    
-        <div id="div_bt"><button onclick="calcular()">Veja os Riscos!</button></div>
-
-        <div id="msg"></div>
+            <div id="msg" class="container2" style="display: none;"></div>
+        </div>
+    </div>
 </body>
 </html>
 <script>
