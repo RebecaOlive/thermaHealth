@@ -1,0 +1,33 @@
+Data: 30/04 autoria: Marina
+Participantes presentes : Gustavo, Lucas, Marina, Rebeca, Samuel, Luca
+Participantes ausentes : Luca (inicialmente estava em reunião de Feedback com socioemocional)
+Estimativa de tempo para reunião: 2hrs
+
+Assuntos discutidos e principais decisões : 
+- Apresentação e discussão de Product BackLogs como exemplo para melhoria do nosso;
+- Discussão sobre sprint BackLog;
+- Discussão sobre site institucional e dashboard;
+- Discussão e organização do Trello;
+- Sugestão da Rebeca de fazer video explicando cada entregáveis para alinhamento do grupo;
+- Validação de identidade visual da ATA para Sprint Review;
+- Discussão sobre o que será feito na próxima semana;
+- Distribuição de videos para alinhamento do grupo;
+
+
+
+Plano de Ação – para a próxima semana :
+- Pegar tabela principal de BackLogs e reformular:
+. fazer uma tabela só, onde será adicionada uma coluna específica para definir o tipo de requisito, entre a coluna do número e requisito;
+. Alguns requisitos serão fixos e comentados na descrição ao que eles pertencem;
+. Reformular requisitos e descrição;
+. Adicionar entregáveis na planilha.
+
+- Sprint BackLog estar no Trello e uma planilha; 
+- Adicionar entregáveis da sprint3 no Trello;
+- Atualizar anexos no Trello - banco de dados, regras;
+- Subir regras para o GitHub;
+- Fazer uma apresentação de quinta-feira do que cada um fez a cada semana para alinhamento do grupo;
+- Organizar o Trello - Samuel ;
+- Fazer videos explicando (como uma apresentação) de cada entregáveis, para alinhamento dos demais membros do grupo - videos curtos até 02/05 e videos longos até 03/05;
+- Próxima semana distribuir entregáveis que ja temos;
+- Correção em conjunto dos entregáveis da sprint2 - 03/05;
