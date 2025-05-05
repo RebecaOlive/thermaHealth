@@ -1,0 +1,31 @@
+Data: 29/04/2025
+Participantes presentes : Gustavo, Marina, Rebeca, Samuel, Luca, Lucas
+Participantes ausentes :
+
+Assuntos discutidos e principais decisões:
+
+- Luca falar com sócio e pi, questão de personalidade
+
+- Decisão de liderança, tendo um auxiliar
+
+- PO: Calil - SM: Samuel - SMauxiliar: Rebeca
+
+- Questão de entregas, atividades e responsabilidades
+
+- Reunião de organização de tarefas para amanhã 30/04 com início às 16:30h
+
+=======================================================================================
+
+Pauta da Reunião
+Título: Sprint Backlog
+Dia: 30/04
+Hora: 16:30
+Início (Estimativa 40min):
+- Apresentação do backlog dos grupos passados;
+- Incorporação para o backlog da equipe;
+Meio (Estimativa 1h):
+- Formulação do Sprint Backlog (que será feita semanalmente);
+Final (Estimativa 20min):
+- Debate referente a vídeos dos entregáveis;
+Extra (Estimativa 10min):
+- Validação da identidade visual para a Sprint Review;
