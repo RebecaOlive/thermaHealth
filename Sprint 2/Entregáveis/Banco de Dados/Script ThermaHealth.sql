@@ -61,12 +61,14 @@ CREATE TABLE sala(
 -- Criação da tabela de parâmetros ideais para sensores
 CREATE TABLE parametrosIdeais(
 	idParametros INT AUTO_INCREMENT,
-	fkSensor INT,
-	constraint pkParametrosIdeais primary key (idParametros, fkSensor),
+    fkSala INT, 
+	constraint pkParametrosIdeais primary key (idParametros, fkSala),
 	temperatura_min FLOAT NOT NULL,
 	temperatura_max FLOAT NOT NULL,
 	umidade_min INT NOT NULL,
-	umidade_max INT NOT NULL
+	umidade_max INT NOT NULL,
+		constraint fkParametrosSala foreign key (fkSala)
+			references sala(idSala)
 );
 
 -- Criação da tabela de sensores, associando cada sensor a uma sala
@@ -88,7 +90,7 @@ CREATE TABLE registro(
 	temperatura FLOAT NOT NULL,
 	umidade INT NOT NULL,
 	dtHora DATETIME default CURRENT_TIMESTAMP,
-	fkSensor INT NOT NULL,
+	fkSensor INT NULL,
 		constraint fkRegistroSensor foreign key (fkSensor)
 			references sensor(idSensor)
 );
@@ -139,7 +141,7 @@ INSERT INTO sala (setor, nome, descricao, andar, fkHospital) VALUES
 ('Administração', 'Sala da Diretoria', 'Sala administrativa da diretoria do hospital.', 3, 1);
 
 -- Inserção de parâmetros ideais de sensores
-INSERT INTO parametrosIdeais (idParametros, fkSensor, temperatura_min, temperatura_max, umidade_min, umidade_max) VALUES
+INSERT INTO parametrosIdeais (idParametros, fkSala, temperatura_min, temperatura_max, umidade_min, umidade_max) VALUES
 (1, 1, 20.0, 22.0, 40, 60),
 (2, 2, 22.0, 26.0, 40, 60),
 (3, 3, 20.0, 24.0, 40, 60),
