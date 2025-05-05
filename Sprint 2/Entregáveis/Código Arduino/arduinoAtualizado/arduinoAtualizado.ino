@@ -18,7 +18,7 @@ float umidade = sensorDHT.readHumidity();
 int temperatura = analogRead(PINO_SENSOR_TEMPERATURA_LM35); // precisão do A/D ->
 temperaturaCelsius = (temperatura * 5.0 / 1023.0) / 0.01; // 5 se refere aos volts ; 1023 a unidade ; 0.01 mV 
 
-if (isnan(temperatura) || isnan(umidade)) { // condição para iniciar 
+if (isnan(temperaturaCelsius) || isnan(umidade)) { // condição para iniciar 
   Serial.println("Erro ao ler os dados do sensor");
 }else {
  // inicia a impressão dos dados 

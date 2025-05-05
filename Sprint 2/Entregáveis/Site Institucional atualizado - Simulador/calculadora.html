@@ -33,7 +33,7 @@
             <div class="container1">
                 <h3>CALCULE O IMPACTO DA NOSSA SOLUÇÃO!</h3>
     
-                <p>Atender os parametros de temperatura e umidade garantem a segurança dos processos hospitalares. Vamos ver como <u>não segui-los</u> podem impactar negativamente o seu negocio!</p><br>
+                <p>Atender os parâmetros de temperatura e umidade fortificam a segurança dos processos hospitalares. Vamos ver como <u>não segui-los</u> podem impactar negativamente o seu negócio!</p><br>
                 
                 <p>Informe quanto você gasta diariamente por paciente:</p>
                 <input type="number" id="input_gasto" placeholder="R$"><br>
@@ -41,7 +41,7 @@
                 <p>Informe a média de estadia dos pacientes na unidade:</p>
                 <input type="number" id="input_dias" placeholder="Em dias"><br>
     
-                <p>Informe o percentual medio de retorno financeiro com base no gasto diario:<br>
+                <p>Informe o percentual médio de retorno financeiro com base no gasto diário:<br>
                         (média comum entre 7% e 12%)</p>
                 <input type="number" id="input_percentual" placeholder="%"><br><br>
                 
@@ -73,7 +73,7 @@
         // Atualização de Exibição (Prejuizo):
         mensagem = `
         <h4>O CUSTO TOTAL PARA MANTER O PACIENTE É DE R$${media}</h4><br>
-        <p>Quando a unidade não monitora os parâmetros de temperatura e umidade, o ambiente fica exposto a agentes externo que podem levar a contaminação dos pacientes. Caso o paciente seja contaminado, sua estadia é prolongada e seus tratamentos ficam propícios a serem glosados, transformando lucro em <b>prejuizo</b>.</p><br>
+        <p>Quando a unidade não monitora os parâmetros de temperatura e umidade, o ambiente fica exposto a micro-organismos que podem levar a contaminação dos pacientes. Caso o paciente seja contaminado, sua estadia é prolongada e seus tratamentos ficam propícios a serem glosados, transformando lucro em <b>prejuízo</b>.</p><br>
         <span>Caso a estadia dele tenha sido prolongada em...</span>
         <select id="select_prolongacao" onchange="aumentar()">
             <option value="3">3 dias</option>
@@ -106,7 +106,7 @@
         var lucro = (media * percentual) / 100;
 
         msgSolucionar = `
-        <h4>COMO NOSSA SOLUÇÃO VOCÊ GARANTE SUA MARGEM DE LUCRO DE ${percentual} % EM CIMA DO CUSTO DE R$ ${media.toFixed(2)}, TOTALIZANDO UM RETORNO DE R$ ${lucro.toFixed(2)} DIARIO POR PACIENTE!</h4>
+        <h4>COM NOSSA SOLUÇÃO VOCÊ TEM MAIS SEGURANÇA NA SUA MARGEM DE LUCRO DE ${percentual} % EM CIMA DO CUSTO DE R$ ${media.toFixed(2)}, TOTALIZANDO UM RETORNO DE R$ ${lucro.toFixed(2)} DIÁRIO POR PACIENTE!</h4>
         <p>(A margem de lucro de uma unidade hospitalar é entre 7% a 12% dos custos dos exames)</p>`;
         msg.innerHTML = msgSolucionar;
         div_bt.innerHTML = `<button onclick="calcular()">Veja os Riscos!</button>

@@ -45,7 +45,7 @@
             <div class="campo">
               <span>Insira o CNPJ da instituição <span class="azul">*</span></span>
               <div class="organiza-campo">
-                <input id="cnpj_input" type="password" placeholder="xx.xxx.xxx/xxxx-xx" />
+                <input id="cnpj_input" type="text" placeholder="xx.xxx.xxx/xxxx-xx" />
                 <img class="icon" src="imagens/Tela de Cadastro/id-card-icon.png" alt="" srcset="">
               </div>
             </div>
@@ -186,7 +186,7 @@
 
         } else if (contador == 2 && email !== ``) {
           if ((email.indexOf(`@`) - 1) && email.endsWith(`.com`)) {
-            campoValidado = false;
+            campoValidado = true;
 
           } else {
             mensagem = `É necessário inserir e-mail valido!`;
@@ -204,11 +204,10 @@
         }
 
       } if (campoValidado) {
-        alert(`Dashboard`);
+        alert(`Bem Vindo ao Dashboard Claudia!`);
 
       } else {
         alert(mensagem);
-
       }
 
     }

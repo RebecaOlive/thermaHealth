@@ -21,10 +21,10 @@ const serial = async (
     let poolBancoDados = mysql.createPool(
         {
             host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'testeAPI',
-            port: 3306
+            user: 'aluno',
+            password: 'Sptech#2024',
+            database: 'thermaHealth',
+            port: 3307
         }
     ).promise();
     // lista as portas seriais disponíveis e procura pelo Arduino
