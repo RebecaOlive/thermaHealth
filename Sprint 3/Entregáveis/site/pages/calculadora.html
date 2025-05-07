@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador financeiro</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <link rel="stylesheet" type="text/css" href="../style/cabecalho.css">
 </head>
+
 <body>
     <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
     <nav class="menu">
         <div class="logo">
-            <img src="imagens/Logo ThermaHealth.png">
+            <img src="../imagens/Logo ThermaHealth.png">
         </div>
 
         <div class="menu-links">
@@ -32,28 +34,29 @@
         <div class="bloco_simulador">
             <div class="container1">
                 <h3>CALCULE O IMPACTO DA NOSSA SOLUÇÃO!</h3>
-    
+
                 <p>Atender os parâmetros de temperatura e umidade fortificam a segurança dos processos hospitalares. Vamos ver como <u>não segui-los</u> podem impactar negativamente o seu negócio!</p><br>
-                
+
                 <p>Informe quanto você gasta diariamente por paciente:</p>
                 <input type="number" id="input_gasto" placeholder="R$"><br>
-                
+
                 <p>Informe a média de estadia dos pacientes na unidade:</p>
                 <input type="number" id="input_dias" placeholder="Em dias"><br>
-    
+
                 <p>Informe o percentual médio de retorno financeiro com base no gasto diário:<br>
-                        (média comum entre 7% e 12%)</p>
+                    (média comum entre 7% e 12%)</p>
                 <input type="number" id="input_percentual" placeholder="%"><br><br>
-                
+
                 <div id="div_bt"><button onclick="calcular()">Veja os Riscos!</button></div>
             </div>
-    
+
             <div id="msg" class="container2">
                 <h3>Resultado:</h3>
             </div>
         </div>
     </div>
 </body>
+
 </html>
 <script>
     function calcular() {
@@ -101,7 +104,7 @@
         msgProlongacao = `<p>Com um potencial acréscimo de R$ ${aumento}, o valor total fica em até R$ ${total}</p>`;
         div_prejuizo.innerHTML = msgProlongacao;
     }
-    function solucionar(){
+    function solucionar() {
         var msgSolucionar = "";
         var lucro = (media * percentual) / 100;
 

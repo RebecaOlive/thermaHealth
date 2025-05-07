@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Therma Health - Login</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="style2.css">
+  <link rel="stylesheet" type="text/css" href="../style/style.css">
+  <link rel="stylesheet" type="text/css" href="../style/cabecalho.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 
   <nav class="menu">
     <div class="logo">
-      <img src="imagens/Logo ThermaHealth.png">
+      <img src="../imagens/Logo ThermaHealth.png">
     </div>
 
     <div class="menu-links">
@@ -46,7 +46,7 @@
               <span>Insira o CNPJ da instituição <span class="azul">*</span></span>
               <div class="organiza-campo">
                 <input id="cnpj_input" type="text" placeholder="xx.xxx.xxx/xxxx-xx" />
-                <img class="icon" src="imagens/Tela de Cadastro/id-card-icon.png" alt="" srcset="">
+                <img class="icon" src="../imagens/Tela de Cadastro/id-card-icon.png" alt="" srcset="">
               </div>
             </div>
 
@@ -54,7 +54,7 @@
               <span>E-mail do representante<span class="azul">*</span></span>
               <div class="organiza-campo">
                 <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-                <img class="icon" src="imagens/Tela de Cadastro/email-icon.png" alt="" srcset="">
+                <img class="icon" src="../imagens/Tela de Cadastro/email-icon.png" alt="" srcset="">
               </div>
 
             </div>
@@ -63,7 +63,7 @@
               <span>Senha <span class="azul">*</span></span>
               <div class="organiza-campo">
                 <input id="senha_input" type="password" placeholder="******" />
-                <img class="icon" src="imagens/Tela de Cadastro/padlock-icon.png" alt="" srcset="">
+                <img class="icon" src="../imagens/Tela de Cadastro/padlock-icon.png" alt="" srcset="">
               </div>
             </div>
 
@@ -78,7 +78,7 @@
 
     <div class="div_direitaCadastro">
       <div id="div_imgCadastro">
-        <img src="imagens/Tela de Cadastro/Background-Cadastro.png" alt="">
+        <img src="../imagens/Tela de Cadastro/Background-Cadastro.png" alt="">
       </div>
       <div class="texto-d">
         Integrando<br> tecnologia à <br><span style="color: #007bff;">saúde</span>
@@ -95,7 +95,7 @@
     <div class="footer-container">
 
       <div class="footer-logo">
-        <img class="logo2" src="imagens/Logo ThermaHealth.png" alt="Logo ThermaHealth">
+        <img class="logo2" src="../imagens/Logo ThermaHealth.png" alt="Logo ThermaHealth">
         <h2>Integrando tecnologia à saúde</h2>
       </div>
 
@@ -118,11 +118,11 @@
         <h2>Contate-nos</h2>
         <br><br>
         <div class="contato-item">
-          <img src="imagens/o-email.png" alt="Ícone do e-mail">
+          <img src="../imagens/o-email.png" alt="Ícone do e-mail">
           <span>contato@thermahealth.com</span>
         </div>
         <div class="contato-item">
-          <img src="imagens/phone-call.png" alt="Ícone do telefone">
+          <img src="../imagens/phone-call.png" alt="Ícone do telefone">
           <span>(11) 12345-6789</span>
         </div>
 
@@ -175,41 +175,41 @@
           cnpj.indexOf('U') !== -1 || cnpj.indexOf('V') !== -1 || cnpj.indexOf('W') !== -1 || cnpj.indexOf('X') !== -1 ||
           cnpj.indexOf('Y') !== -1 || cnpj.indexOf('Z') !== -1
         )) {
-            mensagem = `Número de CNPJ não deve receber caracteres alfabéticos`;
-            campoValidado = false;
-
-          }
-
-        } else if (cnpj.length < 14 || cnpj.length > 14) {
-          mensagem = `CNPJ deve conter 14 digitos`;
+          mensagem = `Número de CNPJ não deve receber caracteres alfabéticos`;
           campoValidado = false;
-
-        } else if (contador == 2 && email !== ``) {
-          if ((email.indexOf(`@`) - 1) && email.endsWith(`.com`)) {
-            campoValidado = true;
-
-          } else {
-            mensagem = `É necessário inserir e-mail valido!`;
-            campoValidado = false;
-
-          }
-
-        } else if (contador == 4 && senha !== ``) {
-          if (senha.indexOf("abc") !== -1 || senha.indexOf("123") !== -1 || senha.indexOf("senha") !== -1 || senha.length < 6 ||senha.indexOf(" ") !== -1) {
-            campoValidado = false;
-            mensagem = `Senha não pode conter sequências óbvias, espaços e use no mínimo 6 caracteres`;
-
-          }
 
         }
 
-      } if (campoValidado) {
-        alert(`Bem Vindo ao Dashboard Claudia!`);
+      } else if (cnpj.length < 14 || cnpj.length > 14) {
+        mensagem = `CNPJ deve conter 14 digitos`;
+        campoValidado = false;
 
-      } else {
-        alert(mensagem);
+      } else if (contador == 2 && email !== ``) {
+        if ((email.indexOf(`@`) - 1) && email.endsWith(`.com`)) {
+          campoValidado = true;
+
+        } else {
+          mensagem = `É necessário inserir e-mail valido!`;
+          campoValidado = false;
+
+        }
+
+      } else if (contador == 4 && senha !== ``) {
+        if (senha.indexOf("abc") !== -1 || senha.indexOf("123") !== -1 || senha.indexOf("senha") !== -1 || senha.length < 6 || senha.indexOf(" ") !== -1) {
+          campoValidado = false;
+          mensagem = `Senha não pode conter sequências óbvias, espaços e use no mínimo 6 caracteres`;
+
+        }
+
       }
 
+    } if (campoValidado) {
+      alert(`Bem Vindo ao Dashboard Claudia!`);
+
+    } else {
+      alert(mensagem);
     }
+
+  }
 
 </script>

@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Therma Health - Cadastro</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="style2.css">
+  <link rel="stylesheet" type="text/css" href="../style/style.css">
+  <link rel="stylesheet" type="text/css" href="../style/cabecalho.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 
   <nav class="menu">
     <div class="logo">
-      <img src="imagens/Logo ThermaHealth.png">
+      <img src="../imagens/Logo ThermaHealth.png">
     </div>
 
     <div class="menu-links">
@@ -237,7 +237,7 @@
           }
 
         } else if (contador == 4 && senha !== ``) {
-          if (senha.indexOf("abc") !== -1 || senha.indexOf("123") !== -1 || senha.indexOf("senha") !== -1 || senha.length < 6 ||senha.indexOf(" ") !== -1) {
+          if (senha.indexOf("abc") !== -1 || senha.indexOf("123") !== -1 || senha.indexOf("senha") !== -1 || senha.length < 6 || senha.indexOf(" ") !== -1) {
             campoValidado = false;
             mensagem = `Senha não pode conter sequências óbvias, espaços e use no mínimo 6 caracteres`;
             break;
