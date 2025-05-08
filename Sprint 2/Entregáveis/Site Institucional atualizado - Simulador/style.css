@@ -349,7 +349,6 @@ button:hover{
 .frente {
     background-color: rgb(0, 34, 255);
     background-size: cover;
-
 }
 
 .verso {
@@ -360,7 +359,6 @@ button:hover{
     align-items: center;
     font-weight: bold;
     color: white;
-    
 }
 
 .nome {

@@ -1,5 +1,7 @@
 /***************************** MENU/LINKS/BARRA DE NAVEGAÇÃO PRINCIPAL *****************************/
-
+*{
+  box-sizing: border-box;
+}
 .menu {
   display: flex;
   position: fixed;
@@ -71,7 +73,7 @@
   background: rgba(0, 0, 0, 0.05);
   transform: translateY(-3px);
   border: 1px solid rgba(129, 129, 129, 0.767);
-  box-shadow: 0 5px 5px rgba(76, 76, 76, 0.373);
+  box-shadow: 0 5px 5px  rgba(76, 76, 76, 0.373);
   font-weight: bold;
 }
 

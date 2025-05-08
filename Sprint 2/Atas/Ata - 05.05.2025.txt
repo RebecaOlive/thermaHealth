@@ -1,0 +1,107 @@
+ATA DA REUNIÃO DO DIA 05 DE MAIO DE 2025 - AUTOR DA ATA: LUCAS CALIL.
+
+-- DEBATE DO GRUPO A RESPEITO DE QUEM SERÁ O PRÓXIMO SCRUM MASTER E O P.O.
+NA OCASIÃO, FOI DECIDIDO QUE GUSTAVO SERÁ O SCRUM MASTER E O LUCA SERÁ O P.O.
+ALÉM DISSO, TAMBÉM FOI ACORDADO ENTRE TODOS OS PRESENTES, QUE O AUXILIAR DO SCRUM
+SERÁ LUCAS CALIL;
+
+-- DEBATE SOBRE OS VÍDEOS GRAVADOS NO FINAL DE SEMANA E OS PONTOS A MELHORAR:
+
+- DASHBOARD -> ALTERAR O CÓDIGO, POIS ESTÁ ESTÁTICO;
+
+- CALCULADORA -> ERRO NO CSS QUE ESTÁ IMPEDINDO DE FUNCIONAR. A PARTE DE TEMPERATURA
+NÃO ESTÁ APARECENDO;
+
+- CADASTRO/LOGIN -> VALIDAÇÃO DO CNPJ SIMPLIFICADA. NOME E SOBRENOME. FORMATAÇÃO "..-/".
+ALTERAÇÕES DO CADASTRO E LOGIN COM A API;
+
+- BACKLOG -> IMPLEMENTAR MUDANÇAS DISCUTIDAS PELO GRUPO NA REUNIÃO ANTERIOR;
+
+- BANCO DE DADOS -> INCREMENTAR IF NULL. MODELO LÓGICO (PARÂMETROS IDEAIS PARA A SALA). 
+IMPLEMENTAÇÃO DAS FUNÇÕES MATEMÁTICAS PARA A DASHBOARD;
+
+- SITE INSTITUCIONAL -> REFATORAÇÃO DO CSS REMOVENDO ATRIBUTOS QUE ESTÃO SEM USO. 
+PÁGINA DO REPRESENTANTE, ONDE APENAS ELE PODERÁ FAZER O CADASTRO DE FUNCIONÁRIOS;
+
+----------------------------------------------------------------
+
+- DOCUMENTAÇÃO:
+Desenvolvimento: 
+- Bactérias presentes em hospitais.
+- Como a temperatura e umidade influencia a proliferação e sobrevivência de bactérias, vírus e fungos.
+- O que é uma infecção hospitalar(IRAS).
+- O que o hospital faz para lidar com IRAS.
+- Como a temperatura influencia na recuperação de um paciente.
+- Como fazemos a instalação dos sensores e com qual propósito a posição de cada um.
+
+Impacto Governamental Regulatório:
+- Verificar se todas as informações citadas são importantes.
+- Discutir se iremos remover a tabela ou utilizar ele completa.
+- Complementar as leis de regularização de climatização.
+
+Objetivo:
+- Discutir se é necessário separar em tópicos com as funcionalidades.
+- Discutir sobre o quão aprofundado está o texto, se deve ser mais técnico. 
+
+Justificativa:
+- Alinhar todos sobre o motivo dela.
+
+Visão Geral do Projeto:
+- Discutir sobre o aprofundamento do texto, se precisa ser mais técnico.
+
+Resultados esperados:
+- Atualizar com as funcionalidades e propósitos decididos na Sprint 2.
+- Discutir se deve ser em tópicos.
+
+Requisitos:
+- Colocar o product backlog.
+
+Limites e exclusões:
+- Revisar se o que está presente condiz com o nosso projeto atual.
+- Acrescentar os riscos e exclusões.
+
+Para acrescentar:
+- Macro Cronograma.
+- Premissas?
+- Stakeholders
+- Equipamentos e programas utilizados para o desenvolvimento.
+
+Criar diagrama visual a respeito da posição de cada sensor na sala.
+
+Pesquisar sobre a influência do tamanho da sala em relação a quantidade
+e posicionamento dos sensores(Estimativa por metro quadrado de sala), 
+qual a área que um sensor monitora.
+
+Deixar claro se é problema, necessidade ou oportunidade.
+
+Discutir a justificativa por último.
+
+Visão Geral do Projeto: Colocar os diagramas de solução e de visão de negócio.
+
+
+Tornar a documentação mais gráfica.
+
+-------------------------------------------------------------------
+
+- SLIDES (APRESENTAÇÃO) -> INFOGRÁFICO COM PERDAS E PREJUÍZOS PARA O HOSPITAL;
+
+
+-- ATRIBUIÇÃO DE TAREFAS DA SEMANA:
+
+- DASHBOARD -> DEPENDE DA REVISÃO DA API;
+
+- CALCULADORA -> CALIL (PRAZO: 06/05 ÀS 23H59);
+
+- CADASTRO/LOGIN:
+	- REVER VALIDAÇÕES -> SAMUEL (07/05 ÀS 23H59),
+	- CONEXÃO COM A API -> KOGA (08/05 ÀS 23H59);
+
+- BACKLOG -> LUCA (07/05 ÀS 23H59);
+
+- BANCO DE DADOS -> GUSTAVO (06/05 ÀS 23H59) - ATUALIZAR N:N;
+
+- ANTES DE MEXER NO CÓDIGO, MOVER PARA A PÁGINA DA SPRINT 3 -> REBECCA (ATÉ 06/05 ÀS 23H59);
+
+- ENVIAR EMAIL PARA OS PROFESSORES -> LUCA;
+
+ORDENAR ENVIO DAS VERSÕES MAIS RECENTES DOS ARQUIVOS HOJE!! (05/05)
