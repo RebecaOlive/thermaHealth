@@ -1,0 +1,25 @@
+Data: 07/06/2025
+Participantes presentes : Gustavo, Lucas,  Luca, Marina, Rebeca, Samuel
+Participantes ausentes :
+
+Assuntos discutidos e principais decisões :
+
+Luca: Enviou o vídeo da calculadora hoje, backlog está com dificuldades por conta do Excel; Precisa dar atenção ao seu projeto individual por conta da finalização da documentação; finalizará hoje a parte escrita do backlog, será feito até sexta-feira a versão completa;
+
+Samuel: Fez testes de validação, terá que finalizar as correções, foi sugerido auxílio do JP, foi dados o prazo de até amanhã; Irá trabalhar em seu projeto individual e ajudar a Koga com a API;
+
+Rebeca corrigirá e finalizará os diretórios da Sprint 3;
+
+Koga: estava estudando a API; Foco do projeto individual;
+
+Calil: Corrigir o site institucional e o direcionamento de imagens;
+
+Gustavo irá enviar um PDF de auxílio para entendimento da Web-data-Viz;
+
+Não havia sido discutido a respeito do prazo apertado;
+
+Discutido a respeito da falta de direcionamento para a pauta e divisão do grupo para outras tarefas;
+
+Plano de Ação – para a próxima semana :
+
+Futuras reuniões longas serão debatidas se serão online ou presencial;
