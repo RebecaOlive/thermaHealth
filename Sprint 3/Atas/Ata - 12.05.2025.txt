@@ -1,0 +1,54 @@
+Data: 12/05/2025
+Participantes presentes : Gustavo, Marina, Rebeca, Samuel, Lucas;
+
+Participante atrasado:   
+Participantes ausentes : Luca;
+
+Assuntos discutidos e principais decisões :
+
+- Samuel: Não começou as tarefas, somente tirou dúvidas;
+
+- Rebeca: Finalizou a tarefa da documentação, github sugeriu extender o prazo para amanhã no periodo da manhã;
+
+- Gustavo: Entrega da documentação (stackholders - equipamentos e programas utilizados), entregará hoje;
+
+- Marina: Entrega do protótipo entregará amanhã e a documentação entregar hoje, apontou dificuldade na API web-dat-viz;
+
+- Lucas: Não começou as tarefas, somente tirou dúvidas sobre a tarefa e seu prazo;
+
+- Dúvidas sobre tarefas de documentação;
+
+- Sprint Backlog organizada no trello;
+
+- Entregável de Banco de dados (view);
+
+- Tarefa do Luca (backlog) até o momento não entregue; 
+
+- Manual de instalação com o luca; 
+
+- Atas não estão organizada no github; 
+
+- Dailys será online até Quinta (15/05), quinta será uma reunião sobre os entregáveis feitos; 
+
+
+Plano de Ação – para a próxima semana :
+
+Documentação até dia 13/05;
+
+Atualização do Github ;
+
+Diagrama de Solução Técnico 14/05;
+
+Página de Cadastro do funcionário (a decidir);
+
+Alteração da Navbar 14/05;
+
+Protótipo da página Dashboard 13/05;
+
+Protótipo da página pós login 16/05;
+
+Integração do site com a API 16/05;
+
+Atualização da Dashboard;
+
+Backlog 12/05;
