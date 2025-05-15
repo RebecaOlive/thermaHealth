@@ -1,0 +1,48 @@
+Data:  06/05/2025 - Autoria: Gustavo de Oliveira.
+Participantes presentes : Gustavo, Lucas,  Luca, Marina, Rebeca, Samuel
+Atrasos: Luca, Marina Koga (Justificado)
+
+REUNIÃO: REVISÃO DAS ENTREGAS DA SEMANA.
+
+Assuntos discutidos e principais decisões :
+
+Checado por integrantes o que cada um fez;
+
+Rebeca: Explicação de como está a organização da pasta referente a Sprint 3 no Github.
+ - Calculadora não foi movida pois haviam 2 diferentes(Resolvido);
+ - Realizar o envio das Atas referentes a Sprint 3 no Github;
+ - Relatando que o erro que estava ocorrendo com o arduino era por conta de ser um arduino alternativo.
+
+Calil: Explicação das correções que foram feitas no site institucional
+ - Adição do logo da Therma Health na aba da página e explicação dele;
+ - Correção no direcionamento das imagens das páginas do site;
+ - Correção no direcionamento das páginas na nova organização de pastas.
+
+Samuel: Explicação das alterações referente as validações de cadastro e login
+ - CNPJ não foi possível aplicar as indicações do professor JP, será enviado um e-mail para ele pedindo auxílio;
+ - Lapidação da validação do campo de CNPJ;
+ - Após clicar em cadastro é feito o tratamento do campo de CNPJ;
+ - Correção da validação de nome necessitar de um espaço;
+ - Aumento da quantidade de caracteres necessários para senha de 6 para 8;
+ - Tela de Login direciona para a Dashboard;
+ - Dúvida se é necessário implementar código de verificação no Login (Perguntar para o professor Frizza amanhã).
+ 
+ 
+
+Luca: Explicação sobre o que foi feito na semana
+ - Feito estudo de como montar uma planilha no excel para criar o Backlog;
+ - Reajuste de prazo do backlog para dia 12/05/2025.
+
+
+Gustavo: Explicação sobre as alterações feitas no banco de dados
+ - Criação da tabela NxN Alerta;
+ - Acrescentar na dashboard o tempo fora dos padrões para ser emito um alerta;
+ - Quando a temperatura estiver 1°C abaixo ou acima, ainda está aceitável, e ter um alerta diferente se mantenha nesse período aceitável por 5 minutos, e um diferente caso esteja fora desse aceitável.
+
+Koga: DEVIDO A COMPLICAÇÕES, FOI REMARCADO A EXPLICAÇÃO DA API PARA O DIA 09/05/2025.
+
+
+
+Plano de Ação – para amanhã:
+
+Continuação da apresentação das tarefas da semana para amanhã, dia 09/05/2025.
