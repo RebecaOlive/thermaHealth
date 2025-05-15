@@ -1,0 +1,49 @@
+Data: 14/05/2025
+Participantes presentes : Gustavo, Marina, Rebeca, Samuel, Lucas, Luca;
+
+Participante atrasado: 
+Participantes ausentes:
+
+Assuntos discutidos e principais decisões :
+
+Samuel: Fará a documentação hoje, dashboard o quanto antes, pediu perdão pelo atraso pois é mais puxado do que pensou pois deu prioridade para entregáveis pessoais. Fará parte da documentação hoje e dashboard amanhã;
+
+Rebeca: Organizações das pastas do repositório pendente, mas fará hoje. Vai colocar o sprint backlog no Trello;
+
+Gustavo: Hoje vai focar na página inicial pós login, protótipo e alinhamento com a Koga. Não conseguirá entregar parte da documentação hoje;
+
+Marina: Teve tarefa pendente do dia anterior e está com dificuldade em desenvolver API, pediu ajuda com isso. Vai continuar fazendo isso hoje;
+
+Luca: está acabando backlog em atraso, tentará encerrar hj. Vai reorganizar o diagrama essa madrugada. Se propôs pra ajudar os demais com tarefas dos outros integrantes;
+
+Lucas: Tudo encaminhado para entregar dentro do prazo da página de cadastro de funcionário. Hoje dará continuidade nisso e entregar amanhã se tudo der certo;
+
+Envio das ATAs para o GitHub, em ordem;
+
+Macro cronograma na documentação;
+
+Estamos com problemas a respeito de entregas, por conta de muitas tarefas e pouco tempo de entrega. Ideia de remanejo de tarefas para quem tem mais facilidade com cada.
+
+Remanejo de tarefas;
+
+Plano de Ação – para a próxima semana :
+
+Finalizar documentação - Koga;
+
+Organizar sprint backlog - Rebeca;
+
+Atualizar pastas do repositório no GitHub - Rebeca;
+
+Prototipagem página pós-login - Gustavo;
+
+Reajuste no diagrama de solução - Luca;
+
+Codificação da página de cadastro de funcionários - Calil;
+
+API - Samuel;
+
+Backlog - Luca;
+
+Atualização da dashboard - Rebeca;
+
+Manual de instalação - discussão amanhã.
