@@ -1,0 +1,79 @@
+ATA DO DIA 17/05/2025 - AUTORES -> GUSTAVO E CALIL
+PARTICIPANTES AUSENTES: REBECA (JUSTIFICADO)
+ATRASO: SAMUEL
+
+Protótipo dashboard não tem, adiado pra amanhã- koga
+
+Atualização da dashboard - Samuel - não sabemos
+
+Atualizar github - Não sabemos - Rebeca
+
+Backlog - Luca - Falta informações da Dashboard
+
+Diagrama - Luca - teve feedback, adição de um elemento e está concluído,  será feita a validação com um professor na semana
+
+Página de cadastro de funcionário- Calil - concluída 
+
+Integração da API - Samuel - atrasado não sabemos a situação, foi passado para a próxima semana
+
+Manual de instalação - Luca - Segunda feira trará o texto dela
+
+----------------------------------------------------
+
+TAREFAS DA SEMANA.
+
+- ATUALIZAÇÃO DA DASHBOARD - CALIL/ SAMUEL.
+
+- PROTÓTIPO DA DASHBOARD. - KOGA (SEGUNDA-FEIRA 19/05).
+
+- INTEGRAÇÃO COM A API CADASTRO E LOGIN - SAMUEL/ CALIL/ KOGA.
+
+- INTEGRAÇÃO COM A API DASHBOARD - LUCA/ GUSTAVO/ REBECCA.
+
+- ADICIONAR OS REQUISITOS DA DASHBOARD NO BACKLOG. - REBECA.
+
+- MANUAL DE INSTALAÇÃO - LUCA/ CALIL. 
+
+- VALIDAÇÃO - P.O. DA SEMANA. 
+
+- JUSTIFICATIVA (DOCUMENTAÇÃO) - LUCA/GUSTAVO.
+
+- ATUALIZAÇÃO DA CALCULADORA - EM ABERTO.
+
+- APRESENTAÇÃO - EM ABERTO
+
+- ATUALIZAR O DIAGRAMA DE SOLUÇÃO (UTILIZANDO O JIRA).
+
+--------------------------------------------------------------
+
+DISCUSSÃO DE QUEM SERÁ O SCRUM MASTER E P.O.
+
+SCRUM MASTER - CALIL. - organizar o sprint backlog.
+
+P.O. - SAMUEL.
+
+-------------------------------------------------------------
+
+KPI'S.
+
+DISCUSSÃO SOBRE A MÉTRICA:
+
+NÃO USAREMOS A MÉDIA DE TEMPERATURA E UMIDADE. 
+LUCA TROUXE A PROPOSTA DE USARMOS O TEMPO DE ALERTA.
+
+OS GRÁFICOS DEVEM EXIBIR A MEDIÇÃO DE TODOS OS SENSORES.
+
+HÁ UMA NECESSIDADE DA PRIMEIRA PÁGINA DA DASHBOARD SER UMA TAREFA.
+
+- INDICADORES:
+
+ - SENSORES FORA DOS PARÂMETROS;
+ - SALAS FORA DOS PARÂMETROS DENTRO DO SETOR;
+ - PARÂMETROS IDEIAS DA SALA;
+ - TEMP E UMI DOS SENSORES.
+
+
+
+
+
+
