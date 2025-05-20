@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Therma Health - Cadastro</title>
+  <title>Therma Health - Login</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../style/style.css">
-  <link rel="stylesheet" type="text/css" href="../style/cabecalho.css">
-  <link rel="icon" href="../imagens/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/cabecalho.css">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
 
   <nav class="menu">
     <div class="logo">
-      <img src="../imagens/Logo ThermaHealth.png">
+      <img src="assets/Logo ThermaHealth.png">
     </div>
 
     <div class="menu-links">
@@ -38,25 +38,16 @@
   <!--------------- DIV METADE METADE  -------------->
   <div class="div_5050">
     <div class="div_esquerdaCadastro">
-      <div class="div_formulario">
-        <h1 class="azul">Cadastre sua instituição!</h1>
-        <div class="card card-cadastro">
+      <div class="div_formulario login">
+        <h1 class="azul">Bem-vindo de volta!</h1>
+        <div class="card card-cadastro login">
 
           <div class="formulario">
-
             <div class="campo">
               <span>Insira o CNPJ da instituição <span class="azul">*</span></span>
               <div class="organiza-campo">
-                <input id="cnpj_input" type="number" placeholder="xx.xxx.xxx/xxxx-xx" />
-                <img class="icon" src="../imagens/Tela de Cadastro/id-card-icon.png" alt="" srcset="">
-              </div>
-            </div>
-
-            <div class="campo">
-              <span>Nome do representante<span class="azul">*</span></span>
-              <div class="organiza-campo">
-                <input id="nome_input" type="text" placeholder="Nome completo" />
-                <img class="icon" src="../imagens/Tela de Cadastro/user-icon.png" alt="" srcset="">
+                <input id="cnpj_input" type="text" placeholder="xx.xxx.xxx/xxxx-xx" />
+                <img class="icon" src="assets/Tela de Cadastro/id-card-icon.png" alt="" srcset="">
               </div>
             </div>
 
@@ -64,7 +55,7 @@
               <span>E-mail do representante<span class="azul">*</span></span>
               <div class="organiza-campo">
                 <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-                <img class="icon" src="../imagens/Tela de Cadastro/email-icon.png" alt="" srcset="">
+                <img class="icon" src="assets/Tela de Cadastro/email-icon.png" alt="" srcset="">
               </div>
 
             </div>
@@ -73,20 +64,11 @@
               <span>Senha <span class="azul">*</span></span>
               <div class="organiza-campo">
                 <input id="senha_input" type="password" placeholder="******" />
-                <img class="icon" src="../imagens/Tela de Cadastro/padlock-icon.png" alt="" srcset="">
+                <img class="icon" src="assets/Tela de Cadastro/padlock-icon.png" alt="" srcset="">
               </div>
             </div>
 
-            <div class="campo">
-              <span>Confirmação de Senha <span class="azul">*</span></span>
-              <div class="organiza-campo">
-                <input id="confirmacao_senha_input" type="password" placeholder="******" />
-                <img class="icon" src="../imagens/Tela de Cadastro/padlock-icon.png" alt="" srcset="">
-              </div>
-
-            </div>
-
-            <button class="botao" onclick="cadastrar()">Cadastrar</button>
+            <button class="botao" onclick="login()">Entrar</button>
           </div>
         </div>
 
@@ -97,20 +79,16 @@
 
     <div class="div_direitaCadastro">
       <div id="div_imgCadastro">
-        <img src="../imagens/Tela de Cadastro/Background-Cadastro.png" alt="">
+        <img src="assets/Tela de Cadastro/Background-Cadastro.png" alt="">
       </div>
       <div class="texto-d">
         Integrando<br> tecnologia à <br><span style="color: #007bff;">saúde</span>
       </div>
     </div>
+
+
+
   </div>
-
-
-
-
-
-
-
 
 
   <!----------------------------------------------------------------------------- RODAPÉ 1 ------------------------------------>
@@ -118,7 +96,7 @@
     <div class="footer-container">
 
       <div class="footer-logo">
-        <img class="logo2" src="../imagens/Logo ThermaHealth.png" alt="Logo ThermaHealth">
+        <img class="logo2" src="assets/Logo ThermaHealth.png" alt="Logo ThermaHealth">
         <h2>Integrando tecnologia à saúde</h2>
       </div>
 
@@ -141,11 +119,11 @@
         <h2>Contate-nos</h2>
         <br><br>
         <div class="contato-item">
-          <img src="../imagens/o-email.png" alt="Ícone do e-mail">
+          <img src="assets/o-email.png" alt="Ícone do e-mail">
           <span>contato@thermahealth.com</span>
         </div>
         <div class="contato-item">
-          <img src="../imagens/phone-call.png" alt="Ícone do telefone">
+          <img src="assets/phone-call.png" alt="Ícone do telefone">
           <span>(11) 12345-6789</span>
         </div>
 
@@ -172,42 +150,20 @@
 </body>
 
 </html>
-
 <script>
-  function cadastrar() {
+  function login() {
     var cnpj = cnpj_input.value;
-    var nome = nome_input.value;
     var email = email_input.value;
     var senha = senha_input.value;
-    var senhaConfimacao = confirmacao_senha_input.value;
     var mensagem = ``;
     var campoValidado = true;
-    var cnpjFormatado = "";
 
-    if (cnpj.indexOf('.') == -1 || cnpj.indexOf('/') == -1 || cnpj.indexOf('-') == -1) {
-      for (var i = 0; i < cnpj.length; i++) {
-        var letraAtual = cnpj[i]
-        
-        if (i == 1 || i == 4) {
-          cnpjFormatado += `${letraAtual}.`
-        } else if (i == 7) {
-          cnpjFormatado += `${letraAtual}/`
-        } else if (i == 11) {
-          cnpjFormatado += `${letraAtual}-`
-        } else {
-          cnpjFormatado += `${letraAtual}`
-        }
-      }
-      cnpj = cnpjFormatado;
-    }
-
-
-    if (cnpj == "" || nome == "" || email == "" || senha == "" || senhaConfimacao == "") {
+    if (cnpj == "" || email == "" || senha == "") {
       mensagem = `É necessário preencher todos os campos!`;
       campoValidado = false;
 
     } else {
-      if (cnpj.length < 18 || cnpj.length > 18) {/*----------------------------CNPJ-----------------------------*/
+      if (cnpj.length < 14 || cnpj.length > 14) {/*----------------------------CNPJ-----------------------------*/
         mensagem = `Número de CNPJ deve conter 14 digitos!`;
         campoValidado = false;
 
@@ -229,14 +185,6 @@
         mensagem = `Número de CNPJ não deve receber caracteres alfabéticos!`;
         campoValidado = false;
 
-      } else if (nome.indexOf(`1`) !== -1 || nome.indexOf(`2`) !== -1 || /*----------------------------NOME-----------------------------*/
-        nome.indexOf(`3`) !== -1 || nome.indexOf(`4`) !== -1 ||
-        nome.indexOf(`5`) !== -1 || nome.indexOf(`6`) !== -1 ||
-        nome.indexOf(`7`) !== -1 || nome.indexOf(`8`) !== -1 ||
-        nome.indexOf(`9`) !== -1 || nome.indexOf(`0`) !== -1) {
-        mensagem = `Nome inválido! Campo deve conter apenas caracteres alfabéticos!`;
-        campoValidado = false;
-
       } else if (email.indexOf(`@`) <= 0 || !email.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
         mensagem = `É necessário inserir e-mail valido!`;
         campoValidado = false;
@@ -249,17 +197,13 @@
         mensagem = `Senha não pode conter sequências óbvias, espaços e use no mínimo 8 caracteres`;
         campoValidado = false;
 
-      } else if (senha !== senhaConfimacao) { /*---------------------------C.SENHA----------------------------*/
-        mensagem = `Senhas não coincidem, tente novamente`
-        campoValidado = false;
-
       }
     } if (campoValidado) {
-      alert(`Cadastro realizado com sucesso! Enviamos um e-mail de confirmação!`);
-
+      window.location.replace("file:///C:/Users/samue/Desktop/Sptech/Pesquisa%20e%20Inova%C3%A7%C3%A3o/PROJETO%20EM%20GRUPO/thermaHealth/Sprint%203/Entreg%C3%A1veis/site/API/dashboard.html"); // Substitui a página atual
     } else {
       alert(mensagem);
-
     }
+
   }
+
 </script>

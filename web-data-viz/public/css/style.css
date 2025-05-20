@@ -138,7 +138,7 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../imagens/fotoa.jpg');
+    background-image: url(../assets/fotoa.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -369,32 +369,32 @@ button:hover{
 }
 
 #gustavo {
-    background-image: url(../imagens/gustavo.jpg);
+    background-image: url(../assets/gustavo.jpg);
     
 }
     
 #luca {
-    background-image: url(../imagens/luca.jpeg);
+    background-image: url('../assets/luca.jpeg');
     
 }
     
 #lucas {
-    background-image: url(../imagens/lucas.jpg);
+    background-image: url('../assets/lucas.jpg');
     
 }
     
 #marina {
-    background-image: url(../imagens/marina.jpg);
+    background-image: url('../assets/marina.jpg');
     
 }
     
 #rebeca {
-    background-image: url(../imagens/rebeca.jpg);
+    background-image: url(../assets/rebeca.jpg);
     
 }
     
 #samuel {
-    background-image: url(../imagens/samuel.jpg);
+    background-image: url(../assets/samuel.jpg);
     
 }
     
