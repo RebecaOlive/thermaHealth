@@ -5,9 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Therma Health - Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/cabecalho.css">
+  <link rel="stylesheet" href="css/estilo.css">
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 
@@ -36,6 +40,11 @@
     </div>
   </nav>
   <!--------------- DIV METADE METADE  -------------->
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
   <div class="div_5050">
     <div class="div_esquerdaCadastro">
       <div class="div_formulario">
@@ -85,13 +94,18 @@
               </div>
 
             </div>
-
             <button class="botao" onclick="cadastrar()">Cadastrar</button>
           </div>
+
+          <div id="div_aguardar" class="loading-div">
+            <img src="./assets/circle-loading.gif" id="loading-gif" />
+          </div>
+
+          <div id="div_erros_login"></div>
+
         </div>
 
       </div>
-
 
     </div>
 
@@ -104,14 +118,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
 
   <!----------------------------------------------------------------------------- RODAPÉ 1 ------------------------------------>
   <footer class="footer">
@@ -175,91 +181,128 @@
 
 <script>
   function cadastrar() {
-    var cnpj = cnpj_input.value;
-    var nome = nome_input.value;
-    var email = email_input.value;
-    var senha = senha_input.value;
-    var senhaConfimacao = confirmacao_senha_input.value;
-    var mensagem = ``;
-    var campoValidado = true;
-    var cnpjFormatado = "";
+    var cnpjVar = cnpj_input.value;
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-    if (cnpj.indexOf('.') == -1 || cnpj.indexOf('/') == -1 || cnpj.indexOf('-') == -1) {
-      for (var i = 0; i < cnpj.length; i++) {
-        var letraAtual = cnpj[i]
-        
-        if (i == 1 || i == 4) {
-          cnpjFormatado += `${letraAtual}.`
-        } else if (i == 7) {
-          cnpjFormatado += `${letraAtual}/`
-        } else if (i == 11) {
-          cnpjFormatado += `${letraAtual}-`
+    if (cnpjVar == "" || nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = `É necessário preencher todos os campos!`;
+      finalizarAguardar();
+      return false;
+
+    } else if (cnpjVar.length < 14 || cnpjVar.length > 14) {/*----------------------------CNPJ-----------------------------*/
+
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = `Número de CNPJ deve conter 14 digitos!`;
+        finalizarAguardar();
+        return false;
+
+      } else if (cnpjVar.indexOf('a') !== -1 || cnpjVar.indexOf('b') !== -1 || cnpjVar.indexOf('c') !== -1 || cnpjVar.indexOf('d') !== -1 ||
+        cnpjVar.indexOf('e') !== -1 || cnpjVar.indexOf('f') !== -1 || cnpjVar.indexOf('g') !== -1 || cnpjVar.indexOf('h') !== -1 ||
+        cnpjVar.indexOf('i') !== -1 || cnpjVar.indexOf('j') !== -1 || cnpjVar.indexOf('k') !== -1 || cnpjVar.indexOf('l') !== -1 ||
+        cnpjVar.indexOf('m') !== -1 || cnpjVar.indexOf('n') !== -1 || cnpjVar.indexOf('o') !== -1 || cnpjVar.indexOf('p') !== -1 ||
+        cnpjVar.indexOf('q') !== -1 || cnpjVar.indexOf('r') !== -1 || cnpjVar.indexOf('s') !== -1 || cnpjVar.indexOf('t') !== -1 ||
+        cnpjVar.indexOf('u') !== -1 || cnpjVar.indexOf('v') !== -1 || cnpjVar.indexOf('w') !== -1 || cnpjVar.indexOf('x') !== -1 ||
+        cnpjVar.indexOf('y') !== -1 || cnpjVar.indexOf('z') !== -1 ||
+
+        cnpjVar.indexOf('A') !== -1 || cnpjVar.indexOf('B') !== -1 || cnpjVar.indexOf('C') !== -1 || cnpjVar.indexOf('D') !== -1 ||
+        cnpjVar.indexOf('E') !== -1 || cnpjVar.indexOf('F') !== -1 || cnpjVar.indexOf('G') !== -1 || cnpjVar.indexOf('H') !== -1 ||
+        cnpjVar.indexOf('I') !== -1 || cnpjVar.indexOf('J') !== -1 || cnpjVar.indexOf('K') !== -1 || cnpjVar.indexOf('L') !== -1 ||
+        cnpjVar.indexOf('M') !== -1 || cnpjVar.indexOf('N') !== -1 || cnpjVar.indexOf('O') !== -1 || cnpjVar.indexOf('P') !== -1 ||
+        cnpjVar.indexOf('Q') !== -1 || cnpjVar.indexOf('R') !== -1 || cnpjVar.indexOf('S') !== -1 || cnpjVar.indexOf('T') !== -1 ||
+        cnpjVar.indexOf('U') !== -1 || cnpjVar.indexOf('V') !== -1 || cnpjVar.indexOf('W') !== -1 || cnpjVar.indexOf('X') !== -1 ||
+        cnpjVar.indexOf('Y') !== -1 || cnpjVar.indexOf('Z') !== -1) {
+
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = `Número de CNPJ não deve receber caracteres alfabéticos!`;
+        finalizarAguardar();
+        return false;
+
+
+      } else if (nomeVar.indexOf(`1`) !== -1 || nomeVar.indexOf(`2`) !== -1 || /*----------------------------NOME-----------------------------*/
+        nomeVar.indexOf(`3`) !== -1 || nomeVar.indexOf(`4`) !== -1 ||
+        nomeVar.indexOf(`5`) !== -1 || nomeVar.indexOf(`6`) !== -1 ||
+        nomeVar.indexOf(`7`) !== -1 || nomeVar.indexOf(`8`) !== -1 ||
+        nomeVar.indexOf(`9`) !== -1 || nomeVar.indexOf(`0`) !== -1) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = `Nome inválido! Campo deve conter apenas caracteres alfabéticos!`;
+        finalizarAguardar();
+        return false;
+
+      } else if (emailVar.indexOf(`@`) <= 0 || !emailVar.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
+
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = `É necessário inserir e-mail valido!`;
+        finalizarAguardar();
+        return false;
+
+      } else if (senhaVar.indexOf("abc") !== -1 || /*----------------------------SENHA----------------------------*/
+        senhaVar.indexOf("123") !== -1 ||
+        senhaVar.indexOf("senha") !== -1 ||
+        senhaVar.length < 8 || senhaVar.indexOf(" ") !== -1) {
+
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = `Senha não pode conter sequências óbvias, espaços e use no mínimo 8 caracteres`;
+        finalizarAguardar();
+        return false;
+
+      } else if (senhaVar !== confirmacaoSenhaVar) { /*---------------------------C.SENHA----------------------------*/
+
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = `Senhas não coincidem, tente novamente`;
+        finalizarAguardar();
+        return false;
+      } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
         } else {
-          cnpjFormatado += `${letraAtual}`
+          throw "Houve um erro ao tentar realizar o cadastro!";
         }
-      }
-      cnpj = cnpjFormatado;
-    }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
 
+    return false;
+  }
 
-    if (cnpj == "" || nome == "" || email == "" || senha == "" || senhaConfimacao == "") {
-      mensagem = `É necessário preencher todos os campos!`;
-      campoValidado = false;
-
-    } else {
-      if (cnpj.length < 18 || cnpj.length > 18) {/*----------------------------CNPJ-----------------------------*/
-        mensagem = `Número de CNPJ deve conter 14 digitos!`;
-        campoValidado = false;
-
-      } else if (cnpj.indexOf('a') !== -1 || cnpj.indexOf('b') !== -1 || cnpj.indexOf('c') !== -1 || cnpj.indexOf('d') !== -1 ||
-        cnpj.indexOf('e') !== -1 || cnpj.indexOf('f') !== -1 || cnpj.indexOf('g') !== -1 || cnpj.indexOf('h') !== -1 ||
-        cnpj.indexOf('i') !== -1 || cnpj.indexOf('j') !== -1 || cnpj.indexOf('k') !== -1 || cnpj.indexOf('l') !== -1 ||
-        cnpj.indexOf('m') !== -1 || cnpj.indexOf('n') !== -1 || cnpj.indexOf('o') !== -1 || cnpj.indexOf('p') !== -1 ||
-        cnpj.indexOf('q') !== -1 || cnpj.indexOf('r') !== -1 || cnpj.indexOf('s') !== -1 || cnpj.indexOf('t') !== -1 ||
-        cnpj.indexOf('u') !== -1 || cnpj.indexOf('v') !== -1 || cnpj.indexOf('w') !== -1 || cnpj.indexOf('x') !== -1 ||
-        cnpj.indexOf('y') !== -1 || cnpj.indexOf('z') !== -1 ||
-
-        cnpj.indexOf('A') !== -1 || cnpj.indexOf('B') !== -1 || cnpj.indexOf('C') !== -1 || cnpj.indexOf('D') !== -1 ||
-        cnpj.indexOf('E') !== -1 || cnpj.indexOf('F') !== -1 || cnpj.indexOf('G') !== -1 || cnpj.indexOf('H') !== -1 ||
-        cnpj.indexOf('I') !== -1 || cnpj.indexOf('J') !== -1 || cnpj.indexOf('K') !== -1 || cnpj.indexOf('L') !== -1 ||
-        cnpj.indexOf('M') !== -1 || cnpj.indexOf('N') !== -1 || cnpj.indexOf('O') !== -1 || cnpj.indexOf('P') !== -1 ||
-        cnpj.indexOf('Q') !== -1 || cnpj.indexOf('R') !== -1 || cnpj.indexOf('S') !== -1 || cnpj.indexOf('T') !== -1 ||
-        cnpj.indexOf('U') !== -1 || cnpj.indexOf('V') !== -1 || cnpj.indexOf('W') !== -1 || cnpj.indexOf('X') !== -1 ||
-        cnpj.indexOf('Y') !== -1 || cnpj.indexOf('Z') !== -1) {
-        mensagem = `Número de CNPJ não deve receber caracteres alfabéticos!`;
-        campoValidado = false;
-
-      } else if (nome.indexOf(`1`) !== -1 || nome.indexOf(`2`) !== -1 || /*----------------------------NOME-----------------------------*/
-        nome.indexOf(`3`) !== -1 || nome.indexOf(`4`) !== -1 ||
-        nome.indexOf(`5`) !== -1 || nome.indexOf(`6`) !== -1 ||
-        nome.indexOf(`7`) !== -1 || nome.indexOf(`8`) !== -1 ||
-        nome.indexOf(`9`) !== -1 || nome.indexOf(`0`) !== -1) {
-        mensagem = `Nome inválido! Campo deve conter apenas caracteres alfabéticos!`;
-        campoValidado = false;
-
-      } else if (email.indexOf(`@`) <= 0 || !email.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
-        mensagem = `É necessário inserir e-mail valido!`;
-        campoValidado = false;
-
-      } else if (senha.indexOf("abc") !== -1 || /*----------------------------SENHA----------------------------*/
-        senha.indexOf("123") !== -1 ||
-        senha.indexOf("senha") !== -1 ||
-        senha.length < 8 || senha.indexOf(" ") !== -1) {
-
-        mensagem = `Senha não pode conter sequências óbvias, espaços e use no mínimo 8 caracteres`;
-        campoValidado = false;
-
-      } else if (senha !== senhaConfimacao) { /*---------------------------C.SENHA----------------------------*/
-        mensagem = `Senhas não coincidem, tente novamente`
-        campoValidado = false;
-
-      }
-    } if (campoValidado) {
-      alert(`Cadastro realizado com sucesso! Enviamos um e-mail de confirmação!`);
-
-    } else {
-      alert(mensagem);
-
-    }
+  function sumirMensagem() {
+    cardErro.style.display = "none";
   }
 </script>
