@@ -10,50 +10,42 @@
 
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/cabecalho.css">
+  <link rel="stylesheet" type="text/css" href="../css/cabecalho.css">
+  <link rel="stylesheet" href="../css/dash-style.css">
 
-  <link rel="stylesheet" href="css/estilo.css">
+  
 
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body style="background-color: white;">
 <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
 
-    <nav class="menu">
+   <nav class="menu">
         <div class="logo">
-            <img src="assets/Logo ThermaHealth.png">
+            <img src="../assets/Logo ThermaHealth.png">
         </div>
 
         <div class="menu-links">
 
-            <a href="index.html#home" class="menu-opcoes">Home</a>
-            <a href="index.html#quem-somos" class="menu-opcoes">Sobre nós</a>
-            <a href="index.html#equipe" class="menu-opcoes">Equipe</a>
-            <a href="index.html#servicos" class="menu-opcoes">Serviços</a>
-
-            <div class="menu-links-direita">
-                <a href="./calculadora.html" class="funcionario-cadastrar">Cadastrar Funcionário</a>
-                <span class="menu-barra">|</span>
-                <div class="menu-perfil">
-                    <a id="ancora-nome">Olá, (placeholder)
-                        <!-- INSERIR AQUI INTEGRAÇÃO DE BANCO DE DADOS COM NOME DO USUÁRIO LOGADO -->
-                    </a>
-                    <a id="ancora-sair">
-                        <!-- href="INSERIR AQUI INTEGRAÇÃO DE BANCO DE DADOS" -->
-                        Sair
-                    </a>
-                </div>
+            <div class="menu-links-direita  menu-dash">
+                <a href="./dashboard-atual.html" class="menu-opcoes menu-opcoes-dash">Dashboard</a>
+                <a href="#" class="menu-opcoes menu-opcoes-dash">Help Desk</a>
             </div>
+                <span class="menu-barra">|</span>
+                <div class="menu-perfil menu-dash-perfil">
+                    <a id="ancora_nome"></a><br>
+                    <a href="./login.html" id="ancora-sair">Sair</a>
+                </div>
+            
+
         </div>
     </nav>
-
 <!----------------------------------------------------------- SEGMENTO DE SETORES  ------------->
 
     <main>
-        
-        <div class>
-            <p class="setor-titulo"> SETORES </p>
+        <div class="pai">
+        <div class="setor-pai">
+            <h1 class="setor-titulo"> SETORES </h1>
             <div class="setor-container">
                 <div class="setor-legenda">
                     <div></div>
@@ -67,6 +59,7 @@
                     <div class="setor-salas" id="sala06"></div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 
@@ -122,3 +115,7 @@
     </footer>
 </body>
 </html>
+<script>
+    ancora_nome.innerHTML = sessionStorage.NOME_USUARIO;
+
+</script>

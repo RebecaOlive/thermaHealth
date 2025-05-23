@@ -10,6 +10,44 @@ body{
     font-family: 'Roboto';
     background-color: rgb(255, 255, 255);
 }
+
+/***************************************** PÁGINA DE SETORES ***************************/
+.menu-dash{
+    margin-right: 600px;
+}
+
+.menu-opcoes-dash{
+    margin: 0px 25px 0 25px;
+}
+
+.menu-dash-perfil{
+    margin-right: 100px;
+}
+
+.pai{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.setor-pai{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 800px;
+    
+}
+
+.setor-titulo {
+    display: flex;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: left;
+    margin-top: 150px;
+}
 /****************************** TÍTULO/ H1 ********************/
 
 .dash-pai{
