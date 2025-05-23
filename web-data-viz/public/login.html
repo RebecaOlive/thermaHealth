@@ -80,7 +80,7 @@
               </div>
             </div>
 
-            <button class="botao" onclick="login()">Entrar</button>
+            <button class="botao" onclick="entrar()">Entrar</button>
 
             <div id="div_aguardar" class="loading-div">
               <img src="./assets/circle-loading.gif" id="loading-gif">
@@ -169,46 +169,48 @@
 
 </html>
 <script>
-  function login() {
+  function entrar() {
     aguardar();
 
-    var cnpjVar = cnpj_input.value;
+    // var cnpjVar = cnpj_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
 
-    if (cnpjVar == "" || emailVar == "" || senha == "") {
+    if (/*cnpjVar == "" ||*/ emailVar == "" || senhaVar == "") {
       cardErro.style.display = "block"
       mensagem_erro.innerHTML = `É necessário preencher todos os campos!`;
       finalizarAguardar();
       return false;
 
-    } else if (cnpjVar.length < 14 || cnpjVar.length > 14) {/*----------------------------CNPJ-----------------------------*/
-      cardErro.style.display = "block"
-      mensagem_erro.innerHTML = `Número de CNPJ deve conter 14 digitos!`;
-      finalizarAguardar();
-      return false;
+    }//  else if (cnpjVar.length < 14 || cnpjVar.length > 14) {/*----------------------------CNPJ-----------------------------*/
+    //   cardErro.style.display = "block"
+    //   mensagem_erro.innerHTML = `Número de CNPJ deve conter 14 digitos!`;
+    //   finalizarAguardar();
+    //   return false;
 
-    } else if (cnpjVar.indexOf('a') !== -1 || cnpjVar.indexOf('b') !== -1 || cnpjVar.indexOf('c') !== -1 || cnpjVar.indexOf('d') !== -1 ||
-      cnpjVar.indexOf('e') !== -1 || cnpjVar.indexOf('f') !== -1 || cnpjVar.indexOf('g') !== -1 || cnpjVar.indexOf('h') !== -1 ||
-      cnpjVar.indexOf('i') !== -1 || cnpjVar.indexOf('j') !== -1 || cnpjVar.indexOf('k') !== -1 || cnpjVar.indexOf('l') !== -1 ||
-      cnpjVar.indexOf('m') !== -1 || cnpjVar.indexOf('n') !== -1 || cnpjVar.indexOf('o') !== -1 || cnpjVar.indexOf('p') !== -1 ||
-      cnpjVar.indexOf('q') !== -1 || cnpjVar.indexOf('r') !== -1 || cnpjVar.indexOf('s') !== -1 || cnpjVar.indexOf('t') !== -1 ||
-      cnpjVar.indexOf('u') !== -1 || cnpjVar.indexOf('v') !== -1 || cnpjVar.indexOf('w') !== -1 || cnpjVar.indexOf('x') !== -1 ||
-      cnpjVar.indexOf('y') !== -1 || cnpjVar.indexOf('z') !== -1 ||
+    // } 
+    // else if (cnpjVar.indexOf('a') !== -1 || cnpjVar.indexOf('b') !== -1 || cnpjVar.indexOf('c') !== -1 || cnpjVar.indexOf('d') !== -1 ||
+    //   cnpjVar.indexOf('e') !== -1 || cnpjVar.indexOf('f') !== -1 || cnpjVar.indexOf('g') !== -1 || cnpjVar.indexOf('h') !== -1 ||
+    //   cnpjVar.indexOf('i') !== -1 || cnpjVar.indexOf('j') !== -1 || cnpjVar.indexOf('k') !== -1 || cnpjVar.indexOf('l') !== -1 ||
+    //   cnpjVar.indexOf('m') !== -1 || cnpjVar.indexOf('n') !== -1 || cnpjVar.indexOf('o') !== -1 || cnpjVar.indexOf('p') !== -1 ||
+    //   cnpjVar.indexOf('q') !== -1 || cnpjVar.indexOf('r') !== -1 || cnpjVar.indexOf('s') !== -1 || cnpjVar.indexOf('t') !== -1 ||
+    //   cnpjVar.indexOf('u') !== -1 || cnpjVar.indexOf('v') !== -1 || cnpjVar.indexOf('w') !== -1 || cnpjVar.indexOf('x') !== -1 ||
+    //   cnpjVar.indexOf('y') !== -1 || cnpjVar.indexOf('z') !== -1 ||
 
-      cnpjVar.indexOf('A') !== -1 || cnpjVar.indexOf('B') !== -1 || cnpjVar.indexOf('C') !== -1 || cnpjVar.indexOf('D') !== -1 ||
-      cnpjVar.indexOf('E') !== -1 || cnpjVar.indexOf('F') !== -1 || cnpjVar.indexOf('G') !== -1 || cnpjVar.indexOf('H') !== -1 ||
-      cnpjVar.indexOf('I') !== -1 || cnpjVar.indexOf('J') !== -1 || cnpjVar.indexOf('K') !== -1 || cnpjVar.indexOf('L') !== -1 ||
-      cnpjVar.indexOf('M') !== -1 || cnpjVar.indexOf('N') !== -1 || cnpjVar.indexOf('O') !== -1 || cnpjVar.indexOf('P') !== -1 ||
-      cnpjVar.indexOf('Q') !== -1 || cnpjVar.indexOf('R') !== -1 || cnpjVar.indexOf('S') !== -1 || cnpjVar.indexOf('T') !== -1 ||
-      cnpjVar.indexOf('U') !== -1 || cnpjVar.indexOf('V') !== -1 || cnpjVar.indexOf('W') !== -1 || cnpjVar.indexOf('X') !== -1 ||
-      cnpjVar.indexOf('Y') !== -1 || cnpjVar.indexOf('Z') !== -1) {
-      cardErro.style.display = "block"
-      mensagem_erro.innerHTML = `Número de CNPJ não deve receber caracteres alfabéticos!`;
-      finalizarAguardar();
-      return false;
+    //   cnpjVar.indexOf('A') !== -1 || cnpjVar.indexOf('B') !== -1 || cnpjVar.indexOf('C') !== -1 || cnpjVar.indexOf('D') !== -1 ||
+    //   cnpjVar.indexOf('E') !== -1 || cnpjVar.indexOf('F') !== -1 || cnpjVar.indexOf('G') !== -1 || cnpjVar.indexOf('H') !== -1 ||
+    //   cnpjVar.indexOf('I') !== -1 || cnpjVar.indexOf('J') !== -1 || cnpjVar.indexOf('K') !== -1 || cnpjVar.indexOf('L') !== -1 ||
+    //   cnpjVar.indexOf('M') !== -1 || cnpjVar.indexOf('N') !== -1 || cnpjVar.indexOf('O') !== -1 || cnpjVar.indexOf('P') !== -1 ||
+    //   cnpjVar.indexOf('Q') !== -1 || cnpjVar.indexOf('R') !== -1 || cnpjVar.indexOf('S') !== -1 || cnpjVar.indexOf('T') !== -1 ||
+    //   cnpjVar.indexOf('U') !== -1 || cnpjVar.indexOf('V') !== -1 || cnpjVar.indexOf('W') !== -1 || cnpjVar.indexOf('X') !== -1 ||
+    //   cnpjVar.indexOf('Y') !== -1 || cnpjVar.indexOf('Z') !== -1) {
+    //   cardErro.style.display = "block"
+    //   mensagem_erro.innerHTML = `Número de CNPJ não deve receber caracteres alfabéticos!`;
+    //   finalizarAguardar();
+    //   return false;
 
-    } else if (emailVar.indexOf(`@`) <= 0 || !emailVar.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
+    // }
+    else if (emailVar.indexOf(`@`) <= 0 || !emailVar.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
       cardErro.style.display = "block"
       mensagem_erro.innerHTML = `É necessário inserir e-mail valido!`;
       finalizarAguardar();
@@ -228,58 +230,59 @@
       setInterval(sumirMensagem, 5000)
     }
 
+    // console.log("FORM LOGIN: ", cnpjVar);
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
-  
+
     fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // cnpjServer: cnpjVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        // cnpjServer: cnpjVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!")
 
-            if (resposta.ok) {
-                console.log(resposta);
+      if (resposta.ok) {
+        console.log(resposta);
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          sessionStorage.EMAIL_USUARIO = json.email;
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.ID_USUARIO = json.id;
+          sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
-                    setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
+          setTimeout(function () {
+            window.location = "./dashboard/cards.html";
+          }, 1000); // apenas para exibir o loading
 
-                });
+        });
 
-            } else {
+      } else {
 
-                console.log("Houve um erro ao tentar realizar o login!");
+        console.log("Houve um erro ao tentar realizar o login!");
 
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
+        resposta.text().then(texto => {
+          console.error(texto);
+          finalizarAguardar(texto);
+        });
+      }
 
-        }).catch(function (erro) {
-            console.log(erro);
-        })
+    }).catch(function (erro) {
+      console.log(erro);
+    })
 
-        return false;
-    }
+    return false;
+  }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+  function sumirMensagem() {
+    cardErro.style.display = "none"
+  }
 
 </script>
