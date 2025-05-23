@@ -1,0 +1,341 @@
+/****************************** CONFIGURAÇÕES PADRÃO ********************/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto';
+    background-color: rgb(255, 255, 255);
+}
+/****************************** TÍTULO/ H1 ********************/
+
+.dash-pai{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    margin-top: 90px;
+}
+
+.dash-titulo{
+    margin-top: 150px;
+}
+
+.dash-titulo h1{
+    font-size: 50px;
+    font-weight: bolder;
+    font-family: 'Roboto';
+    margin: 60px 0 5px 130px;
+}
+
+/****************************** CONTAINER PAI ********************/
+
+
+.dash-container{
+    display: flex;
+    flex-direction: column;
+    width: 82%;
+    height: auto;
+    margin: 1px auto;
+    margin-top: 50px;
+    background-color: rgba(167, 167, 167, 0.244);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(104, 104, 104, 0.842);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.548);
+    border-radius: 10px;
+}
+
+/****************************** SELECTS ********************/
+
+
+.dash-select{
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.dash-select select{
+    width: 100%;
+    height: 70px;
+    border: 1px solid rgba(104, 104, 104, 0.842);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.516);
+    border-radius: 5px;
+    margin: 20px 25px 1px 25px;
+    font-size: 20px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.dash-select select:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+/************************ INDICADORES ******************/
+
+.dash-indicadores{
+    display: flex;
+    width: 100%;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+}
+
+.kpi-esquerdo,
+.kpi-central,
+.kpi-direito{
+    display: flex;
+    width: 31%;
+    height: 250px;
+    margin: 8px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.kpi-esquerdo{
+    display: flex;
+    position: relative;
+    flex-direction: column; 
+    gap: 15px; 
+    background-color: #f5f5f5;
+    border: 1px solid rgba(104, 104, 104, 0.842);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.548);
+    border-radius: 10px;
+}
+
+.paramentros-icone h1 {
+    position: absolute;
+    font-size: 30px;
+    text-align: center;
+    top: 100px;
+    left: 50px;
+}
+.texto-indicadores h3 {
+    position: absolute;
+    width: 180px;
+    font-size: 20px;
+    top: 70px;
+    right: 70px;
+}
+
+.num-salas {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
+
+.num-salas h1 {
+    margin: 0;
+    padding: 6px 12px;
+    background-color: #6c91c2;
+    color: white;
+    font-size: 22px;
+    border-radius: 6px;
+}
+
+.kpi-central{
+    display: flex;
+    position: relative;
+    border: 1px solid rgba(104, 104, 104, 0.842);
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.895);
+}
+
+.texto-temp{
+    position: absolute;
+    width: 170px;
+    top: 50px;
+    right: 75px;
+}
+
+.icone-temp{
+    position: absolute;
+    top: 100px;
+    left: 50px;
+}
+
+.temp{
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    font-size: 30px;
+    color: red;
+}
+
+.temp-ideal{
+    position: absolute;
+    top: 185px;
+    left: 120px;
+}
+
+.temp-ideal h3{
+    font-weight: lighter;
+}
+
+.kpi-direito{
+    position: relative;
+    display: flex;
+    border: 1px solid rgba(104, 104, 104, 0.842);
+    box-shadow: 0 4px 20px rgba(8, 24, 244, 0.893);
+}
+
+.texto-umi{
+    position: absolute;
+    width: 170px;
+    top: 50px;
+    right: 75px;
+}
+
+.icone-umi{
+    position: absolute;
+    top: 100px;
+    left: 50px;
+}
+
+.umi{
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    font-size: 30px;
+    color: blue;
+}
+
+.umi-ideal{
+    position: absolute;
+    top: 185px;
+    left: 120px;
+}
+
+.umi-ideal h3{
+    font-weight: lighter;
+}
+
+.kpi-esquerdo:hover,
+.kpi-central:hover,
+.kpi-direito:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.kpi-esquerdo:active,
+.kpi-central:active,
+.kpi-direito:active{
+    transform: scale(1);
+}
+
+/******************************** MENU LATERAL **************************/
+
+.menu-lateral{
+    background-color: rgba(122, 118, 192, 0.162);
+    width: 28%;
+    height: auto;
+    border-radius: 10px;
+    margin-left: 26px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.587);
+}
+
+.setor{
+    display: flex;
+    width: 95%;
+    height: 100px;
+    border-radius: 10px;
+    margin: 10px auto;
+    background-color: rgba(108, 102, 192, 0.292);
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
+    transition: all 0.2s ease-in-out;
+}
+
+.setor h1{
+    display: flex;
+    font-size: 25px;
+    font-weight: bold;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.setor:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.setor:active{
+    transform: scale(1);
+}
+
+/********************************** GRAFICO 1 *************************/
+.container-grafico{
+  display: flex;
+  width: 100%;
+  gap: 20px; 
+  align-items: flex-start; 
+}
+
+.dash-grafico-1{
+    display: flex;
+    width: 64%;
+    height: 420px;
+    margin: 10px auto;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.737);
+}
+
+.dash-grafico-1 h1{
+    color: antiquewhite;
+}
+
+/******************************** SENSORES *****************************/
+
+.container-sensor{
+    display: flex;
+    width: 65%;
+    height: 250px;
+    margin: 25px;
+    margin-left: auto;
+    border-radius: 10px;
+    gap: 15px;
+}
+
+.sensor {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 33%;
+    height: 240px; 
+    background-color: rgba(108, 102, 192, 0.292);
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
+    border-radius: 10px;
+    margin: 15px auto;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.sensor h3{
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.sensor h4{
+    font-size: 20px;
+}
+
+.sensor:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+/***************************************** GRÁFICO 2 **************************/
+
+.dash-grafico-2{
+    display: flex;
+    width: 64%;
+    height: 420px;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.918);
+    justify-content: space-between;
+    margin: 25px;
+    margin-left: 410px;
+    color: white;
+}

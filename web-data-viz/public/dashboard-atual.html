@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therma Health - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/cabecalho.css">
+    <link rel="stylesheet" type="text/css" href="css/dash-style.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
+    <nav class="menu">
+        <div class="logo">
+            <img src="assets/Logo ThermaHealth.png">
+        </div>
+
+        <div class="menu-links">
+
+            <a href="./index-logado.html#home" class="menu-opcoes">Home</a>
+            <a href="./index-logado.html#quem-somos" class="menu-opcoes">Sobre nós</a>
+            <a href="./index-logado.html#equipe" class="menu-opcoes">Equipe</a>
+            <a href="./index-logado.html#servicos" class="menu-opcoes">Serviços</a>
+
+            <div class="menu-links-direita">
+                <a href="#" class="menu-opcoes">Help desk</a>
+                <span class="menu-barra">|</span>
+                <div class="menu-perfil">
+                    <a id="ancora-nome">Olá, Cláudia</a><br>
+                    <a href="./login.html" id="ancora-sair">Sair</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+<!------------------------------------------------------- DASHBOARD ------------>
+    <div class="dash">
+        <div class="dash-titulo">
+            <h1>Monitoramento de Salas</h1>
+        </div>
+    </div>
+
+    <div class="dash-container">
+        <div class="dash-select">
+            <select name="Unidades" id="#">
+                <option value="">Unidade de atendimento imediato</option>
+                <option value="">Internação</option>
+                <option value="">Unidade de queimados</option>
+                <option value="">Centro cirúrgico</option>
+                <option value="">Central de material esterilizado</option>
+                <option value="">Diagnóstico e Terapia</option>
+                <option value="">Apoio Técnico/ Apoio Logístico</option>
+                <option value="">Ambientes Diversos</option>
+            </select>
+        </div>
+
+        <div class="dash-indicadores">
+            <div class="kpi-esquerdo">
+                <div class="paramentros-icone">
+                    <h1>*</h1>
+                </div>
+                <div class="texto-indicadores">
+                    <h3>Total de salas fora dos parâmetros ideais: --</h3>
+                </div>
+                <div class="num-salas">
+                    <h1>--/--</h1>
+                </div>
+
+            </div>
+            <div class="kpi-central">
+                <div class="texto-temp">
+                    <h3>Temperatura atual na sala</h3>
+                </div>
+                <div class="icone-temp">
+                    <h1>*</h1>
+                </div>
+                <div class="temp">
+                    <h1>-- °C</h1>
+                </div>
+                <div class="temp-ideal">
+                    <h3>Ideal: 22°C - 24°C</h3>
+                </div>
+            </div>
+            <div class="kpi-direito">
+                <div class="texto-umi">
+                    <h3>Umidade atual na sala</h3>
+                </div>
+                <div class="icone-umi">
+                    <h1>*</h1>
+                </div>
+                <div class="umi">
+                    <h1>--%</h1>
+                </div>
+                <div class="umi-ideal">
+                    <h3>Ideal: 30% - 60%</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-grafico">
+
+            <div class="menu-lateral">
+                <div class="setor">
+                    <h1>Higienização</h1>
+                </div>
+                <div class="setor">
+                    <h1>Triagem</h1>
+                </div>
+                <div class="setor">
+                    <h1>Inalação</h1>
+                </div>
+                <div class="setor">
+                    <h1>Emergência</h1>
+                </div>
+
+            </div>
+
+            <div class="dash-grafico-1">
+
+                <h1>GRÁFICO 1</h1>
+
+
+            </div>
+
+        </div>
+
+        <div class="container-sensor">
+
+            <div class="sensor">
+                <h3>Sensor 1</h3>
+                <br><br>
+                <h4>Temperatura: --</h4>
+                <br>
+                <h4>Umidade: --</h4>
+            </div>
+
+            <div class="sensor">
+                <h3>Sensor 2</h3>
+                <br><br>
+                <h4>Temperatura: --</h4>
+                <br>
+                <h4>Umidade: --</h4>
+            </div>
+
+            <div class="sensor">
+                <h3>Sensor 3</h3>
+                <br><br>
+                <h4>Temperatura: --</h4>
+                <br>
+                <h4>Umidade: --</h4>
+            </div>
+
+        </div>
+
+        <div class="dash-grafico-2">
+            <h1>GRÁFICO 2</h1>
+        </div>
+
+    </div>
+    <br><br><br>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <img class="logo2" src="assets/Logo ThermaHealth.png" alt="Logo ThermaHealth">
+                <h2>Integrando tecnologia à saúde</h2>
+            </div>
+
+            <div class="footer-servicos">
+                <h2>Serviços</h2>
+                <br><br>
+                <h3>Análise</h3>
+                <h3>Monitoramento</h3>
+                <h3>Notificações</h3>
+            </div>
+
+            <div class="footer-empresa">
+                <h2>Empresa</h2>
+                <br><br>
+                <h3>Sobre nós</h3>
+                <h3>Equipe</h3>
+            </div>
+
+            <div class="footer-contato">
+                <h2>Contate-nos</h2>
+                <br><br>
+                <div class="contato-item">
+                    <img src="assets/o-email.png" alt="Ícone do e-mail">
+                    <span>contato@thermahealth.com</span>
+                </div>
+                <div class="contato-item">
+                    <img src="assets/phone-call.png" alt="Ícone do telefone">
+                    <span>(11) 12345-6789</span>
+                </div>
+
+            </div>
+
+
+        </div>
+        <hr>
+    </footer>
+    <footer class="footer2">
+        <div class="footer-container">
+            <p>Copyright © 2025 ThermaHealth</p>
+            <nav>
+                <a href="#">Todos os direitos reservados</a><span>|</span>
+                <a href="#">Política de Privacidade</a><span>|</span>
+                <a href="#">Termos e Condições</a>
+            </nav>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
