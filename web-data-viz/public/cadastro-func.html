@@ -25,16 +25,14 @@
 
     <div class="menu-links">
 
-      <a href="index.html#home" class="menu-opcoes">Home</a>
-      <a href="index.html#quem-somos" class="menu-opcoes">Sobre nós</a>
-      <a href="index.html#equipe" class="menu-opcoes">Equipe</a>
-      <a href="index.html#servicos" class="menu-opcoes">Serviços</a>
-
       <div class="menu-links-direita">
-        <a href="./calculadora.html" class="menu-opcoes">Simulador</a>
+        <a href="./dashboard-atual.html" class="menu-opcoes">Dashboard</a>
+                <a href="#" class="menu-opcoes">Help Desk</a>
         <span class="menu-barra">|</span>
-        <a href="./login.html" class="menu-opcoes-servico">Login</a>
-        <a href="./cadastro.html" class="menu-cadastro">Cadastro</a>
+        <div class="menu-perfil">
+            <a id="ancora-nome">Olá, Cláudia</a><br>
+            <a href="./login.html" id="ancora-sair">Sair</a>
+        </div>
       </div>
 
     </div>
@@ -48,21 +46,22 @@
   <div class="div_5050">
     <div class="div_esquerdaCadastro">
       <div class="div_formulario">
-        <h1 class="azul">Cadastre sua instituição!</h1>
+    
+        <h1 class="azul">Cadastro de funcionário</h1>
         <div class="card card-cadastro">
 
           <div class="formulario">
 
             <div class="campo">
-              <span>Insira o CNPJ da instituição <span class="azul">*</span></span>
+              <span>Insira o CPF do funcionário<span class="azul">*</span></span>
               <div class="organiza-campo">
-                <input id="cnpj_input" type="number" placeholder="xx.xxx.xxx/xxxx-xx" />
+                <input id="cnpj_input" type="number" placeholder="xxx.xxx.xxx-xx" />
                 <img class="icon" src="assets/Tela de Cadastro/id-card-icon.png" alt="" srcset="">
               </div>
             </div>
 
             <div class="campo">
-              <span>Nome do representante<span class="azul">*</span></span>
+              <span>Nome do funcionário<span class="azul">*</span></span>
               <div class="organiza-campo">
                 <input id="nome_input" type="text" placeholder="Nome completo" />
                 <img class="icon" src="assets/Tela de Cadastro/user-icon.png" alt="" srcset="">
@@ -70,9 +69,9 @@
             </div>
 
             <div class="campo">
-              <span>E-mail do representante<span class="azul">*</span></span>
+              <span>E-mail do funcionário<span class="azul">*</span></span>
               <div class="organiza-campo">
-                <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+                <input id="email_input" type="text" placeholder="EmailFuncionário@email.com" />
                 <img class="icon" src="assets/Tela de Cadastro/email-icon.png" alt="" srcset="">
               </div>
 
@@ -114,7 +113,8 @@
         <img src="assets/Tela de Cadastro/Background-Cadastro.png" alt="">
       </div>
       <div class="texto-d">
-        Integrando<br> tecnologia à <br><span style="color: #007bff;">saúde</span>
+        Profissionais<br>que transformam a <br><span style="color: #007bff;">saúde</span>
+        com <span style="color: #007bff;">tecnologia</span> e paixão pelo cuidado.
       </div>
     </div>
   </div>
@@ -182,45 +182,45 @@
   let listaEmpresasCadastradas = [];
 
   function cadastrar() {
-    var cnpjVar = cnpj_input.value;
+    var cpfVar = cpf_input.value;
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var idEmpresaVincular
+    var idEmpresaVincular;
 
-    if (cnpjVar == "" || nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-
+  if (
+      cpfVar == "" || nomeVar == "" || emailVar == "" ||
+      senhaVar == "" || confirmacaoSenhaVar == ""
+  ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = `É necessário preencher todos os campos!`;
       finalizarAguardar();
       return false;
 
-    } else if (cnpjVar.length < 14 || cnpjVar.length > 14) {/*----------------------------CNPJ-----------------------------*/
-
+  } else if (cpfVar.length !== 11) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML = `Número de CNPJ deve conter 14 digitos!`;
+      mensagem_erro.innerHTML = `Número de CPF deve conter 11 dígitos!`;
       finalizarAguardar();
       return false;
 
-    } else if (cpfVar.indexOf('a') !== -1 || cpfVar.indexOf('b') !== -1 || cpfVar.indexOf('c') !== -1 || cpfVar.indexOf('d') !== -1 ||
-  cpfVar.indexOf('e') !== -1 || cpfVar.indexOf('f') !== -1 || cpfVar.indexOf('g') !== -1 || cpfVar.indexOf('h') !== -1 ||
-  cpfVar.indexOf('i') !== -1 || cpfVar.indexOf('j') !== -1 || cpfVar.indexOf('k') !== -1 || cpfVar.indexOf('l') !== -1 ||
-  cpfVar.indexOf('m') !== -1 || cpfVar.indexOf('n') !== -1 || cpfVar.indexOf('o') !== -1 || cpfVar.indexOf('p') !== -1 ||
-  cpfVar.indexOf('q') !== -1 || cpfVar.indexOf('r') !== -1 || cpfVar.indexOf('s') !== -1 || cpfVar.indexOf('t') !== -1 ||
-  cpfVar.indexOf('u') !== -1 || cpfVar.indexOf('v') !== -1 || cpfVar.indexOf('w') !== -1 || cpfVar.indexOf('x') !== -1 ||
-  cpfVar.indexOf('y') !== -1 || cpfVar.indexOf('z') !== -1 ||
+  } else if (cnpjVar.indexOf('a') !== -1 || cnpjVar.indexOf('b') !== -1 || cnpjVar.indexOf('c') !== -1 || cnpjVar.indexOf('d') !== -1 ||
+      cnpjVar.indexOf('e') !== -1 || cnpjVar.indexOf('f') !== -1 || cnpjVar.indexOf('g') !== -1 || cnpjVar.indexOf('h') !== -1 ||
+      cnpjVar.indexOf('i') !== -1 || cnpjVar.indexOf('j') !== -1 || cnpjVar.indexOf('k') !== -1 || cnpjVar.indexOf('l') !== -1 ||
+      cnpjVar.indexOf('m') !== -1 || cnpjVar.indexOf('n') !== -1 || cnpjVar.indexOf('o') !== -1 || cnpjVar.indexOf('p') !== -1 ||
+      cnpjVar.indexOf('q') !== -1 || cnpjVar.indexOf('r') !== -1 || cnpjVar.indexOf('s') !== -1 || cnpjVar.indexOf('t') !== -1 ||
+      cnpjVar.indexOf('u') !== -1 || cnpjVar.indexOf('v') !== -1 || cnpjVar.indexOf('w') !== -1 || cnpjVar.indexOf('x') !== -1 ||
+      cnpjVar.indexOf('y') !== -1 || cnpjVar.indexOf('z') !== -1 ||
 
-  cpfVar.indexOf('A') !== -1 || cpfVar.indexOf('B') !== -1 || cpfVar.indexOf('C') !== -1 || cpfVar.indexOf('D') !== -1 ||
-  cpfVar.indexOf('E') !== -1 || cpfVar.indexOf('F') !== -1 || cpfVar.indexOf('G') !== -1 || cpfVar.indexOf('H') !== -1 ||
-  cpfVar.indexOf('I') !== -1 || cpfVar.indexOf('J') !== -1 || cpfVar.indexOf('K') !== -1 || cpfVar.indexOf('L') !== -1 ||
-  cpfVar.indexOf('M') !== -1 || cpfVar.indexOf('N') !== -1 || cpfVar.indexOf('O') !== -1 || cpfVar.indexOf('P') !== -1 ||
-  cpfVar.indexOf('Q') !== -1 || cpfVar.indexOf('R') !== -1 || cpfVar.indexOf('S') !== -1 || cpfVar.indexOf('T') !== -1 ||
-  cpfVar.indexOf('U') !== -1 || cpfVar.indexOf('V') !== -1 || cpfVar.indexOf('W') !== -1 || cpfVar.indexOf('X') !== -1 ||
-  cpfVar.indexOf('Y') !== -1 || cpfVar.indexOf('Z') !== -1) {
-
+      cnpjVar.indexOf('A') !== -1 || cnpjVar.indexOf('B') !== -1 || cnpjVar.indexOf('C') !== -1 || cnpjVar.indexOf('D') !== -1 ||
+      cnpjVar.indexOf('E') !== -1 || cnpjVar.indexOf('F') !== -1 || cnpjVar.indexOf('G') !== -1 || cnpjVar.indexOf('H') !== -1 ||
+      cnpjVar.indexOf('I') !== -1 || cnpjVar.indexOf('J') !== -1 || cnpjVar.indexOf('K') !== -1 || cnpjVar.indexOf('L') !== -1 ||
+      cnpjVar.indexOf('M') !== -1 || cnpjVar.indexOf('N') !== -1 || cnpjVar.indexOf('O') !== -1 || cnpjVar.indexOf('P') !== -1 ||
+      cnpjVar.indexOf('Q') !== -1 || cnpjVar.indexOf('R') !== -1 || cnpjVar.indexOf('S') !== -1 || cnpjVar.indexOf('T') !== -1 ||
+      cnpjVar.indexOf('U') !== -1 || cnpjVar.indexOf('V') !== -1 || cnpjVar.indexOf('W') !== -1 || cnpjVar.indexOf('X') !== -1 ||
+      cnpjVar.indexOf('Y') !== -1 || cnpjVar.indexOf('Z') !== -1) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML = `Número de CNPJ não deve receber caracteres alfabéticos!`;
+      mensagem_erro.innerHTML = `Número de CPF deve conter apenas números, sem letras ou caracteres especiais!`;
       finalizarAguardar();
       return false;
 

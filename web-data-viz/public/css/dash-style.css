@@ -11,6 +11,18 @@ body{
     background-color: rgb(255, 255, 255);
 }
 
+/********************* CADASTRAR FUNCIONARIO BTN **********************/
+
+.blue{
+    border-radius: 5px;
+    color: white;
+    background-color: #1774DE;
+}
+
+.blue:hover{
+    color: black;
+}
+
 /***************************************** PÁGINA DE SETORES ***************************/
 .menu-dash{
     margin-right: 600px;
@@ -58,7 +70,7 @@ body{
 }
 
 .dash-titulo{
-    margin-top: 150px;
+    margin-top: 130px;
 }
 
 .dash-titulo h1{
@@ -74,88 +86,131 @@ body{
 .dash-container{
     display: flex;
     flex-direction: column;
-    width: 82%;
+    width: 85%;
     height: auto;
     margin: 1px auto;
-    margin-top: 50px;
+    margin-top: 20px;
     background-color: rgba(167, 167, 167, 0.244);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(104, 104, 104, 0.842);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.548);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.495);
     border-radius: 10px;
 }
 
-/****************************** SELECTS ********************/
+
+/************************ NAVEGAÇÃO/ KPIS/ SETORES ******************/
 
 
-.dash-select{
+.dash-principal{
     display: flex;
     width: 100%;
+    height: 490px;
+}
+
+/*************************** LADO ESQUERDO - SETORES *******************************/
+
+.dash-salas{
+    display: block;
+    background-color: #c7dffa;
+    border-radius: 7px;
+    width: 25%;
     height: auto;
+    overflow: auto;
+    margin: 15px 0px 10px 10px;
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
 }
 
-.dash-select select{
-    width: 100%;
-    height: 70px;
-    border: 1px solid rgba(104, 104, 104, 0.842);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.516);
-    border-radius: 5px;
-    margin: 20px 25px 1px 25px;
-    font-size: 20px;
-    text-align: center;
-    transition: all 0.2s ease-in-out;
-}
-
-.dash-select select:hover{
-    cursor: pointer;
-    transform: scale(1.01);
-}
-
-/************************ INDICADORES ******************/
-
-.dash-indicadores{
+.dash-salas div h4{
+    background-color: #1774DE;
+    color: white;
+    font-weight: lighter;
+    font-size: 25px;
     display: flex;
-    width: 100%;
-    height: 300px;
-    align-items: center;
+    height: 35px;
     justify-content: center;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #0077ff;
 }
 
-.kpi-esquerdo,
-.kpi-central,
-.kpi-direito{
+.sala-nome{
     display: flex;
-    width: 31%;
-    height: 250px;
-    margin: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 85px;
+    margin: 18px auto;
+    background-color: #a3cdfc;
     border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
     transition: all 0.2s ease-in-out;
 }
 
-.kpi-esquerdo{
-    display: flex;
-    position: relative;
-    flex-direction: column; 
-    gap: 15px; 
-    background-color: #f5f5f5;
-    border: 1px solid rgba(104, 104, 104, 0.842);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.548);
-    border-radius: 10px;
+.sala-nome:hover{
+    background-color: white;
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
-.paramentros-icone h1 {
-    position: absolute;
-    font-size: 30px;
-    text-align: center;
-    top: 100px;
-    left: 50px;
+.sala-nome:active{
+    transform: scale(1);
 }
-.texto-indicadores h3 {
+
+/*************************** LADO DIREITO *******************************/
+
+.principal-direito{
+    width: 80%;
+    height: 480px;
+    margin: 10px 5px 0 5px;
+    
+}
+
+/*************************** KPIS *******************************/
+
+.principal-kpis{
+    display: flex;
+    width: 100%;
+    height: 240px;
+}
+
+.kpis{
+    position: relative;
+    display: flex;
+    width: 33%;
+    height: 230px;
+    margin: 5px;
+    border: 1px solid #a3cdfc;
+    border-radius: 7px;
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.kpis:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.icone-emergencia{
+    width: 35px;
+    height: 35px;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+
+.texto-salas{
     position: absolute;
-    width: 180px;
+    width: 150px;
     font-size: 20px;
-    top: 70px;
-    right: 70px;
+    font-weight: 100;
+    top: 30px;
+    right: 30px;
+    text-align: right;
+}
+
+.texto-salas h3{
+    font-weight: 500;
 }
 
 .num-salas {
@@ -167,213 +222,214 @@ body{
 .num-salas h1 {
     margin: 0;
     padding: 6px 12px;
-    background-color: #6c91c2;
-    color: white;
+    background-color: #B6D8FF;
     font-size: 22px;
+    font-weight: lighter;
     border-radius: 6px;
 }
 
-.kpi-central{
-    display: flex;
-    position: relative;
-    border: 1px solid rgba(104, 104, 104, 0.842);
-    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.895);
-}
-
-.texto-temp{
-    position: absolute;
-    width: 170px;
-    top: 50px;
-    right: 75px;
-}
-
-.icone-temp{
-    position: absolute;
-    top: 100px;
-    left: 50px;
-}
-
-.temp{
-    position: absolute;
-    top: 100px;
-    left: 150px;
+.icone-sensor img{
+    width: 70px;
+    height: 65px;
     font-size: 30px;
-    color: red;
+    margin-top: 30px;
+    margin-left: 20px;
 }
 
-.temp-ideal{
+.texto-sensores{
     position: absolute;
-    top: 185px;
-    left: 120px;
-}
-
-.temp-ideal h3{
+    width: 180px;
+    font-size: 20px;
     font-weight: lighter;
+    top: 30px;
+    right: 30px;
+    text-align: right;
 }
 
-.kpi-direito{
-    position: relative;
+.texto-sensores h3{
+    font-weight: 500;
+}
+
+.block{
+    display: block;
+}
+
+.parametros-titulo{
+    width: 100%;
+    height: 50px;
+}
+
+.parametros-titulo h1{
     display: flex;
-    border: 1px solid rgba(104, 104, 104, 0.842);
-    box-shadow: 0 4px 20px rgba(8, 24, 244, 0.893);
+    justify-content: center;
+    margin-top: 5px;
 }
 
-.texto-umi{
-    position: absolute;
-    width: 170px;
-    top: 50px;
-    right: 75px;
-}
-
-.icone-umi{
-    position: absolute;
-    top: 100px;
-    left: 50px;
-}
-
-.umi{
-    position: absolute;
-    top: 100px;
-    left: 150px;
-    font-size: 30px;
-    color: blue;
-}
-
-.umi-ideal{
-    position: absolute;
-    top: 185px;
-    left: 120px;
-}
-
-.umi-ideal h3{
-    font-weight: lighter;
-}
-
-.kpi-esquerdo:hover,
-.kpi-central:hover,
-.kpi-direito:hover{
-    cursor: pointer;
-    transform: scale(1.03);
-}
-
-.kpi-esquerdo:active,
-.kpi-central:active,
-.kpi-direito:active{
-    transform: scale(1);
-}
-
-/******************************** MENU LATERAL **************************/
-
-.menu-lateral{
-    background-color: rgba(122, 118, 192, 0.162);
-    width: 28%;
-    height: auto;
-    border-radius: 10px;
-    margin-left: 26px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.587);
-}
-
-.setor{
+.temperatura-ideal{
     display: flex;
-    width: 95%;
-    height: 100px;
-    border-radius: 10px;
-    margin: 10px auto;
-    background-color: rgba(108, 102, 192, 0.292);
-    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
-    transition: all 0.2s ease-in-out;
 }
 
-.setor h1{
+.icone-temp-ideal img{
+    width: 35px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 35px;
+}
+
+.texto-temp-ideal{
     display: flex;
-    font-size: 25px;
-    font-weight: bold;
-    align-items: center;
-    margin: 10px auto;
+    width: 100%;
+    font-size: 40px;
+    margin-top: 15px;
+    margin-left: 30px;
 }
 
-.setor:hover{
-    cursor: pointer;
-    transform: scale(1.03);
-}
-
-.setor:active{
-    transform: scale(1);
-}
-
-/********************************** GRAFICO 1 *************************/
-.container-grafico{
-  display: flex;
-  width: 100%;
-  gap: 20px; 
-  align-items: flex-start; 
-}
-
-.dash-grafico-1{
+.umidade-ideal{
     display: flex;
-    width: 64%;
-    height: 420px;
-    margin: 10px auto;
-    background-color: black;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.737);
+    width: 100%;
 }
 
-.dash-grafico-1 h1{
-    color: antiquewhite;
+.icone-umi-ideal img{
+    width: 50px;
+    height: 50px;
+    margin-top: 7px;
+    margin-left: 30px;
 }
 
-/******************************** SENSORES *****************************/
-
-.container-sensor{
+.texto-umi-ideal{
     display: flex;
-    width: 65%;
-    height: 250px;
-    margin: 25px;
-    margin-left: auto;
-    border-radius: 10px;
-    gap: 15px;
+    width: 100%;
+    font-size: 40px;
+    margin-top: 15px;
+    margin-left: 20px;
 }
 
-.sensor {
+/*************************** SENSORES *******************************/
+
+.principal-sensores{
+    display: flex;
+    width: 100%;
+    height: 240px;
+}
+
+
+.sensores{
     display: flex;
     flex-direction: column; 
-    align-items: center; 
     width: 33%;
-    height: 240px; 
-    background-color: rgba(108, 102, 192, 0.292);
+    height: 230px;
+    margin: 5px;
+    border: 1px solid #a3cdfc;
+    border-radius: 7px;
+    background-color: #DCEAFA;
     box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
-    border-radius: 10px;
-    margin: 15px auto;
-    padding: 10px;
     transition: all 0.2s ease-in-out;
 }
 
-.sensor h3{
-    font-size: 25px;
-    margin-top: 15px;
+.sensor-titulo{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+    border-bottom: 1px solid black;
 }
 
-.sensor h4{
+.sensor-titulo p{
+    margin: 5px 0 0 0;
     font-size: 20px;
 }
 
-.sensor:hover{
-    cursor: pointer;
-    transform: scale(1.03);
+
+.sensor-icone-temperatura,
+.sensor-icone-umidade{
+    display: flex;
+    margin-left: 20px;
 }
 
-/***************************************** GRÁFICO 2 **************************/
 
-.dash-grafico-2{
+.medidas{
+    margin-top: 15px;
+}
+
+.medidas h4{
+    font-size: 30px;
+    margin-left: 50px;
+}
+
+.margin{
+    margin-left: 10px;
+}
+
+.sensores:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+
+/***************************************** GRÁFICOS ********************/
+
+.dash-graficos{
     display: flex;
-    width: 64%;
-    height: 420px;
-    background-color: black;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.918);
-    justify-content: space-between;
-    margin: 25px;
-    margin-left: 410px;
+    width: 100%;
+    height: 405px;
+}
+
+.grafico1{
+    width: 48.5%;
+    height: 390px;
+    margin: 5px 5px 10px 10px;
+    border-radius: 7px;
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
+}
+
+.grafico-titulo-temp h4{
+    display: flex;
+    justify-content: center;
+    background-color: #1774DE;
     color: white;
+    font-weight: lighter;
+    font-size: 25px;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #0077ff;
+}
+
+.grafico-temp{
+    display: flex;
+    width: 100%;
+    height: 355px;
+    background-color: #a3cdfc;
+    border-radius: 0 0 5px 5px;
+}
+
+.grafico2{
+    width: 49.3%;
+    height: 390px;
+    margin: 5px 0px 10px 5px;
+    border-radius: 7px;
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
+}
+
+.grafico-titulo-umi h4{
+    display: flex;
+    justify-content: center;
+    background-color: #1774DE;
+    color: white;
+    font-weight: lighter;
+    font-size: 25px;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #0077ff;
+}
+
+.grafico-umi{
+    display: flex;
+    width: 100%;
+    height: 355px;
+    background-color: #a3cdfc;
+    border-radius: 0 0 5px 5px;
 }

@@ -18,13 +18,8 @@
 
         <div class="menu-links">
 
-            <a href="./index-logado.html#home" class="menu-opcoes">Home</a>
-            <a href="./index-logado.html#quem-somos" class="menu-opcoes">Sobre nós</a>
-            <a href="./index-logado.html#equipe" class="menu-opcoes">Equipe</a>
-            <a href="./index-logado.html#servicos" class="menu-opcoes">Serviços</a>
-
             <div class="menu-links-direita">
-                <a href="#" class="menu-opcoes">Help desk</a>
+                <a href="cadastro-func.html" class="menu-opcoes blue">Cadastrar Funcionário</a>
                 <span class="menu-barra">|</span>
                 <div class="menu-perfil">
                     <a id="ancora-nome">Olá, Cláudia</a><br>
@@ -37,128 +32,202 @@
 <!------------------------------------------------------- DASHBOARD ------------>
     <div class="dash">
         <div class="dash-titulo">
-            <h1>Monitoramento de Salas</h1>
+            <h1>"Nome da sala"</h1>
         </div>
     </div>
 
     <div class="dash-container">
-        <div class="dash-select">
-            <select name="Unidades" id="#">
-                <option value="">Unidade de atendimento imediato</option>
-                <option value="">Internação</option>
-                <option value="">Unidade de queimados</option>
-                <option value="">Centro cirúrgico</option>
-                <option value="">Central de material esterilizado</option>
-                <option value="">Diagnóstico e Terapia</option>
-                <option value="">Apoio Técnico/ Apoio Logístico</option>
-                <option value="">Ambientes Diversos</option>
-            </select>
+
+        <div class="dash-principal">
+<!----------------------------------------- SETORES -->
+            <div class="dash-salas">
+                <div>
+                    <h4>Salas do setor</h4>
+                </div>
+                <div class="sala-nome">
+                    <h2>Higienização</h2>
+                </div>
+
+                <div class="sala-nome">
+                    <h2>Triagem</h2>
+                </div>
+
+                <div class="sala-nome">
+                    <h2>Inalação</h2>
+                </div>
+
+                <div class="sala-nome">
+                    <h2>Emergência</h2>
+                </div>
+
+            </div>
+
+<!----------------------------------------- KPIS E SENSORES -->
+            <div class="principal-direito">
+
+                <div class="principal-kpis">
+
+                    <div class="kpis">
+                        <div class="icone-emergencia">
+                            <img src="./assets/icone-emergencia.png" alt="">
+                        </div>
+                        <div class="texto-salas">
+                            <h3>Há " " salas fora dos parâmentros ideais</h3>
+                        </div>
+                        <div class="num-salas">
+                            <h1>--/-- salas</h1>
+                        </div>
+
+                    </div>
+                    <div class="kpis">
+                        <div class="icone-sensor">
+                            <img src="./assets/icone-sensor.png" alt="">
+                        </div>
+                        <div class="texto-sensores">
+                            <h3>Há " " sensores fora dos parâmentros ideais</h3>
+                        </div>
+                        <div class="num-salas">
+                            <h1>--/-- sensores</h1>
+                        </div>
+                    </div>
+                    <div class="kpis block">
+                        <div class="parametros-titulo">
+                            <h1>Parâmentros Ideais</h1>
+                        </div>
+                        
+                        <div class="temperatura-ideal">
+
+                            <div class="icone-temp-ideal">
+                                <img src="./assets/icone-termometro.png" alt="Icone de termômetro">
+                            </div>
+                            <div class="texto-temp-ideal">
+                                <h4>22 - 25°C</h4>
+                            </div>
+
+                        </div>
+                        <div class="umidade-ideal">
+                            <div class="icone-umi-ideal">
+                                <img src="./assets/icone-umidade.png" alt="Icone de umidade">
+                            </div>
+                            <div class="texto-umi-ideal">
+                                <h4>30 - 60 %</h4>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+                </div>
+
+                <div class="principal-sensores">
+
+                    <div class="sensores">
+
+                        <div class="sensor-titulo">
+                            <p>Sensor 1</p>
+                        </div>
+                        <div class="sensor-icone-temperatura">
+                            <div class="icone-temp-ideal">
+                                <img src="./assets/icone-temp-blue.png" alt="ícone de um termometro">
+                            </div>
+                            <div class="medidas margin">
+                                <h4>-- °C</h4>  
+                            </div>
+                        </div>
+                        <div class="sensor-icone-umidade">
+                            <div class="icone-umi-ideal">
+                                <img src="./assets/icone-umidade-blue.png" alt="ícone de umidade">
+                            </div>
+                            <div class="medidas">
+                                <h4>-- %</h4>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    <div class="sensores">
+
+                        <div class="sensor-titulo">
+                            <p>Sensor 2</p>
+                        </div>
+                        <div class="sensor-icone-temperatura">
+                            <div class="icone-temp-ideal">
+                                <img src="./assets/icone-temp-blue.png" alt="ícone de um termometro">
+                            </div>
+                            <div class="medidas margin">
+                                <h4>-- °C</h4>
+                            </div>
+                        </div>
+                        <div class="sensor-icone-umidade">
+                            <div class="icone-umi-ideal">
+                                <img src="./assets/icone-umidade-blue.png" alt="ícone de umidade">
+                            </div>
+                            <div class="medidas">
+                                <h4>-- %</h4>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="sensores">
+
+                        <div class="sensor-titulo">
+                            <p>Sensor 3</p>
+                        </div>
+                        <div class="sensor-icone-temperatura">
+                            <div class="icone-temp-ideal">
+                                <img src="./assets/icone-temp-blue.png" alt="ícone de um termometro">
+                            </div>
+                            <div class="medidas margin">
+                                <h4>-- °C</h4>
+                            </div>
+                        </div>
+                        <div class="sensor-icone-umidade">
+                            <div class="icone-umi-ideal">
+                                <img src="./assets/icone-umidade-blue.png" alt="ícone de umidade">
+                            </div>
+                            <div class="medidas">
+                                <h4>-- %</h4>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            
+            </div>
+
         </div>
 
-        <div class="dash-indicadores">
-            <div class="kpi-esquerdo">
-                <div class="paramentros-icone">
-                    <h1>*</h1>
-                </div>
-                <div class="texto-indicadores">
-                    <h3>Total de salas fora dos parâmetros ideais: --</h3>
-                </div>
-                <div class="num-salas">
-                    <h1>--/--</h1>
-                </div>
+        <!----------------------------------------- GRÁFICOS -->
 
-            </div>
-            <div class="kpi-central">
-                <div class="texto-temp">
-                    <h3>Temperatura atual na sala</h3>
+        <div class="dash-graficos">
+            
+            <div class="grafico1">
+                <div class="grafico-titulo-temp">
+                    <h4>TEMPERATURA</h4>
                 </div>
-                <div class="icone-temp">
-                    <h1>*</h1>
-                </div>
-                <div class="temp">
-                    <h1>-- °C</h1>
-                </div>
-                <div class="temp-ideal">
-                    <h3>Ideal: 22°C - 24°C</h3>
-                </div>
-            </div>
-            <div class="kpi-direito">
-                <div class="texto-umi">
-                    <h3>Umidade atual na sala</h3>
-                </div>
-                <div class="icone-umi">
-                    <h1>*</h1>
-                </div>
-                <div class="umi">
-                    <h1>--%</h1>
-                </div>
-                <div class="umi-ideal">
-                    <h3>Ideal: 30% - 60%</h3>
-                </div>
-            </div>
-        </div>
+                <div class="grafico-temp">
 
-        <div class="container-grafico">
-
-            <div class="menu-lateral">
-                <div class="setor">
-                    <h1>Higienização</h1>
-                </div>
-                <div class="setor">
-                    <h1>Triagem</h1>
-                </div>
-                <div class="setor">
-                    <h1>Inalação</h1>
-                </div>
-                <div class="setor">
-                    <h1>Emergência</h1>
                 </div>
 
             </div>
 
-            <div class="dash-grafico-1">
+            <div class="grafico2">
+                <div class="grafico-titulo-umi">
+                    <h4>UMIDADE</h4>
+                </div>
+                <div class="grafico-umi">
 
-                <h1>GRÁFICO 1</h1>
-
+                </div>
 
             </div>
 
         </div>
 
-        <div class="container-sensor">
-
-            <div class="sensor">
-                <h3>Sensor 1</h3>
-                <br><br>
-                <h4>Temperatura: --</h4>
-                <br>
-                <h4>Umidade: --</h4>
-            </div>
-
-            <div class="sensor">
-                <h3>Sensor 2</h3>
-                <br><br>
-                <h4>Temperatura: --</h4>
-                <br>
-                <h4>Umidade: --</h4>
-            </div>
-
-            <div class="sensor">
-                <h3>Sensor 3</h3>
-                <br><br>
-                <h4>Temperatura: --</h4>
-                <br>
-                <h4>Umidade: --</h4>
-            </div>
-
-        </div>
-
-        <div class="dash-grafico-2">
-            <h1>GRÁFICO 2</h1>
-        </div>
-
+    
     </div>
-    <br><br><br>
+    <br><br><br><br>
+        
 
     <footer class="footer">
         <div class="footer-container">
