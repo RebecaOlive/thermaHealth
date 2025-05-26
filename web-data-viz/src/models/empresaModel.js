@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function buscarPorId(id) {
-  var instrucaoSql = `SELECT * FROM hospital WHERE id = '${id}'`;
+  var instrucaoSql = `SELECT * FROM hospital WHERE idHospital = '${id}'`;
 
   return database.executar(instrucaoSql);
 }
@@ -19,7 +19,7 @@ function buscarPorCnpj(cnpj) {
 }
 
 function cadastrar(razaoSocial, cnpj) {
-  var instrucaoSql = `INSERT INTO hostipal (razao_social, cnpj) VALUES ('${razaoSocial}', '${cnpj}')`;
+  var instrucaoSql = `INSERT INTO hostital (razaoSocial, cnpj) VALUES ('${razaoSocial}', '${cnpj}')`;
 
   return database.executar(instrucaoSql);
 }
