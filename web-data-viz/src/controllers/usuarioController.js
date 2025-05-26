@@ -77,6 +77,7 @@ function cadastrar(req, res) {
         usuarioModel.cadastrar(nome, email, senha, fkHospital)
             .then(
                 function (resultado) {
+                    console.log('O resultado é esse:',resultado);
                     res.json(resultado);
                 }
             ).catch(
