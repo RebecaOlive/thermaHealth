@@ -24,6 +24,7 @@ body{
 }
 
 /***************************************** PÁGINA DE SETORES ***************************/
+/************************************* LEGENDAS ********************************/
 .menu-dash{
     margin-right: 600px;
 }
@@ -36,30 +37,93 @@ body{
     margin-right: 100px;
 }
 
-.pai{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.setor-pai{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.pai-setores{
     width: 100%;
     height: 800px;
-    
 }
 
-.setor-titulo {
-    display: flex;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: left;
-    margin-top: 150px;
+.setores-titulo{
+    width: 15%;
+    height: 60px;
+    margin-top: 130px;
+    margin-left: 150px;
+    background-color: white;
 }
+
+.setores-titulo h1{
+    display: flex;
+    font-size: 35px;
+    font-weight: light;
+    margin-left: 50px;
+}
+
+.setores{
+    display: flex;
+    width: 90%;
+    height: 600px;
+    margin: 10px auto;
+    border-radius: 7px;
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
+}
+
+.legenda-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+}
+
+.legendas{
+    display: flex;
+    width: 33%;
+    height: 65px;
+    justify-items: center;
+    margin-top: 30px;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.587);
+}
+
+.legenda-esquerda,
+.legenda-central,
+.legenda-direita{
+    display: flex;
+    width: 30%;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    margin: 7px auto;
+}
+
+.titulo-bloquinho h1{
+    display: flex;
+    width: 50px;
+    margin: 10px 0px 0px 5px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.bloquinho{
+    display: flex;
+    align-self: center;
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+    background-color: #B6D8FF;
+    border-radius: 7px;
+    border: 1px solid black;
+}
+
+.amarelo{
+    background-color: #FFEA2A;
+}
+
+.vermelho{
+    background-color: #E74D39;
+}
+
+/************************************* DIV SETORES ********************************/
+
+
 /****************************** TÍTULO/ H1 ********************/
 
 .dash-pai{
