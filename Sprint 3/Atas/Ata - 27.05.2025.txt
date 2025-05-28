@@ -1,0 +1,23 @@
+Data: 27/05 Início: 20:00
+Feito por: Marina Koga
+Participantes presentes : Gustavo, Luca, Marina Koga, Rebeca, Samuel. Assuntos discutidos:
+
+Gustavo: fez ajustes no cadastro e login.
+
+Rebeca: terminou o Jira e enviou a entrada do suporte.
+
+Koga: finalizou o manual de instalação
+
+Samuel: colocou gráficos na dashboard atual
+
+Luca: está finalizando o terceiro fluxograma, envia ainda hoje
+
+plano de ação:
+
+fazer identidade visual (Rebeca)
+
+fazer conexão de dois computadores diferentes (Rebeca)
+
+fazer Sprint backlog (koga)
+
+aplicar listagem do projeto, após saber como está telas de setores (Gustavo)
