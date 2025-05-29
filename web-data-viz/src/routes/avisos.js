@@ -7,7 +7,7 @@ router.get("/listar", function (req, res) {
     avisoController.listar(req, res);
 });
 
-router.get("/listar/:idUsuario", function (req, res) {
+router.get("/listar/:idFuncionario", function (req, res) {
     avisoController.listarPorUsuario(req, res);
 });
 
@@ -15,7 +15,7 @@ router.get("/pesquisar/:descricao", function (req, res) {
     avisoController.pesquisarDescricao(req, res);
 });
 
-router.post("/publicar/:idUsuario", function (req, res) {
+router.post("/publicar/:idFuncionario", function (req, res) {
     avisoController.publicar(req, res);
 });
 

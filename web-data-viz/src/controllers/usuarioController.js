@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var salaModel = require("../models/salaModel");
 
 function autenticar(req, res) {
     // var cnpj = req.body.Server;
@@ -25,17 +25,18 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].fkHospital)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
+                        salaModel.buscarSalasPorHopital(resultadoAutenticar[0].fkHospital)
+                            .then((resultadoSalas) => {
+                                if (resultadoSalas.length > 0) {
                                     res.json({
                                         idFuncionario: resultadoAutenticar[0].idFuncionario,
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
+                                        salas: resultadoSalas
                                     });
                                 } else {
-                                    res.status(204).json({ aquarios: [] });
+                                    res.status(204).json({ salas: [] });
                                 }
                             })
                     } else if (resultadoAutenticar.length == 0) {

@@ -1,9 +1,9 @@
-var aquarioModel = require("../models/aquarioModel");
+var salaModel = require("../models/salaModel");
 
-function buscarAquariosPorEmpresa(req, res) {
-  var idUsuario = req.params.idUsuario;
+function buscarSalasPorHopital(req, res) {
+  var idFuncionario = req.params.idFuncionario;
 
-  aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
+  salaModel.buscarSalasPorHopital(idFuncionario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -11,24 +11,27 @@ function buscarAquariosPorEmpresa(req, res) {
     }
   }).catch(function (erro) {
     console.log(erro);
-    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+    console.log("Houve um erro ao buscar as salas: ", erro.sqlMessage);
     res.status(500).json(erro.sqlMessage);
   });
 }
 
 
 function cadastrar(req, res) {
+  var setor = req.body.setor;
+  var nome = req.body.nome;
+  var andar = req.body.andar;
   var descricao = req.body.descricao;
-  var idUsuario = req.body.idUsuario;
+  var fkHospital = req.body.fkHospital;
 
   if (descricao == undefined) {
     res.status(400).send("descricao está undefined!");
-  } else if (idUsuario == undefined) {
-    res.status(400).send("idUsuario está undefined!");
+  } else if (fkHospital == undefined) {
+    res.status(400).send("fkHospital está undefined!");
   } else {
 
 
-    aquarioModel.cadastrar(descricao, idUsuario)
+    salaModel.cadastrar(descricao, fkHospital)
       .then((resultado) => {
         res.status(201).json(resultado);
       }
@@ -44,6 +47,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarAquariosPorEmpresa,
+  buscarSalasPorHopital,
   cadastrar
 }

@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarAquariosPorEmpresa(fkHospital) {
+function buscarSalasPorHopital(fkHospital) {
 
   var instrucaoSql = `SELECT * FROM sala a WHERE fkHospital = ${fkHospital}`;
 
@@ -8,9 +8,9 @@ function buscarAquariosPorEmpresa(fkHospital) {
   return database.executar(instrucaoSql);
 }
 
-function cadastrar(fkHospital, descricao) {
+function cadastrar(setor, nome, descricao, andar, fkHospital) {
   
-  var instrucaoSql = `INSERT INTO (descricao, fkHospital) sala VALUES (${descricao}, ${fkHospital})`;
+  var instrucaoSql = `INSERT INTO (setor, nome, descricao, andar, fkHospital) sala VALUES (${setor}, ${nome}, ${descricao}, ${andar}, ${fkHospital})`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
@@ -18,6 +18,6 @@ function cadastrar(fkHospital, descricao) {
 
 
 module.exports = {
-  buscarAquariosPorEmpresa,
+  buscarSalasPorHopital,
   cadastrar
 }
