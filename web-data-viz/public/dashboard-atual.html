@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="css/cabecalho.css">
     <link rel="stylesheet" type="text/css" href="css/dash-style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
     <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
@@ -126,15 +128,15 @@
                         <div class="sensor-titulo">
                             <p>Sensor 1</p>
                         </div>
-                        <div class="sensor-icone-temperatura">
+                        <div class="sensor-icone-temperatura margin">
                             <div class="icone-temp-ideal">
                                 <img src="./assets/icone-temp-blue.png" alt="ícone de um termometro">
                             </div>
-                            <div class="medidas margin">
+                            <div class="medidas">
                                 <h4>-- °C</h4>  
                             </div>
                         </div>
-                        <div class="sensor-icone-umidade">
+                        <div class="sensor-icone-umidade margin">
                             <div class="icone-umi-ideal">
                                 <img src="./assets/icone-umidade-blue.png" alt="ícone de umidade">
                             </div>
@@ -150,15 +152,15 @@
                         <div class="sensor-titulo">
                             <p>Sensor 2</p>
                         </div>
-                        <div class="sensor-icone-temperatura">
+                        <div class="sensor-icone-temperatura margin">
                             <div class="icone-temp-ideal">
                                 <img src="./assets/icone-temp-blue.png" alt="ícone de um termometro">
                             </div>
-                            <div class="medidas margin">
+                            <div class="medidas">
                                 <h4>-- °C</h4>
                             </div>
                         </div>
-                        <div class="sensor-icone-umidade">
+                        <div class="sensor-icone-umidade margin">
                             <div class="icone-umi-ideal">
                                 <img src="./assets/icone-umidade-blue.png" alt="ícone de umidade">
                             </div>
@@ -173,15 +175,15 @@
                         <div class="sensor-titulo">
                             <p>Sensor 3</p>
                         </div>
-                        <div class="sensor-icone-temperatura">
+                        <div class="sensor-icone-temperatura margin">
                             <div class="icone-temp-ideal">
                                 <img src="./assets/icone-temp-blue.png" alt="ícone de um termometro">
                             </div>
-                            <div class="medidas margin">
+                            <div class="medidas">
                                 <h4>-- °C</h4>
                             </div>
                         </div>
-                        <div class="sensor-icone-umidade">
+                        <div class="sensor-icone-umidade margin">
                             <div class="icone-umi-ideal">
                                 <img src="./assets/icone-umidade-blue.png" alt="ícone de umidade">
                             </div>
@@ -203,23 +205,32 @@
         <div class="dash-graficos">
             
             <div class="grafico1">
+
                 <div class="grafico-titulo-temp">
                     <h4>TEMPERATURA</h4>
                 </div>
                 <div class="grafico-temp">
+
+                    <canvas id="chartLM35">
+
+                    </canvas>
 
                 </div>
 
             </div>
 
             <div class="grafico2">
+
                 <div class="grafico-titulo-umi">
                     <h4>UMIDADE</h4>
                 </div>
                 <div class="grafico-umi">
 
-                </div>
+                    <canvas id="chartDHT11">
 
+                    </canvas>
+
+                </div>
             </div>
 
         </div>
@@ -284,3 +295,4 @@
     
 </body>
 </html>
+
