@@ -2,34 +2,33 @@
 CREATE DATABASE IF NOT EXISTS thermaHealth;
 USE thermaHealth;
 
--- DROP database thermaHealth;
+ -- DROP database thermaHealth;
+
 
 -- Criação da tabela de hospitais
-CREATE TABLE IF NOT EXISTS hospital(
-	idHospital INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(45) NOT NULL,
-	sufixo CHAR(4) NOT NULL,
-	cnpj CHAR(8) NOT NULL,
-	digitoVerifica CHAR(2) NOT NULL,
-	razaoSocial VARCHAR(200) NOT NULL
-);
-
--- Criação da tabela de endereços, associando cada endereço a um hospital
 CREATE TABLE IF NOT EXISTS endereco(
-	idEndereco INT AUTO_INCREMENT,
-	fkHospital INT UNIQUE,
-    constraint pkEndereco primary key(idEndereco, fkHospital),
+	idEndereco INT primary key AUTO_INCREMENT,
     logradouro VARCHAR(200) NOT NULL,
 	numero INT NOT NULL,
 	complemento VARCHAR(200) NULL,
 	bairro VARCHAR(200) NOT NULL,
 	cidade VARCHAR(200) NOT NULL,
 	estado VARCHAR(200) NOT NULL,
-	cep CHAR(9) NOT NULL,
-    constraint fkHospitalEndereco 
-		foreign key (fkHospital) references hospital(idHospital)
+	cep CHAR(9) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS hospital(
+	idHospital INT PRIMARY KEY AUTO_INCREMENT,
+    fkEndereco INT,
+	nome VARCHAR(45) NOT NULL,
+	sufixo CHAR(4) NOT NULL,
+	cnpj CHAR(8) NOT NULL,
+	digitoVerifica CHAR(2) NOT NULL,
+	razaoSocial VARCHAR(200) NOT NULL,
+    
+    constraint fkHospitalEndereco 
+		foreign key (fkEndereco) references endereco(idEndereco)
+);
 -- Criação da tabela de funcionários, permitindo hierarquia entre eles (supervisor)
 CREATE TABLE IF NOT EXISTS funcionario(
 	idFuncionario INT PRIMARY KEY AUTO_INCREMENT, 
@@ -95,19 +94,6 @@ CREATE TABLE IF NOT EXISTS registro(
 			references sensor(idSensor)
 );
 
--- Criação da tabela de alerta (para alertas de umidade, temperatura ou ambos)
-CREATE TABLE IF NOT EXISTS alerta(
-	idAlerta int auto_increment,
-	pkRegistro int,
-    pkRegistroAlerta int,
-    alertaUmidade tinyint,
-    alertaTemperatura tinyint,
-		CONSTRAINT pkComposta primary key(idAlerta,pkRegistro,pkRegistroAlerta),
-		CONSTRAINT fkAlerta_Registro FOREIGN KEY (pkRegistro) REFERENCES registro(idRegistro),
-		CONSTRAINT fkAlerta_RegistroAlerta FOREIGN KEY (pkRegistroAlerta) REFERENCES registroAlerta(idRegistroAlerta)
-
-);
-
 -- Criação da tabela de alertas gerados a partir de registros
 CREATE TABLE IF NOT EXISTS registroAlerta(
 	idRegistroAlerta INT AUTO_INCREMENT PRIMARY KEY,
@@ -116,23 +102,42 @@ CREATE TABLE IF NOT EXISTS registroAlerta(
 	resolvido TINYINT
 );
 
+-- Criação da tabela de alerta (para alertas de umidade, temperatura ou ambos)
+CREATE TABLE IF NOT EXISTS alerta(
+	idAlerta int auto_increment primary key,
+	fkRegistro int,
+    fkRegistroAlerta int,
+    alertaUmidade tinyint,
+    alertaTemperatura tinyint,
+	 -- CONSTRAINT pkComposta primary key(idAlerta,pkRegistro,pkRegistroAlerta),
+		CONSTRAINT fkAlerta_Registro FOREIGN KEY (fkRegistro) REFERENCES registro(idRegistro),
+		CONSTRAINT fkAlerta_RegistroAlerta FOREIGN KEY (fkRegistroAlerta) REFERENCES registroAlerta(idRegistroAlerta)
+);
+
+
+
 -- ----------------------------------------------------------------------------------------------
 
--- Inserção de dados na tabela hospital
-INSERT INTO hospital (nome, sufixo, cnpj, digitoVerifica, razaoSocial) VALUES
-('Hospital São João', '0001', '12345678', '90', 'Hospital e Maternidade São João LTDA'),
-('Hospital Santa Maria', '0002', '87654321', '12', 'Hospital Santa Maria Serviços Médicos LTDA'),
-('Clínica Vida', '0001', '11223344', '56', 'Clínica Vida Saúde Integrada LTDA'),
-('Instituto Coração', '0003', '44332211', '78', 'Instituto do Coração e Cardiologia Avançada'),
-('Hospital Esperança', '0001', '55667788', '34', 'Hospital Esperança Cuidados Médicos S/A');
 
 -- Inserção de endereços dos hospitais
-INSERT INTO endereco (logradouro, numero, complemento, bairro, cidade, estado, cep, fkHospital) VALUES
-('Rua das Palmeiras', 123, 'Bloco A', 'Centro', 'São Paulo', 'SP', '01234-000', 1),
-('Avenida Brasil', 456, NULL, 'Jardim América', 'Rio de Janeiro', 'RJ', '22041-001', 2),
-('Rua da Saúde', 789, 'Próximo à Praça Central', 'Saúde', 'Belo Horizonte', 'MG', '30130-001', 3),
-('Avenida Cardíacos', 101, 'Torre Norte', 'Coração Eucarístico', 'Curitiba', 'PR', '80010-100', 4),
-('Rua da Esperança', 202, NULL, 'Esperança', 'Porto Alegre', 'RS', '90010-200', 5);
+INSERT INTO endereco (logradouro, numero, complemento, bairro, cidade, estado, cep) VALUES
+('Rua das Palmeiras', 123, 'Bloco A', 'Centro', 'São Paulo', 'SP', '01234-000'),
+('Avenida Brasil', 456, NULL, 'Jardim América', 'Rio de Janeiro', 'RJ', '22041-001'),
+('Rua da Saúde', 789, 'Próximo à Praça Central', 'Saúde', 'Belo Horizonte', 'MG', '30130-001'),
+('Avenida Cardíacos', 101, 'Torre Norte', 'Coração Eucarístico', 'Curitiba', 'PR', '80010-100'),
+('Rua da Esperança', 202, NULL, 'Esperança', 'Porto Alegre', 'RS', '90010-200');
+
+-- Inserção de dados na tabela hospital
+INSERT INTO hospital (nome,fkEndereco, sufixo, cnpj, digitoVerifica, razaoSocial) VALUES
+('Hospital São João', 1 ,'0001', '12345678', '90', 'Hospital e Maternidade São João LTDA' ),
+('Hospital Santa Maria' , 2, '0002', '87654321', '12', 'Hospital Santa Maria Serviços Médicos LTDA' ),
+('Clínica Vida' , 3, '0001', '11223344', '56', 'Clínica Vida Saúde Integrada LTDA' ),
+('Instituto Coração' , 4, '0003', '44332211', '78', 'Instituto do Coração e Cardiologia Avançada' ),
+('Hospital Esperança' , 5, '0001', '55667788', '34', 'Hospital Esperança Cuidados Médicos S/A' );
+
+-- truncate table hospital;
+-- select * from hospital;
+
 
 -- Inserção de funcionários com diferentes níveis e supervisores
 INSERT INTO funcionario (matricula, nome, senha, nivelAcesso, email, fkSupervisor, fkHospital) VALUES
@@ -157,8 +162,12 @@ INSERT INTO parametrosIdeais (idParametros, fkSala, temperatura_min, temperatura
 (2, 2, 22.0, 26.0, 40, 60),
 (3, 3, 20.0, 24.0, 40, 60),
 (4, 4, 22.0, 27.0, 40, 60),
-(5, 5, 20.0, 24.0, 40, 60);
+(5, 5, 20.0, 24.0, 40, 60),
+(6, 6, 20.0, 22.0, 40, 60);
 
+select * from sala;
+select * from parametrosIdeais;
+ 
 -- Inserção de sensores em diferentes salas e com status variados
 INSERT INTO sensor (tipo, numeroSerie, statusSensor, fkSala) VALUES -- ALTERAR TIPO DE SENSOR PARA A POSIÇÃO NO QUAL ELE ESTÁ INSTALADO 
 -- SE O SENSOR ESTIVER INATIVO OU EM MANUTENÇÃO, ELE NÃO SERÁ CONSIDERADO PARA O MONITORAMENTO DAS SALAS 
@@ -193,18 +202,6 @@ INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES
     
 SELECT * FROM registro;
 
-
-INSERT INTO alerta (pkRegistro, pkRegistroAlerta, alertaUmidade, AlertaTemperatura) VALUES
-	(5, 2, 0, 1),
-    (7, 1, 1, 1),
-    (8, 2, 0, 1),
-    (9, 3, 1, 0),
-    (11, 6, 1, 1),
-    (12, 2, 0, 1),
-    (13, 3, 1 ,1);
-    
-SELECT * FROM alerta;
-
 -- Inserção de alertas com base nos registros
 INSERT INTO registroAlerta (idRegistroAlerta, aviso, mensagem, resolvido) VALUES -- ALINHAR O GRUPO SOBRE A IMPORTÂNCIA DESSA TABELA SER DA RELAÇÃO NXN
 (default, 'ALERTA', 'Temperatura abaixo da faixa ideal. Ajuste necessário.', 0),
@@ -212,6 +209,21 @@ INSERT INTO registroAlerta (idRegistroAlerta, aviso, mensagem, resolvido) VALUES
 (default, 'ALERTA', 'Temperatura e umidade fora da faixa ideal. Necessário verificar.', 0),
 (default, 'ALERTA', 'Temperatura acima da faixa ideal. Necessário verificar', 1),
 (default, 'ALERTA', 'Umidade acima da faixa ideal. Necessário verificar.', 0);
+
+
+INSERT INTO alerta (fkRegistro, fkRegistroAlerta, alertaUmidade, AlertaTemperatura) VALUES
+	(5, 2, 0, 1),
+    (7, 1, 1, 1),
+    (8, 2, 0, 1),
+    (9, 3, 1, 0),
+    (11, 5, 1, 1),
+    (12, 2, 0, 1),
+    (13, 3, 1 ,1);
+    
+SELECT * FROM alerta;
+SELECT * FROM registro;
+select * from RegistroAlerta;
+
 
 CREATE VIEW vw_funcHosp AS
 SELECT
@@ -300,19 +312,19 @@ JOIN sala sl ON s.fkSala = sl.idSala;
            JOIN registro
            ON sensor.idSensor = registro.fkSensor
            JOIN alerta
-           ON registro.idRegistro = alerta.pkRegistro
+           ON registro.idRegistro = alerta.fkRegistro
            JOIN registroAlerta
-           ON registroAlerta.idRegistroAlerta = alerta.pkRegistroAlerta;
+           ON registroAlerta.idRegistroAlerta = alerta.fkRegistroAlerta;
 		
 -- SELECT QUANTIDADE DE ALERTAS POR SALAS
 	SELECT sala.nome as 'Nome da sala',
 		   count(alerta.idAlerta) as 'Quantidade de alertas'
            FROM sala JOIN sensor
-           ON sala.idSala = sensor.fkSala
+           ON sala.idSala = sensor.fkSala 
 		   LEFT JOIN registro
            ON sensor.idSensor = registro.fkSensor
            LEFT JOIN alerta
-           ON registro.idRegistro = alerta.pkRegistro
+           ON registro.idRegistro = alerta.fkRegistro
            GROUP BY
            sala.nome;
            
@@ -338,7 +350,25 @@ JOIN sala sl ON s.fkSala = sl.idSala;
         ON sensor.idSensor = r.fkSensor
         ORDER BY fkSensor;
            
-           
+-- Registros fora dos parâmetros
+/*
+SELECT s.idSensor,
+		r.idRegistro,
+        r.temperatura,
+        r.umidade,
+        para
+        FROM
+        sensor s JOIN registro r
+        ON s.idSensor = r.fkSensor
+        JOIN sala 
+        ON sala.idSala = s.fkSala
+        JOIN parametrosIdeais par
+        WHERE 
+			r.temperatura > par.temperatura_max OR r.temperatura < par.temperatura_min OR
+            r.temperatura > par.temperatura_max OR 
+   
+   */
+SELECT * from parametrosIdeais;
            
         
 -- SELECT QUAIS SÃO OS SENSORES POR SALA (Exemplo, sala 1)
