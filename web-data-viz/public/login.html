@@ -169,8 +169,13 @@
 
 </html>
 <script>
+
+  const listaSalas = [];
+
   function entrar() {
     aguardar();
+
+    listar();
 
     // var cnpjVar = cnpj_input.value;
     var emailVar = email_input.value;
@@ -182,35 +187,7 @@
       finalizarAguardar();
       return false;
 
-    }//  else if (cnpjVar.length < 14 || cnpjVar.length > 14) {/*----------------------------CNPJ-----------------------------*/
-    //   cardErro.style.display = "block"
-    //   mensagem_erro.innerHTML = `Número de CNPJ deve conter 14 digitos!`;
-    //   finalizarAguardar();
-    //   return false;
-
-    // } 
-    // else if (cnpjVar.indexOf('a') !== -1 || cnpjVar.indexOf('b') !== -1 || cnpjVar.indexOf('c') !== -1 || cnpjVar.indexOf('d') !== -1 ||
-    //   cnpjVar.indexOf('e') !== -1 || cnpjVar.indexOf('f') !== -1 || cnpjVar.indexOf('g') !== -1 || cnpjVar.indexOf('h') !== -1 ||
-    //   cnpjVar.indexOf('i') !== -1 || cnpjVar.indexOf('j') !== -1 || cnpjVar.indexOf('k') !== -1 || cnpjVar.indexOf('l') !== -1 ||
-    //   cnpjVar.indexOf('m') !== -1 || cnpjVar.indexOf('n') !== -1 || cnpjVar.indexOf('o') !== -1 || cnpjVar.indexOf('p') !== -1 ||
-    //   cnpjVar.indexOf('q') !== -1 || cnpjVar.indexOf('r') !== -1 || cnpjVar.indexOf('s') !== -1 || cnpjVar.indexOf('t') !== -1 ||
-    //   cnpjVar.indexOf('u') !== -1 || cnpjVar.indexOf('v') !== -1 || cnpjVar.indexOf('w') !== -1 || cnpjVar.indexOf('x') !== -1 ||
-    //   cnpjVar.indexOf('y') !== -1 || cnpjVar.indexOf('z') !== -1 ||
-
-    //   cnpjVar.indexOf('A') !== -1 || cnpjVar.indexOf('B') !== -1 || cnpjVar.indexOf('C') !== -1 || cnpjVar.indexOf('D') !== -1 ||
-    //   cnpjVar.indexOf('E') !== -1 || cnpjVar.indexOf('F') !== -1 || cnpjVar.indexOf('G') !== -1 || cnpjVar.indexOf('H') !== -1 ||
-    //   cnpjVar.indexOf('I') !== -1 || cnpjVar.indexOf('J') !== -1 || cnpjVar.indexOf('K') !== -1 || cnpjVar.indexOf('L') !== -1 ||
-    //   cnpjVar.indexOf('M') !== -1 || cnpjVar.indexOf('N') !== -1 || cnpjVar.indexOf('O') !== -1 || cnpjVar.indexOf('P') !== -1 ||
-    //   cnpjVar.indexOf('Q') !== -1 || cnpjVar.indexOf('R') !== -1 || cnpjVar.indexOf('S') !== -1 || cnpjVar.indexOf('T') !== -1 ||
-    //   cnpjVar.indexOf('U') !== -1 || cnpjVar.indexOf('V') !== -1 || cnpjVar.indexOf('W') !== -1 || cnpjVar.indexOf('X') !== -1 ||
-    //   cnpjVar.indexOf('Y') !== -1 || cnpjVar.indexOf('Z') !== -1) {
-    //   cardErro.style.display = "block"
-    //   mensagem_erro.innerHTML = `Número de CNPJ não deve receber caracteres alfabéticos!`;
-    //   finalizarAguardar();
-    //   return false;
-
-    // }
-    else if (emailVar.indexOf(`@`) <= 0 || !emailVar.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
+    } else if (emailVar.indexOf(`@`) <= 0 || !emailVar.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
       cardErro.style.display = "block"
       mensagem_erro.innerHTML = `É necessário inserir e-mail valido!`;
       finalizarAguardar();
@@ -245,7 +222,7 @@
         senhaServer: senhaVar
       })
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO entrar()!")
+      console.log("ESTOU NO THEN DO entrar()!");
 
       if (resposta.ok) {
         console.log(resposta);
@@ -256,7 +233,7 @@
           sessionStorage.EMAIL_USUARIO = json.email;
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.ID_USUARIO = json.idFuncionario;
-          sessionStorage.SALAS = JSON.stringify(json.sala)
+          sessionStorage.SALAS = JSON.stringify(json.listaSalas)
 
           setTimeout(function () {
             window.location = "./dashboard/setores.html";
@@ -279,6 +256,39 @@
     })
 
     return false;
+  }
+
+  function listar() {
+        fetch("/sala/buscarSalasPorHopital", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      }).then(function (resposta){
+        console.log("ENTREI NA LISTAGEM DAS SALAS")
+
+        if (resposta.ok) {
+          return resposta.json().then (function (listaSalas){
+            for(let i = 0; i < listaSalas.length; i++){
+              listaSalas.push(sala);
+              console.log('id sala');
+              console.log(listaSalas[i].idSala);
+            }
+          })
+          .cath(function(resposta) {
+            console.log(`#ERRO: ${resposta}` )
+          })
+        }
+      }
+      
+      // sala: JSON.stringify({
+      //     idSala: ,
+      //     setor: ,
+      //     nome:
+      //     descricao: ,
+      //     andar: ,
+      //   })
+    )
   }
 
   function sumirMensagem() {
