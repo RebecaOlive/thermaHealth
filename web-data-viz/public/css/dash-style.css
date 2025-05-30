@@ -573,8 +573,8 @@ body{
 }
 /***************************** CHART.JS **********************************/
 canvas {
-    width: 100% !important;
-    height: 100% !important;
+    width: 100% ;
+    height: 100% ;
 }
 
 .grafico-temp, .grafico-umi {
@@ -591,8 +591,8 @@ canvas {
 .grafico-temp canvas,
 .grafico-umi canvas {
     flex: 1;
-    height: 100% !important;     
-    width: auto !important;      
+    height: 100% ;     
+    width: auto ;      
     max-height: 100%;            
 }
 
