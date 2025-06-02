@@ -139,7 +139,10 @@ body{
     gap: 20px; 
     padding: 50px;
 }
-
+#cardSala{
+    display: flex;
+    flex-direction: row;
+}
 .setores-caixa {
     width: 320px;
     height: 200px;

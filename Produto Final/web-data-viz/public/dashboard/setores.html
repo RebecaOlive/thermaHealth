@@ -10,7 +10,7 @@
     <script src="../js/alerta.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" type="text/css" href="../css/cabecalho.css">
     <link rel="stylesheet" href="../css/dash-style.css">
 
@@ -151,7 +151,7 @@
     function exibirSalas() {
         JSON.parse(sessionStorage.SALAS).forEach(item => {
             document.getElementById("cardSala").innerHTML += `
-                    <div class="setores-caixa">
+                    <div class="setores-caixa" onclick="irParaSala(${item.idSala})">
                         <div class="caixa-texto">
                             <h2>${item.setor}</h2>
                         </div>
@@ -161,4 +161,9 @@
                     </div>`
         });
     }
+
+    function irParaSala(idSala) {
+        window.location.href = `dashboard-atual.html?idSala=${idSala}`;
+    }
+
 </script>

@@ -21,7 +21,7 @@
 
 </head>
 
-<body onload="obterDadosGrafico(idSala)">
+<body onload="obterIdSalaDaUrl(), obterDadosGrafico(idSala)">
     <!-- não esqueca que esta mocado  -->
     <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
     <nav class="menu">
@@ -217,41 +217,41 @@
 
         </div>
 
-        <!----------------------------------------- GRÁFICOS -->    
+        <!----------------------------------------- GRÁFICOS -->
         <div class="dash-graficos" id="btnSala">
 
-        <div class="grafico1">
-            <div class="grafico-titulo-temp">
-                <h4>TEMPERATURA</h4>
-            </div>
-            <div class="grafico-temp">
-                <div>
-                    <canvas id="grafico_temperatura"></canvas>
+            <div class="grafico1">
+                <div class="grafico-titulo-temp">
+                    <h4>TEMPERATURA</h4>
+                </div>
+                <div class="grafico-temp">
+                    <div>
+                        <canvas id="grafico_temperatura"></canvas>
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
-
-        <div class="grafico2">
-            <div class="grafico-titulo-umi">
-                <h4>UMIDADE</h4>
-            </div>
-            <div class="grafico-umi">
-                <div>
-                    <canvas id="grafico_umidade"></canvas>
+            <!-- <div class="grafico2">
+                <div class="grafico-titulo-umi">
+                    <h4>UMIDADE</h4>
                 </div>
-            </div>
+                <div class="grafico-umi">
+                    <div>
+                        <canvas id="grafico_umidade"></canvas>
+                    </div>
+                </div>
+
+            </div> -->
 
         </div>
 
     </div>
-        
-    </div>
 
 
 
-    
+
 
 
     </div>
@@ -316,10 +316,26 @@
 </html>
 
 <script>
+    // Mostra o nome do usuário na tela
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    // Recupera o idSala da URL
+    const idSala = obterIdSalaDaUrl();
 
     let proximaAtualizacao;
 
+    // Valida se veio um idSala na URL
+    if (idSala) {
+        obterDadosGrafico(idSala);
+    } else {
+        alert('Nenhuma sala selecionada!');
+    }
+
+    // 🔥 Função para buscar o idSala na URL
+    function obterIdSalaDaUrl() {
+        const parametros = new URLSearchParams(window.location.search);
+        return parametros.get('idSala');
+    }
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
 
@@ -415,14 +431,15 @@
         };
 
         // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
+        let temp = new Chart(
             // document.getElementById(`myChartCanvas${idSala}`),
             document.getElementById(`grafico_temperatura`),
 
             config
         );
 
-        setTimeout(() => atualizarGrafico(idSala, dados, myChart), 2000);
+
+        setTimeout(() => atualizarGrafico(idSala, dados, temp), 2000);
     }
 
 

@@ -224,21 +224,13 @@
       if (resposta.ok) {
         console.log(resposta);
 
-        listar();
-
         resposta.json().then(json => {
           console.log(json);
           console.log(JSON.stringify(json));
           sessionStorage.ID_USUARIO = json.idFuncionario;
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.EMAIL_USUARIO = json.email;
-
           sessionStorage.SALAS = JSON.stringify(json.salas)
-          // sessionStorage.ID_SALAS = JSON.stringify(json.listaSalas.idsala);
-          // sessionStorage.SETOR_SALAS = JSON.stringify(json.listaSalas.setor);
-          // sessionStorage.NOME_SALAS = JSON.stringify(json.listaSalas.nome);
-          // sessionStorage.DESCRICAO_SALAS = JSON.stringify(json.listaSalas.descricao);
-          // sessionStorage.ANDAR_SALAS = JSON.stringify(json.listaSalas.andar)
 
           setTimeout(function () {
             window.location = "./dashboard/setores.html";
@@ -263,37 +255,37 @@
     return false;
   }
 
-  function listar() {
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
+  // function listar() {
+  //   var emailVar = email_input.value;
+  //   var senhaVar = senha_input.value;
 
-    fetch("/sala/buscarSalasPorHopital", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        emailServer: emailVar,
-        senhaServer: senhaVar
-      }),
-    }).then(function (resposta) {
-      console.log("ENTREI NA LISTAGEM DAS SALAS", resposta)
+  //   fetch("/sala/buscarSalasPorHopital", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       emailServer: emailVar,
+  //       senhaServer: senhaVar
+  //     }),
+  //   }).then(function (resposta) {
+  //     console.log("ENTREI NA LISTAGEM DAS SALAS", resposta)
 
-      if (resposta.ok) {
-        return resposta.json().then(function (listaSalas) {
-          for (let i = 0; i < listaSalas.length; i++) {
-            listaSalas.push(sala);
-            console.log('id sala');
-            console.log(listaSalas[i].idSala);
-          }
-        })
-          .cath(function (resposta) {
-            console.log(`#ERRO: ${resposta}`)
-          })
-      }
-    }
-    )
-  }
+  //     if (resposta.ok) {
+  //       return resposta.json().then(function (listaSalas) {
+  //         for (let i = 0; i < listaSalas.length; i++) {
+  //           listaSalas.push(sala);
+  //           console.log('id sala');
+  //           console.log(listaSalas[i].idSala);
+  //         }
+  //       })
+  //         .cath(function (resposta) {
+  //           console.log(`#ERRO: ${resposta}`)
+  //         })
+  //     }
+  //   }
+  //   )
+  // }
 
   function sumirMensagem() {
     cardErro.style.display = "none"
