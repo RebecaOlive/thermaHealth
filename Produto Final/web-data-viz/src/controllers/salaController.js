@@ -1,21 +1,28 @@
 var salaModel = require("../models/salaModel");
 
 function buscarSalasPorHopital(req, res) {
-  var idFuncionario = req.params.idFuncionario;
+  var email = req.body.emailServer;
+  var senha = req.body.senhaServer;
 
-  salaModel.buscarSalasPorHopital(idFuncionario).then((resultado) => {
-    if (resultado.length > 0) {
-      res.status(200).json(resultado);
-    } else {
-      res.status(204).json([]);
-    }
-  }).catch(function (erro) {
-    console.log(erro);
-    console.log("Houve um erro ao buscar as salas: ", erro.sqlMessage);
-    res.status(500).json(erro.sqlMessage);
-  });
+  if (email == undefined) {
+    res.status(400).send("Seu email está undefined!");
+  } else if (senha == undefined) {
+    res.status(400).send("Sua senha está indefinida!");
+  } else {
+
+    salaModel.buscarSalasPorHopital(email, senha).then((resultado) => {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).json([]);
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+      console.log("Houve um erro ao buscar as salas: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+  }
 }
-
 
 function cadastrar(req, res) {
   var setor = req.body.setor;

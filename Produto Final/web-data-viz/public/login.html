@@ -66,7 +66,8 @@
             <div class="campo">
               <span>E-mail do representante<span class="azul">*</span></span>
               <div class="organiza-campo">
-                <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+                <input id="email_input" type="text" placeholder="meuemail@provedor.com"
+                  value="joao.silva@hospital.com" />
                 <img class="icon" src="assets/Tela de Cadastro/email-icon.png" alt="" srcset="">
               </div>
 
@@ -75,7 +76,7 @@
             <div class="campo">
               <span>Senha <span class="azul">*</span></span>
               <div class="organiza-campo">
-                <input id="senha_input" type="password" placeholder="******" />
+                <input id="senha_input" type="password" placeholder="******" value="e10adc3949ba59abbe56e057f20f883e" />
                 <img class="icon" src="assets/Tela de Cadastro/padlock-icon.png" alt="" srcset="">
               </div>
             </div>
@@ -163,8 +164,6 @@
   </footer>
 
 
-
-
 </body>
 
 </html>
@@ -174,8 +173,6 @@
 
   function entrar() {
     aguardar();
-
-    listar();
 
     // var cnpjVar = cnpj_input.value;
     var emailVar = email_input.value;
@@ -188,7 +185,7 @@
       return false;
 
     } else if (emailVar.indexOf(`@`) <= 0 || !emailVar.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
-      cardErro.style.display = "block"
+      cardErro.style.display = "block";
       mensagem_erro.innerHTML = `É necessário inserir e-mail valido!`;
       finalizarAguardar();
       return false;
@@ -220,20 +217,28 @@
         // cnpjServer: cnpjVar,
         emailServer: emailVar,
         senhaServer: senhaVar
-      })
+      }),
     }).then(function (resposta) {
       console.log("ESTOU NO THEN DO entrar()!");
 
       if (resposta.ok) {
         console.log(resposta);
 
+        listar();
+
         resposta.json().then(json => {
           console.log(json);
           console.log(JSON.stringify(json));
-          sessionStorage.EMAIL_USUARIO = json.email;
-          sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.ID_USUARIO = json.idFuncionario;
-          sessionStorage.SALAS = JSON.stringify(json.listaSalas)
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.EMAIL_USUARIO = json.email;
+
+          sessionStorage.SALAS = JSON.stringify(json.salas)
+          // sessionStorage.ID_SALAS = JSON.stringify(json.listaSalas.idsala);
+          // sessionStorage.SETOR_SALAS = JSON.stringify(json.listaSalas.setor);
+          // sessionStorage.NOME_SALAS = JSON.stringify(json.listaSalas.nome);
+          // sessionStorage.DESCRICAO_SALAS = JSON.stringify(json.listaSalas.descricao);
+          // sessionStorage.ANDAR_SALAS = JSON.stringify(json.listaSalas.andar)
 
           setTimeout(function () {
             window.location = "./dashboard/setores.html";
@@ -259,35 +264,34 @@
   }
 
   function listar() {
-        fetch("/sala/buscarSalasPorHopital", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        },
-      }).then(function (resposta){
-        console.log("ENTREI NA LISTAGEM DAS SALAS")
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
 
-        if (resposta.ok) {
-          return resposta.json().then (function (listaSalas){
-            for(let i = 0; i < listaSalas.length; i++){
-              listaSalas.push(sala);
-              console.log('id sala');
-              console.log(listaSalas[i].idSala);
-            }
+    fetch("/sala/buscarSalasPorHopital", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    }).then(function (resposta) {
+      console.log("ENTREI NA LISTAGEM DAS SALAS", resposta)
+
+      if (resposta.ok) {
+        return resposta.json().then(function (listaSalas) {
+          for (let i = 0; i < listaSalas.length; i++) {
+            listaSalas.push(sala);
+            console.log('id sala');
+            console.log(listaSalas[i].idSala);
+          }
+        })
+          .cath(function (resposta) {
+            console.log(`#ERRO: ${resposta}`)
           })
-          .cath(function(resposta) {
-            console.log(`#ERRO: ${resposta}` )
-          })
-        }
       }
-      
-      // sala: JSON.stringify({
-      //     idSala: ,
-      //     setor: ,
-      //     nome:
-      //     descricao: ,
-      //     andar: ,
-      //   })
+    }
     )
   }
 

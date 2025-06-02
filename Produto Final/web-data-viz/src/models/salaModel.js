@@ -1,8 +1,11 @@
 var database = require("../database/config");
 
-function buscarSalasPorHopital(fkHospital) {
-
-  var instrucaoSql = `SELECT * FROM sala a WHERE fkHospital = ${fkHospital}`;
+function buscarSalasPorHopital(email, senha) {
+  var instrucaoSql = `
+    SELECT a.* FROM sala a 
+    JOIN funcionario f ON f.fkHospital = a.fkHospital
+    WHERE email = '${email}' AND senha = '${senha}';
+    `;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
