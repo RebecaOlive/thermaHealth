@@ -1,39 +1,41 @@
-// var ambiente_processo = 'producao';
-var ambiente_processo = 'desenvolvimento';
+// Defina o ambiente a partir da variável NODE_ENV do sistema, ou padrão para 'desenvolvimento'
+var ambiente_processo = process.env.NODE_ENV || 'desenvolvimento';
 
+// Define qual arquivo .env carregar, baseado no ambiente
 var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
-// Acima, temos o uso do operador ternário para definir o caminho do arquivo .env
-// A sintaxe do operador ternário é: condição ? valor_se_verdadeiro : valor_se_falso
 
-require("dotenv").config({ path: caminho_env });
+// Carrega as variáveis do arquivo .env correto antes de usar process.env
+require('dotenv').config({ path: caminho_env });
 
-var express = require("express");
-var cors = require("cors");
-var path = require("path");
-var PORTA_APP = process.env.APP_PORT;
-var HOST_APP = process.env.APP_HOST;
+var express = require('express');
+var cors = require('cors');
+var path = require('path');
+
+// Agora as variáveis do ambiente já estão carregadas e podem ser usadas
+var PORTA_APP = process.env.APP_PORT || 8080;
+var HOST_APP = process.env.APP_HOST || 'localhost';
 
 var app = express();
 
-var indexRouter = require("./src/routes/index");
-var usuarioRouter = require("./src/routes/usuarios");
-var avisosRouter = require("./src/routes/avisos");
-var medidasRouter = require("./src/routes/medidas");
-var salaRouter = require("./src/routes/sala");
-var empresasRouter = require("./src/routes/hospital");
+var indexRouter = require('./src/routes/index');
+var usuarioRouter = require('./src/routes/usuarios');
+var avisosRouter = require('./src/routes/avisos');
+var medidasRouter = require('./src/routes/medidas');
+var salaRouter = require('./src/routes/sala');
+var empresasRouter = require('./src/routes/hospital');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 
-app.use("/", indexRouter);
-app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
-app.use("/medidas", medidasRouter);
-app.use("/sala", salaRouter);
-app.use("/empresas", empresasRouter);
+app.use('/', indexRouter);
+app.use('/usuarios', usuarioRouter);
+app.use('/avisos', avisosRouter);
+app.use('/medidas', medidasRouter);
+app.use('/sala', salaRouter);
+app.use('/empresas', empresasRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
