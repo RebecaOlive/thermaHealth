@@ -368,6 +368,7 @@ SELECT s.idSensor,
             r.temperatura > par.temperatura_max OR 
    
    */
+   
 SELECT * from parametrosIdeais;
            
         
@@ -456,4 +457,3 @@ SELECT * FROM sala;
 SELECT * FROM registro;
 SELECT * FROM registroAlerta;
 SELECT * FROM alerta;
-
