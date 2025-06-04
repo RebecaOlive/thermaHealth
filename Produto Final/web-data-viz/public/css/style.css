@@ -564,7 +564,6 @@ button:hover{
     display: flex;
     border-radius: 12px;
     justify-content: center;
-
 }
 
 .div_esquerdaCadastro {
@@ -621,14 +620,13 @@ button:hover{
     display: flex;
     flex-direction: column;
     background-color: white;
-    height: 80%;
+    height: 60%;
     width: 70%;
     border-radius: 12px;
     justify-content: center;
     align-items: center;
     margin-top: 5%;
     margin-bottom: 5%;
-
 }
 
 .card-cadastro .formulario {
