@@ -9,7 +9,7 @@ function autenticar(req, res) {
     // if (cnpj == undefined) {
     //     res.status(400).send("Seu cnpj está undefined!");
     // }else 
-    
+
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
@@ -25,20 +25,17 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        salaModel.buscarSetoresPorHospital(email, senha)
-                            .then((resultadoSalas) => {
-                                if (resultadoSalas.length > 0) {
-                                    res.json({
-                                        idFuncionario: resultadoAutenticar[0].idFuncionario,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
-                                        salas: resultadoSalas
-                                    });
-                                } else {
-                                    res.status(204).json({ salas: [] });
-                                }
-                            })
+
+
+                        
+                            res.json({
+                                idFuncionario: resultadoAutenticar[0].idFuncionario,
+                                email: resultadoAutenticar[0].email,
+                                nome: resultadoAutenticar[0].nome,
+                                senha: resultadoAutenticar[0].senha
+                            });
+                        
+
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -78,7 +75,7 @@ function cadastrar(req, res) {
         usuarioModel.cadastrar(nome, email, senha, fkHospital)
             .then(
                 function (resultado) {
-                    console.log('O resultado é esse:',resultado);
+                    console.log('O resultado é esse:', resultado);
                     res.json(resultado);
                 }
             ).catch(
