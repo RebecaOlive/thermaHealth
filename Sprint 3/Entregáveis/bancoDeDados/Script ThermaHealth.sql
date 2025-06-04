@@ -32,10 +32,10 @@ CREATE TABLE IF NOT EXISTS hospital(
 -- Criação da tabela de funcionários, permitindo hierarquia entre eles (supervisor)
 CREATE TABLE IF NOT EXISTS funcionario(
 	idFuncionario INT PRIMARY KEY AUTO_INCREMENT, 
-	matricula VARCHAR(10) NOT NULL,
+	matricula VARCHAR(10),
 	nome VARCHAR(100) NOT NULL,
 	senha VARCHAR(32) NOT NULL,
-	nivelAcesso CHAR(1) NOT NULL,
+	nivelAcesso CHAR(1),
 	email VARCHAR(255) NOT NULL,
 	fkSupervisor INT NULL,
 		constraint fkFuncSuper foreign key (fkSupervisor)
