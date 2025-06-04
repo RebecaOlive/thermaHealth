@@ -149,9 +149,11 @@
 <script>
 
     function exibirSalas() {
+
+        
         JSON.parse(sessionStorage.SALAS).forEach(item => {
             document.getElementById("cardSala").innerHTML += `
-                    <div class="setores-caixa" onclick="irParaSala(${item.idSala})">
+                    <div class="setores-caixa" onclick="irParaSetor(${item.idSala})">
                         <div class="caixa-texto">
                             <h2>${item.setor}</h2>
                         </div>
@@ -159,10 +161,14 @@
                             <h1>${item.nome}</h1>
                         </div>
                     </div>`
-        });
+        }
+    );
+        // alert(JSON.parse(sessionStorage.SALAS).forEach(item => {item.nome}));
+
     }
 
-    function irParaSala(idSala) {
+    function irParaSetor(idSala) {
+        console.log('Fui para a transferência', idSala);
         window.location.href = `dashboard-atual.html?idSala=${idSala}`;
     }
 

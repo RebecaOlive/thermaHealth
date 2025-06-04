@@ -1,15 +1,29 @@
 var database = require("../database/config");
 
-function buscarSalasPorHopital(email, senha) {
+function buscarSetoresPorHospital(email, senha) {
+
   var instrucaoSql = `
-    SELECT a.* FROM sala a 
-    JOIN funcionario f ON f.fkHospital = a.fkHospital
+    SELECT s.* FROM sala s JOIN funcionario f ON f.fkHospital = s.fkHospital 
     WHERE email = '${email}' AND senha = '${senha}';
     `;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
+
+
+function listarSalasPorSetor(email, senha, nomeSetor) {
+
+  var instrucaoSql = `
+    SELECT s.* FROM sala s JOIN funcionario f ON f.fkHospital = s.fkHospital 
+    WHERE email = '${email}' AND senha = '${senha}' AND s.setor = '${nomeSetor}';
+    `;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+
 
 function cadastrar(setor, nome, descricao, andar, fkHospital) {
   
@@ -21,6 +35,7 @@ function cadastrar(setor, nome, descricao, andar, fkHospital) {
 
 
 module.exports = {
-  buscarSalasPorHopital,
+  listarSalasPorSetor,
+  buscarSetoresPorHospital,
   cadastrar
 }

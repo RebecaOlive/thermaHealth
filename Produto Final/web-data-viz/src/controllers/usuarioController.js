@@ -25,7 +25,7 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        salaModel.buscarSalasPorHopital(email, senha)
+                        salaModel.buscarSetoresPorHospital(email, senha)
                             .then((resultadoSalas) => {
                                 if (resultadoSalas.length > 0) {
                                     res.json({

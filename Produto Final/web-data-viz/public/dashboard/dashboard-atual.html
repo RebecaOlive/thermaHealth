@@ -21,7 +21,7 @@
 
 </head>
 
-<body onload="obterIdSalaDaUrl(), obterDadosGrafico(idSala)">
+<body onload="obterIdSalaDaUrl(), obterDadosGrafico(idSala), listarSalasPorSetor(idSala)">
     <!-- não esqueca que esta mocado  -->
     <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
     <nav class="menu">
@@ -335,6 +335,8 @@
     function obterIdSalaDaUrl() {
         const parametros = new URLSearchParams(window.location.search);
         return parametros.get('idSala');
+
+        console.log('Eu recebi o nome do setor que é ', parametros.get('setor'))
     }
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
