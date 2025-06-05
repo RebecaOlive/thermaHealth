@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador financeiro</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/cabecalho.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
+    <nav class="menu">
+        <div class="logo">
+            <img src="assets/Logo ThermaHealth.png">
+        </div>
+
+        <div class="menu-links">
+
+            <a href="./index.html" class="menu-opcoes">Home</a>
+
+            <div class="menu-links-direita">
+                <a href="./calculadora.html" class="menu-opcoes">Simulador</a>
+                <span class="menu-barra">|</span>
+                <a href="./login.html" class="menu-opcoes-servico">Login</a>
+                <a href="./cadastro.html" class="menu-cadastro">Cadastro</a>
+            </div>
+
+        </div>
+    </nav>
+    <!------------------------- COMEÇO DO SIMULADOR -------------------->
+    <div class="pai">
+        <div class="bloco_simulador">
+            <div class="container1">
+                <h3>CALCULE O IMPACTO DA NOSSA SOLUÇÃO!</h3>
+
+                <p>Atender os parâmetros de temperatura e umidade fortificam a segurança dos processos hospitalares. Vamos ver como <u>não segui-los</u> podem impactar negativamente o seu negócio!</p><br>
+
+                <p>Informe quanto você gasta diariamente por paciente:</p>
+                <input type="number" id="input_gasto" placeholder="R$"><br>
+
+                <p>Informe a média de estadia dos pacientes na unidade:</p>
+                <input type="number" id="input_dias" placeholder="Em dias"><br>
+
+                <p>Informe o percentual médio de retorno financeiro com base no gasto diário:<br>
+                    (média comum entre 7% e 12%)</p>
+                <input type="number" id="input_percentual" placeholder="%"><br><br>
+
+                <div id="div_bt"><button onclick="calcular()">Veja os Riscos!</button></div>
+            </div>
+
+            <div id="msg" class="container2">
+                <h3>Resultado:</h3>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <img class="logo2" src="assets/Logo ThermaHealth.png" alt="Logo ThermaHealth">
+                <h2>Integrando tecnologia à saúde</h2>
+            </div>
+
+            <div class="footer-servicos">
+                <h2>Serviços</h2>
+                <br><br>
+                <h3>Análise</h3>
+                <h3>Monitoramento</h3>
+                <h3>Notificações</h3>
+            </div>
+
+            <div class="footer-empresa">
+                <h2>Empresa</h2>
+                <br><br>
+                <h3>Sobre nós</h3>
+                <h3>Equipe</h3>
+            </div>
+
+            <div class="footer-contato">
+                <h2>Contate-nos</h2>
+                <br><br>
+                <div class="contato-item">
+                    <img src="assets/o-email.png" alt="Ícone do e-mail">
+                    <span>contato@thermahealth.com</span>
+                </div>
+                <div class="contato-item">
+                    <span>Precisa de suporte? 
+                    <a href="https://suportethermahealth.atlassian.net/servicedesk/customer/portal/2">Fale conosco</a>
+                    </span>
+                </div>
+
+            </div>
+
+
+        </div>
+        <hr>
+    </footer>
+    <footer class="footer2">
+        <div class="footer-container">
+            <p>Copyright © 2025 ThermaHealth</p>
+            <nav>
+                <a href="#">Todos os direitos reservados</a><span>|</span>
+                <a href="#">Política de Privacidade</a><span>|</span>
+                <a href="#">Termos e Condições</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    function calcular() {
+        // Captação das Variaveis:
+        var gasto = Number(input_gasto.value);
+        var dias = Number(input_dias.value);
+        var percentual = Number(input_percentual.value);
+        var media = gasto * dias; // Valor total do gasto hospitalar.
+        var mensagem = "";
+
+        // Declaração das Variaveis como Globais:
+        window.gasto = gasto;
+        window.dias = dias;
+        window.percentual = percentual;
+        window.media = media;
+
+        // Atualização de Exibição (Prejuizo):
+        mensagem = `
+        <h4>O CUSTO TOTAL PARA MANTER O PACIENTE É DE R$${media}</h4><br>
+        <p>Quando a unidade não monitora os parâmetros de temperatura e umidade, o ambiente fica exposto a micro-organismos que podem levar a contaminação dos pacientes. Caso o paciente seja contaminado, sua estadia é prolongada e seus tratamentos ficam propícios a serem glosados, transformando lucro em <b>prejuízo</b>.</p><br>
+        <span>Caso a estadia dele tenha sido prolongada em...</span>
+        <select id="select_prolongacao" onchange="aumentar()">
+            <option value="3">3 dias</option>
+            <option value="4">4 dias</option>
+            <option value="5">5 dias</option>
+            <option value="6">6 dias</option>
+            <option value="7">7 dias</option>
+        </select>
+        <div id="div_prejuizo"></div>
+        `;
+
+        div_bt.innerHTML = `<button onclick="solucionar()">Aplicando nossa solução!</button>`;
+
+        msg.innerHTML = mensagem;
+    }
+    function aumentar() {
+        // Captação do Valor de Prolongação de Estadia:
+        var prolongacao = select_prolongacao.value;
+        var msgProlongacao = "";
+
+        // Calculo de Acréscimo de Custo
+        var aumento = gasto * prolongacao;
+        var total = media + aumento;
+
+        msgProlongacao = `<p>Com um potencial acréscimo de R$ ${aumento}, o valor total fica em até R$ ${total}</p>`;
+        div_prejuizo.innerHTML = msgProlongacao;
+    }
+    function solucionar() {
+        var msgSolucionar = "";
+        var lucro = (media * percentual) / 100;
+
+        msgSolucionar = `
+        <h4>COM NOSSA SOLUÇÃO VOCÊ TEM MAIS SEGURANÇA NA SUA MARGEM DE LUCRO DE ${percentual} % EM CIMA DO CUSTO DE R$ ${media.toFixed(2)}, TOTALIZANDO UM RETORNO DE R$ ${lucro.toFixed(2)} DIÁRIO POR PACIENTE!</h4>
+        <p>(A margem de lucro de uma unidade hospitalar é entre 7% a 12% dos custos dos exames)</p>`;
+        msg.innerHTML = msgSolucionar;
+        div_bt.innerHTML = `<button onclick="calcular()">Veja os Riscos!</button>
+        `;
+    }
+</script>

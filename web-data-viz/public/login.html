@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therma Health - Login</title>
+
+  <script src="./js/sessao.js"></script>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/cabecalho.css">
+
+  <link rel="stylesheet" href="css/estilo.css">
+
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
+
+  <nav class="menu">
+    <div class="logo">
+      <img src="assets/Logo ThermaHealth.png">
+    </div>
+
+    <div class="menu-links">
+
+      <a href="index.html#home" class="menu-opcoes">Home</a>
+      <a href="index.html#quem-somos" class="menu-opcoes">Sobre nós</a>
+      <a href="index.html#equipe" class="menu-opcoes">Equipe</a>
+      <a href="index.html#servicos" class="menu-opcoes">Serviços</a>
+
+      <div class="menu-links-direita">
+        <a href="./calculadora.html" class="menu-opcoes">Simulador</a>
+        <span class="menu-barra">|</span>
+        <a href="./login.html" class="menu-opcoes-servico">Login</a>
+        <a href="./cadastro.html" class="menu-cadastro">Cadastro</a>
+      </div>
+
+    </div>
+  </nav>
+  <!--------------- DIV METADE METADE  -------------->
+  <div class="div_5050">
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
+    <div class="div_esquerdaCadastro">
+      <div class="div_formulario login">
+        <h1 class="azul">Bem-vindo de volta!</h1>
+        <div class="card card-cadastro login">
+
+          <div class="formulario">
+            <div class="campo">
+              <span>Insira o CNPJ da instituição <span class="azul">*</span></span>
+              <div class="organiza-campo">
+                <input id="cnpj_input" type="text" placeholder="xx.xxx.xxx/xxxx-xx" />
+                <img class="icon" src="assets/Tela de Cadastro/id-card-icon.png" alt="" srcset="">
+              </div>
+            </div>
+
+            <div class="campo">
+              <span>E-mail do representante<span class="azul">*</span></span>
+              <div class="organiza-campo">
+                <input id="email_input" type="text" placeholder="meuemail@provedor.com"
+                  value="joao.silva@hospital.com" />
+                <img class="icon" src="assets/Tela de Cadastro/email-icon.png" alt="" srcset="">
+              </div>
+
+            </div>
+
+            <div class="campo">
+              <span>Senha <span class="azul">*</span></span>
+              <div class="organiza-campo">
+                <input id="senha_input" type="password" placeholder="******" value="e10adc3949ba59abbe56e057f20f883e" />
+                <img class="icon" src="assets/Tela de Cadastro/padlock-icon.png" alt="" srcset="">
+              </div>
+            </div>
+
+            <button class="botao" onclick="entrar()">Entrar</button>
+
+            <div id="div_aguardar" class="loading-div">
+              <img src="./assets/circle-loading.gif" id="loading-gif">
+            </div>
+
+            <div id="div_erros_login"></div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <div class="div_direitaCadastro">
+      <div id="div_imgCadastro">
+        <img src="assets/Tela de Cadastro/Background-Cadastro.png" alt="">
+      </div>
+      <div class="texto-d">
+        Integrando<br> tecnologia à <br><span style="color: #007bff;">saúde</span>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <!----------------------------------------------------------------------------- RODAPÉ 1 ------------------------------------>
+  <footer class="footer">
+      <div class="footer-container">
+
+          <div class="footer-logo">
+              <img class="logo2" src="assets/Logo ThermaHealth.png" alt="Logo ThermaHealth">
+              <h2>Integrando tecnologia à saúde</h2>
+          </div>
+
+          <div class="footer-servicos">
+              <h2>Serviços</h2>
+              <br><br>
+              <h3>Análise</h3>
+              <h3>Monitoramento</h3>
+              <h3>Notificações</h3>
+          </div>
+
+          <div class="footer-empresa">
+              <h2>Empresa</h2>
+              <br><br>
+              <h3>Sobre nós</h3>
+              <h3>Equipe</h3>
+          </div>
+
+          <div class="footer-contato">
+              <h2>Contate-nos</h2>
+              <br><br>
+              <div class="contato-item">
+                  <img src="assets/o-email.png" alt="Ícone do e-mail">
+                  <span>contato@thermahealth.com</span>
+              </div>
+              <div class="contato-item">
+                  <span>Precisa de suporte? 
+                  <a href="https://suportethermahealth.atlassian.net/servicedesk/customer/portal/2">Fale conosco</a>
+                  </span>
+              </div>
+
+          </div>
+
+
+      </div>
+      <hr>
+  </footer>
+  <footer class="footer2">
+    <div class="footer-container">
+      <p>Copyright © 2025 ThermaHealth</p>
+      <nav>
+        <a href="#">Todos os direitos reservados</a><span>|</span>
+        <a href="#">Política de Privacidade</a><span>|</span>
+        <a href="#">Termos e Condições</a>
+      </nav>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
+<script>
+
+  const listaSalas = [];
+
+  function entrar() {
+    aguardar();
+
+    // var cnpjVar = cnpj_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+
+    if (/*cnpjVar == "" ||*/ emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block"
+      mensagem_erro.innerHTML = `É necessário preencher todos os campos!`;
+      finalizarAguardar();
+      return false;
+
+    } else if (emailVar.indexOf(`@`) <= 0 || !emailVar.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = `É necessário inserir e-mail valido!`;
+      finalizarAguardar();
+      return false;
+
+    } else if (senhaVar.indexOf("abc") !== -1 || /*----------------------------SENHA----------------------------*/
+      senhaVar.indexOf("123") !== -1 ||
+      senhaVar.indexOf("senha") !== -1 ||
+      senhaVar.length < 8 || senhaVar.indexOf(" ") !== -1) {
+
+      cardErro.style.display = "block"
+      mensagem_erro.innerHTML = `Senha não pode conter sequências óbvias, espaços e use no mínimo 8 caracteres`;
+      finalizarAguardar();
+      return false;
+
+    } else {
+      setInterval(sumirMensagem, 5000)
+    }
+
+    // console.log("FORM LOGIN: ", cnpjVar);
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        // cnpjServer: cnpjVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!");
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          sessionStorage.ID_USUARIO = json.idFuncionario;
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.EMAIL_USUARIO = json.email;
+          sessionStorage.SALAS = JSON.stringify(json.salas)
+
+          setTimeout(function () {
+            window.location = "./dashboard/setores.html";
+          }, 1000); // apenas para exibir o loading
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+          finalizarAguardar(texto);
+        });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
+
+  // function listar() {
+  //   var emailVar = email_input.value;
+  //   var senhaVar = senha_input.value;
+
+  //   fetch("/sala/buscarSalasPorHopital", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       emailServer: emailVar,
+  //       senhaServer: senhaVar
+  //     }),
+  //   }).then(function (resposta) {
+  //     console.log("ENTREI NA LISTAGEM DAS SALAS", resposta)
+
+  //     if (resposta.ok) {
+  //       return resposta.json().then(function (listaSalas) {
+  //         for (let i = 0; i < listaSalas.length; i++) {
+  //           listaSalas.push(sala);
+  //           console.log('id sala');
+  //           console.log(listaSalas[i].idSala);
+  //         }
+  //       })
+  //         .cath(function (resposta) {
+  //           console.log(`#ERRO: ${resposta}`)
+  //         })
+  //     }
+  //   }
+  //   )
+  // }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none"
+  }
+
+</script>

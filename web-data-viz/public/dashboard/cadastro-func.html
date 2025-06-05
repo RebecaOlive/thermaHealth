@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therma Health - Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/cabecalho.css">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body onload="listar()">
+  <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
+    <nav class="menu">
+        <div class="logo">
+            <img src="../assets/Logo ThermaHealth.png">
+        </div>
+
+        <div class="menu-links">
+
+            <div class="menu-links-direita  menu-dash">
+                <a href="./dashboard-atual.html" class="menu-opcoes menu-opcoes-dash">Dashboard</a>
+                <a href="https://suportethermahealth.atlassian.net/servicedesk/customer/portal/2/user/login?destination=portal%2F2" class="menu-opcoes menu-opcoes-dash">Help Desk</a>
+                <a href="setores.html" class="menu-opcoes menu-opcoes-dash">Home</a>
+            </div>
+            <span class="menu-barra">|</span>
+            <div class="menu-perfil menu-dash-perfil">
+                <a id="ancora_nome">
+                <span id="b_usuario">a</span>
+                </a><br>
+                <a onclick="limparSessao()" id="ancora-sair" style="color: blue;">Sair</a>
+            </div>
+
+
+        </div>
+    </nav>
+  <!--------------- DIV METADE METADE  -------------->
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
+  <div class="div_5050">
+    <div class="div_esquerdaCadastro">
+      <div class="div_formulario">
+    
+        <h1 class="azul">Cadastro de funcionário</h1>
+        <div class="card card-cadastro">
+
+          <div class="formulario">
+
+            <div class="campo">
+              <span>Insira o CPF do funcionário<span class="azul">*</span></span>
+              <div class="organiza-campo">
+                <input id="cnpj_input" type="number" placeholder="xxx.xxx.xxx-xx" />
+                <img class="icon" src="../assets/Tela de Cadastro/id-card-icon.png" alt="" srcset="">
+              </div>
+            </div>
+
+            <div class="campo">
+              <span>Nome do funcionário<span class="azul">*</span></span>
+              <div class="organiza-campo">
+                <input id="nome_input" type="text" placeholder="Nome completo" />
+                <img class="icon" src="../assets/Tela de Cadastro/user-icon.png" alt="" srcset="">
+              </div>
+            </div>
+
+            <div class="campo">
+              <span>E-mail do funcionário<span class="azul">*</span></span>
+              <div class="organiza-campo">
+                <input id="email_input" type="text" placeholder="EmailFuncionário@email.com" />
+                <img class="icon" src="../assets/Tela de Cadastro/email-icon.png" alt="" srcset="">
+              </div>
+
+            </div>
+
+            <div class="campo">
+              <span>Senha <span class="azul">*</span></span>
+              <div class="organiza-campo">
+                <input id="senha_input" type="password" placeholder="******" />
+                <img class="icon" src="../assets/Tela de Cadastro/padlock-icon.png" alt="" srcset="">
+              </div>
+            </div>
+
+            <div class="campo">
+              <span>Confirmação de Senha <span class="azul">*</span></span>
+              <div class="organiza-campo">
+                <input id="confirmacao_senha_input" type="password" placeholder="******" />
+                <img class="icon" src="../assets/Tela de Cadastro/padlock-icon.png" alt="" srcset="">
+              </div>
+
+            </div>
+            <button class="botao" onclick="cadastrar()">Cadastrar</button>
+          </div>
+
+          <div id="div_aguardar" class="loading-div">
+            <img src="../assets/circle-loading.gif" id="loading-gif" />
+          </div>
+
+          <div id="div_erros_login"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="div_direitaCadastro">
+      <div id="div_imgCadastro">
+        <img src="../assets/Tela de Cadastro/Background-Cadastro.png" alt="">
+      </div>
+      <div class="texto-d">
+        Profissionais<br>que transformam a <br><span style="color: #007bff;">saúde</span>
+        com <span style="color: #007bff;">tecnologia</span> e paixão pelo cuidado.
+      </div>
+    </div>
+  </div>
+
+  <!----------------------------------------------------------------------------- RODAPÉ 1 ------------------------------------>
+  <footer class="footer">
+      <div class="footer-container">
+
+          <div class="footer-logo">
+              <img class="logo2" src="../assets/Logo ThermaHealth.png" alt="Logo ThermaHealth">
+              <h2>Integrando tecnologia à saúde</h2>
+          </div>
+
+          <div class="footer-servicos">
+              <h2>Serviços</h2>
+              <br><br>
+              <h3>Análise</h3>
+              <h3>Monitoramento</h3>
+              <h3>Notificações</h3>
+          </div>
+
+          <div class="footer-empresa">
+              <h2>Empresa</h2>
+              <br><br>
+              <h3>Sobre nós</h3>
+              <h3>Equipe</h3>
+          </div>
+
+          <div class="footer-contato">
+              <h2>Contate-nos</h2>
+              <br><br>
+              <div class="contato-item">
+                  <img src="../assets/o-email.png" alt="Ícone do e-mail">
+                  <span>contato@thermahealth.com</span>
+              </div>
+              <div class="contato-item">
+                  <img src="../assets/phone-call.png" alt="Ícone do telefone">
+                  <span>(11) 12345-6789</span>
+              </div>
+
+          </div>
+
+
+      </div>
+      <hr>
+  </footer>
+  <footer class="footer2">
+    <div class="footer-container">
+      <p>Copyright © 2025 ThermaHealth</p>
+      <nav>
+        <a href="#">Todos os direitos reservados</a><span>|</span>
+        <a href="#">Política de Privacidade</a><span>|</span>
+        <a href="#">Termos e Condições</a>
+      </nav>
+    </div>
+  </footer>
+
+
+
+
+</body>
+
+</html>
+<script>
+  let listaEmpresasCadastradas = [];
+
+  function cadastrar() {
+    var cpfVar = cpf_input.value;
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var idEmpresaVincular;
+
+  if (
+      cpfVar == "" || nomeVar == "" || emailVar == "" ||
+      senhaVar == "" || confirmacaoSenhaVar == ""
+  ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = `É necessário preencher todos os campos!`;
+      finalizarAguardar();
+      return false;
+
+  } else if (cpfVar.length !== 11) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = `Número de CPF deve conter 11 dígitos!`;
+      finalizarAguardar();
+      return false;
+
+  } else if (cpfVar.indexOf('a') !== -1 || cpfVar.indexOf('b') !== -1 || cpfVar.indexOf('c') !== -1 || cpfVar.indexOf('d') !== -1 ||
+  cpfVar.indexOf('e') !== -1 || cpfVar.indexOf('f') !== -1 || cpfVar.indexOf('g') !== -1 || cpfVar.indexOf('h') !== -1 ||
+  cpfVar.indexOf('i') !== -1 || cpfVar.indexOf('j') !== -1 || cpfVar.indexOf('k') !== -1 || cpfVar.indexOf('l') !== -1 ||
+  cpfVar.indexOf('m') !== -1 || cpfVar.indexOf('n') !== -1 || cpfVar.indexOf('o') !== -1 || cpfVar.indexOf('p') !== -1 ||
+  cpfVar.indexOf('q') !== -1 || cpfVar.indexOf('r') !== -1 || cpfVar.indexOf('s') !== -1 || cpfVar.indexOf('t') !== -1 ||
+  cpfVar.indexOf('u') !== -1 || cpfVar.indexOf('v') !== -1 || cpfVar.indexOf('w') !== -1 || cpfVar.indexOf('x') !== -1 ||
+  cpfVar.indexOf('y') !== -1 || cpfVar.indexOf('z') !== -1 ||
+
+  cpfVar.indexOf('A') !== -1 || cpfVar.indexOf('B') !== -1 || cpfVar.indexOf('C') !== -1 || cpfVar.indexOf('D') !== -1 ||
+  cpfVar.indexOf('E') !== -1 || cpfVar.indexOf('F') !== -1 || cpfVar.indexOf('G') !== -1 || cpfVar.indexOf('H') !== -1 ||
+  cpfVar.indexOf('I') !== -1 || cpfVar.indexOf('J') !== -1 || cpfVar.indexOf('K') !== -1 || cpfVar.indexOf('L') !== -1 ||
+  cpfVar.indexOf('M') !== -1 || cpfVar.indexOf('N') !== -1 || cpfVar.indexOf('O') !== -1 || cpfVar.indexOf('P') !== -1 ||
+  cpfVar.indexOf('Q') !== -1 || cpfVar.indexOf('R') !== -1 || cpfVar.indexOf('S') !== -1 || cpfVar.indexOf('T') !== -1 ||
+  cpfVar.indexOf('U') !== -1 || cpfVar.indexOf('V') !== -1 || cpfVar.indexOf('W') !== -1 || cpfVar.indexOf('X') !== -1 ||
+  cpfVar.indexOf('Y') !== -1 || cpfVar.indexOf('Z') !== -1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = `Número de CPF deve conter apenas números, sem letras ou caracteres especiais!`;
+      finalizarAguardar();
+      return false;
+
+
+    } else if (nomeVar.indexOf(`1`) !== -1 || nomeVar.indexOf(`2`) !== -1 || /*----------------------------NOME-----------------------------*/
+      nomeVar.indexOf(`3`) !== -1 || nomeVar.indexOf(`4`) !== -1 ||
+      nomeVar.indexOf(`5`) !== -1 || nomeVar.indexOf(`6`) !== -1 ||
+      nomeVar.indexOf(`7`) !== -1 || nomeVar.indexOf(`8`) !== -1 ||
+      nomeVar.indexOf(`9`) !== -1 || nomeVar.indexOf(`0`) !== -1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = `Nome inválido! Campo deve conter apenas caracteres alfabéticos!`;
+      finalizarAguardar();
+      return false;
+
+    } else if (emailVar.indexOf(`@`) <= 0 || !emailVar.endsWith(`.com`)) { /*----------------------------EMAIL----------------------------*/
+
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = `É necessário inserir e-mail valido!`;
+      finalizarAguardar();
+      return false;
+
+    } else if (senhaVar.indexOf("abc") !== -1 || /*----------------------------SENHA----------------------------*/
+      senhaVar.indexOf("123") !== -1 ||
+      senhaVar.indexOf("senha") !== -1 ||
+      senhaVar.length < 8 || senhaVar.indexOf(" ") !== -1) {
+
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = `Senha não pode conter sequências óbvias, espaços e use no mínimo 8 caracteres`;
+      finalizarAguardar();
+      return false;
+
+    } else if (senhaVar !== confirmacaoSenhaVar) { /*---------------------------C.SENHA----------------------------*/
+
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = `Senhas não coincidem, tente novamente`;
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    var cpf = "";
+    var sufixo = "";
+    var digito = "";
+
+    for (let i = 0; i < cpfVar.length; i++) {
+      if (i < 8) {
+        cpf += cpfVar[i];
+      } else if (i < 12){
+        sufixo += cpfVar[i];
+      } else {
+        digito += cpfVar[i];
+      }
+    }
+  let cpfEncontrado = false;
+
+  for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+    if (listaEmpresasCadastradas[i].cpf == cpf && 
+        listaEmpresasCadastradas[i].sufixo == sufixo && 
+        listaEmpresasCadastradas[i].digitoVerifica == digito) {
+      idEmpresaVincular = listaEmpresasCadastradas[i].idHospital;
+      console.log("CPF válido.");
+      cpfEncontrado = true;
+      break;
+    }
+  }
+
+  if (!cpfEncontrado) {
+    cardErro.style.display = "block";
+    mensagem_erro.innerHTML = "(CPF inválido!)";
+    finalizarAguardar();
+    return false;
+  }
+
+
+  console.log({
+  nomeServer: nomeVar,
+  emailServer: emailVar,
+  senhaServer: senhaVar,
+  idEmpresaVincularServer: idEmpresaVincular
+});
+
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        idEmpresaVincularServer: idEmpresaVincular
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+    function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresasCadastradas.push(empresa);
+
+            console.log("listaEmpresasCadastradas")
+            console.log(listaEmpresasCadastradas[0].razaoSocial)
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>

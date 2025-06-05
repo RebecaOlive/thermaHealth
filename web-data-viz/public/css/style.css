@@ -1,0 +1,774 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+/************************************* SIMULADOR FINANCEIRO *****************************/
+
+/************************************** DIV PAI E BLOCO SIMULADOR ************************************/
+
+.pai {
+    background-color: #007bff33;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 7%;
+}
+
+.bloco_simulador {
+    display: flex;
+    gap: 20px;
+}
+
+
+/************************************** DIV 1 - INPUTS, BOTÃO E CIA SIMULADOR ************************************/
+.container1 {
+    background-color:  rgba(255, 254, 254, 0.783);
+    width: 90%;
+    height: 600px;
+    margin-left: 3%;
+    padding: 10px;
+    border: solid gray 1px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+    justify-content: center;   
+    text-align: center;                      
+    box-sizing: border-box;
+}
+
+.container1 p{
+    font-size: 18px;
+    text-align: center;
+    margin: 15px;
+}
+
+h3{
+    font-size: 25px;
+}
+
+.div_input{
+    text-align: center;
+}
+
+
+
+input{
+    width: 30%;
+    height: 35px;
+    margin: 5px;
+    border: solid gray 1px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+button{
+    width: 180px;
+    height: 55px;
+    margin-top: 3px;
+    border-radius: 7px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover{
+    font-weight: bolder;
+    background-color: #0048c5; 
+    color: white;
+    border: 2px solid #4f8ef7;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/************************************** DIV 2 - TEXTO RESULTADO SIMULADOR ************************************/
+
+.container2 {
+    background-color:  rgba(255, 254, 254, 0.783);
+    width: 60%;
+    height: auto;
+    padding: 20px 30px;
+    border: solid gray 1px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.container2 h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.container2 p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.container2 select {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.container2 span{
+    font-size: 18px;
+}
+
+
+/********************************PAGINA INSTITUCIONAL*************************************************/
+/********************************************* IMAGEM A *****************************/
+
+.bloco {
+    width: 100%;
+    height: 670px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/fotoa.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-top: 120px;
+
+}
+
+.texto-a {
+    position: absolute;
+    color: #262626;
+    font-family: 'Roboto', sans-serif;
+    font-size: 70px;
+    font-weight: bolder;
+    text-align: left;
+    width: 500px;
+    height: 50px;
+    margin-right: 720px;
+    margin-bottom: 300px;
+    padding: 20px;
+
+}
+
+/***************************************** TEXTO B e IMAGEM B ***********************************/
+.bloco2 {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+
+}
+
+.texto-b {
+    max-width: 50%;
+    color: #262626;
+
+}
+
+.texto-b h1 {
+    margin-top: 100px;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+
+}
+
+.texto-b h4 {
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: 1.6;
+    text-align: justify;
+
+}
+
+.imagem-b {
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.arquivo-foto img {
+    width: 100%;
+    height: auto;
+    margin-top: 110px;
+    object-fit: cover;
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+
+}
+
+/*********************************************************** IMAGEM C E TEXTO C **********************/
+
+.bloco3 {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+}
+
+.texto-c {
+    max-width: 50%;
+    color: #262626;
+
+}
+
+.texto-c h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    margin-top: -100px;
+
+}
+
+.texto-c h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: 1.6;
+    text-align: justify;
+    margin-top: 25px;
+
+}
+
+.imagem-c {
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.arquivo-fotoc img {
+    width: 100%;
+    height: auto;
+    margin-top: 110px;
+    right: 20;
+    object-fit: cover;
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+
+}
+
+
+/********************************************************* BLOCO NOSSA EQUIPE ************/
+.bloco4 {
+    display: block;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 20px 5%;
+
+}
+
+.bloco4 div h1 {
+    color: #262626;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    margin-left: 80px;
+    margin-bottom: 60px;
+    text-align: left;
+    width: 100%;
+
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-left: 0px;
+    padding: 10px;
+
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-bottom: 70px;
+
+}
+
+.container {
+    position: relative;
+    width: 340px;
+    height: 350px;
+    border-radius: 10px;
+
+}
+
+.container:hover .rotate {
+    transform: rotateY(180deg);
+
+}
+
+.rotate {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: 0.6s;
+
+}
+
+.frente,
+.verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgb(0, 0, 0);
+    backface-visibility: hidden;
+
+}
+
+.frente {
+    background-color: rgb(0, 34, 255);
+    background-size: cover;
+
+}
+
+.verso {
+    background-color: #1c66a6;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    
+}
+
+.nome {
+    font-size: larger;
+
+}
+
+#gustavo {
+    background-image: url(../assets/gustavo.jpg);
+    
+}
+    
+#luca {
+    background-image: url('../assets/luca.jpeg');
+    
+}
+    
+#lucas {
+    background-image: url('../assets/lucas.jpg');
+    
+}
+    
+#marina {
+    background-image: url('../assets/marina.jpg');
+    
+}
+    
+#rebeca {
+    background-image: url(../assets/rebeca.jpg);
+    
+}
+    
+#samuel {
+    background-image: url(../assets/samuel.jpg);
+    
+}
+    
+
+/************************************************* BLOCO 5 - NOSSOS SERVIÇOS ****************/
+
+.bloco5 {
+    background-color: #007bff33;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 50px 50px;
+    position: relative;
+
+}
+
+.titulo {
+    align-self: flex-start;
+    margin-bottom: 30px;
+    padding-left: 50px;
+
+}
+
+.titulo h1 {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 25px;
+
+}
+
+.servicos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.linha-superior {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+}
+
+.linha-inferior {
+    display: flex;
+    justify-content: center;
+
+}
+
+.servico {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 500px;
+    height: 250px;
+
+}
+
+.servico img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+
+}
+
+.servico h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 23px;
+    font-weight: 900;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.servico p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    color: #000000;
+
+}
+
+.servico2 {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 500px;
+    height: 250px;
+
+}
+
+.servico2 img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+
+}
+
+.servico2 h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 23px;
+    font-weight: 900;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.servico2 p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    color: #000000;
+
+}
+
+.servico3 {
+    background: #1c66a6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 500px;
+    height: 250px;
+
+}
+
+.servico3 img {
+    width: 110px;
+    height: 105px;
+
+}
+
+.servico3 h2 {
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 10px;
+
+}
+
+.servico3 p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+
+}
+
+/* TELA DE CADASTRO */
+
+.div_5050 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 670px;
+    display: flex;
+    border-radius: 12px;
+    justify-content: center;
+}
+
+.div_esquerdaCadastro {
+    height: 100%;
+    width: 50%;
+
+}
+
+.div_direitaCadastro {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.div_direitaCadastro .texto-d {
+    position: absolute;
+    font-size: 60px;
+    font-weight: 900;
+    opacity: 100%;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.div_direitaCadastro #div_imgCadastro {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, #dbe6f3, #DCEAFA 5%);
+
+}
+
+.div_direitaCadastro #div_imgCadastro img {
+    width: 100%;
+    height: 100%;
+    opacity: 30%;
+
+}
+
+.div_formulario {
+    display: flex;
+    background-image: linear-gradient(to left, #d9e3ed, #DCEAFA);
+
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card-cadastro {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 60%;
+    width: 70%;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.card-cadastro .formulario {
+    display: flex;
+    height: 90%;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 10%;
+
+}
+
+.organiza-campo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+    border: solid white;
+    background-color: white;
+    border-radius: 3px;
+    filter: drop-shadow(1px 1px 1px);
+    align-items: center;
+    justify-content: center;
+
+}
+
+.organiza-campo input,
+.campo select {
+    height: 100%;
+    width: 100%;
+    min-height: 35px;
+    border: solid white;
+    text-align: left;
+
+}
+
+.organiza-campo input:focus,
+.campo select:focus {
+    outline: none;
+
+}
+
+.campo .icon {
+    height: 35px;
+    width: 35px;
+    border-left: solid gray 1px;
+    padding: 2%;
+
+}
+
+.formulario button {
+    width: 40%;
+    height: 10%;
+
+    background-color: #1774DE;
+    border-radius: 8px;
+    border: none;
+    color: whitesmoke;
+    font-weight: 800;
+    border-top: 5%;
+
+}
+
+/* **********************CONFIGURAÇÕES PADRÃO LOGIN E CADASTRO*************************************** */
+
+.div_formulario h1 {
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.azul {
+    color: #1774DE;
+}
+
+
+/* ****************************************PÁGINA DE LOGIN******************************************* */
+
+.div_formulario .login .formulario {
+    padding: 30px 0;
+
+}
+
+
+.alerta_erro{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #ED145B 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* ****************************************PÁGINA DE SETORES******************************************* */
+.pai{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.setor-pai{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 800px;
+    
+}
+
+.setor-titulo {
+    display: flex;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: left;
+    margin-top: 150px;
+}
+

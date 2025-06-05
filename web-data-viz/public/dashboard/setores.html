@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therma Health - Login</title>
+
+    <script src="../js/sessao.js"></script>
+    <script src="../js/alerta.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../css/cabecalho.css">
+    <link rel="stylesheet" href="../css/dash-style.css">
+
+
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+<body style="background-color: white;" onload="validarSessao(), exibirSalas()">
+ 
+    <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
+
+    <nav class="menu">
+        <div class="logo">
+            <img src="../assets/Logo ThermaHealth.png">
+        </div>
+
+        <div class="menu-links">
+
+            <div class="menu-links-direita  menu-dash">
+                <a href="./dashboard-atual.html" class="menu-opcoes menu-opcoes-dash">Dashboard</a>
+                <a href="https://suportethermahealth.atlassian.net/servicedesk/customer/portal/2/user/login?destination=portal%2F2"
+                    class="menu-opcoes menu-opcoes-dash">Help Desk</a>
+                <a href="setores.html" class="menu-opcoes menu-opcoes-dash">Home</a>
+            </div>
+            <span class="menu-barra">|</span>
+            <div class="menu-perfil menu-dash-perfil">
+                <a id="ancora_nome">
+                    <span id="b_usuario">a</span>
+                </a><br>
+                <a onclick="limparSessao()" id="ancora-sair" style="color: blue; cursor: pointer;">Sair</a>
+            </div>
+
+
+        </div>
+    </nav>
+    <!----------------------------------------------------------- SEGMENTO DE SETORES  ------------->
+
+    <main class="pai-setores">
+        <div class="setores-titulo">
+            <h1>Setores</h1>
+        </div>
+
+        <div class="setores">
+            <div class="legenda-container">
+                <div class="legendas">
+                    <div class="legenda-esquerda">
+                        <div class="bloquinho">
+
+                        </div>
+                        <div class="titulo-bloquinho">
+                            <h1>Normal</h1>
+                        </div>
+                    </div>
+                    <div class="legenda-central">
+                        <div class="bloquinho amarelo">
+
+                        </div>
+                        <div class="titulo-bloquinho">
+                            <h1>Atenção</h1>
+                        </div>
+                    </div>
+                    <div class="legenda-direita">
+                        <div class="bloquinho vermelho">
+
+                        </div>
+                        <div class="titulo-bloquinho">
+                            <h1>Perigo</h1>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--------------------------------------------- SETORES DIVS ------------------------------------------>
+
+            <div id="cardSala"></div>
+
+        </div>
+
+
+    </main>
+
+    <!----------------------------------------------------------- RODAPÉ 1 ------------------------->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <img class="logo2" src="../assets/Logo ThermaHealth.png" alt="Logo ThermaHealth">
+                <h2>Integrando tecnologia à saúde</h2>
+            </div>
+
+            <div class="footer-servicos">
+                <h2>Serviços</h2>
+                <br><br>
+                <h3>Análise</h3>
+                <h3>Monitoramento</h3>
+                <h3>Notificações</h3>
+            </div>
+
+            <div class="footer-empresa">
+                <h2>Empresa</h2>
+                <br><br>
+                <h3>Sobre nós</h3>
+                <h3>Equipe</h3>
+            </div>
+
+            <div class="footer-contato">
+                <h2>Contate-nos</h2>
+                <br><br>
+                <div class="contato-item">
+                    <img src="../assets/o-email.png" alt="Ícone do e-mail">
+                    <span>contato@thermahealth.com</span>
+                </div>
+                <div class="contato-item">
+                    <img src="../assets/phone-call.png" alt="Ícone do telefone">
+                    <span>(11) 12345-6789</span>
+                </div>
+
+            </div>
+
+
+        </div>
+        <hr>
+    </footer>
+    <footer class="footer2">
+        <div class="footer-container">
+            <p>Copyright © 2025 ThermaHealth</p>
+            <nav>
+                <a href="#">Todos os direitos reservados</a><span>|</span>
+                <a href="#">Política de Privacidade</a><span>|</span>
+                <a href="#">Termos e Condições</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script>
+
+    function exibirSalas() {
+
+        
+        JSON.parse(sessionStorage.SALAS).forEach(item => {
+            document.getElementById("cardSala").innerHTML += `
+                    <div class="setores-caixa" onclick="irParaSetor(${item.idSala})">
+                        <div class="caixa-texto">
+                            <h2>${item.setor}</h2>
+                        </div>
+                        <div class="caixa-status">
+                            <h1>${item.nome}</h1>
+                        </div>
+                    </div>`
+        }
+    );
+        // alert(JSON.parse(sessionStorage.SALAS).forEach(item => {item.nome}));
+
+    }
+
+    function irParaSetor(idSala) {
+        console.log('Fui para a transferência', idSala);
+        window.location.href = `dashboard-atual.html?idSala=${idSala}`;
+    }
+
+</script>
