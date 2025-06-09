@@ -21,7 +21,7 @@
 
 </head>
 
-<body onload="obterIdSalaDaUrl(),pegarInfoSetor(), obterDadosGrafico(idSala), listarSalasPorSetor(idSala)">
+<body onload="obterIdSalaDaUrl(),pegarInfoSetor(), obterDadosGrafico(idSala), listarSalasPorSetor(setor)">
     <!-- não esqueca que esta mocado  -->
     <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
     <nav class="menu">
@@ -59,26 +59,10 @@
 
         <div class="dash-principal">
             <!----------------------------------------- SETORES -->
-            <div class="dash-salas">
+            <div class="dash-salas" id="card_salas">
                 <div>
                     <h4>Salas do setor</h4>
                 </div>
-                <div class="sala-nome">
-                    <h2>Higienização</h2>
-                </div>
-
-                <div class="sala-nome">
-                    <h2>Triagem</h2>
-                </div>
-
-                <div class="sala-nome">
-                    <h2>Inalação</h2>
-                </div>
-
-                <div class="sala-nome">
-                    <h2>Emergência</h2>
-                </div>
-
             </div>
 
             <!----------------------------------------- KPIS E SENSORES -->
@@ -249,11 +233,6 @@
 
     </div>
 
-
-
-
-
-
     </div>
     <br><br><br><br>
 
@@ -316,57 +295,71 @@
 </html>
 
 <script>
-const idSala = obterIdSalaDaUrl();
+    const idSala = obterIdSalaDaUrl();
+    const setor = pegarInfoSetor();
 
-    function pegarInfoSetor(){
-    // Recupera o idSala da URL
-        
+    function pegarInfoSetor() {
+        // Recupera o idSala da URL
+
         // Mostra o nome do usuário na tela
         b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
         console.log(idSala)
         var salas = JSON.parse(sessionStorage.SALAS);
         var setor;
-        
+
         console.log(salas)
-        for(var i = 0; i <= salas.length; i++){
-            
-            console.log('Entrou no for ' + i)
-            console.log(salas[i].idSala == idSala)
-            
-            if(salas[i].idSala == idSala){
+        for (var i = 0; i < salas.length; i++) {
+
+
+            if (salas[i].idSala == idSala) {
                 setor = JSON.parse(sessionStorage.SALAS)[i].setor;
                 console.log(setor)
-                
+
                 break;
-            }    
+            }
 
         }
 
-         nome_setor.innerHTML = setor;
-    }
-   
-    
-    
-   
+        nome_setor.innerHTML = setor;
 
-    let proximaAtualizacao;
-
-    // Valida se veio um idSala na URL
-    if (idSala) {
-        obterDadosGrafico(idSala);
-    } else {
-        alert('Nenhuma sala selecionada!');
+        return setor;
     }
 
-    // 🔥 Função para buscar o idSala na URL
     function obterIdSalaDaUrl() {
         const parametros = new URLSearchParams(window.location.search);
         return parametros.get('idSala');
 
         console.log('Eu recebi o nome do setor que é ', parametros.get('setor'))
     }
+
+    function listarSalasPorSetor(setor) {
+
+        console.log(idSala);
+        var salas = JSON.parse(sessionStorage.SALAS);
+
+        for (var i = 0; i < salas.length; i++) {
+
+            console.log('Entrou no for ' + i)
+            console.log(salas[i].idSala == idSala)
+
+            if (salas[i].setor == setor) {
+                document.getElementById("card_salas").innerHTML += `
+                <div class="sala-nome" onclick="trocarSala(${salas[i].idSala})">
+                    <h2>${salas[i].nome}</h2>
+                </div>
+            `
+            }
+        }
+    }
+
+    function trocarSala(idSala) {
+        console.log('Fui para a transferência', idSala);
+        window.location.href = `dashboard-atual.html?idSala=${idSala}`;
+    }
+
     // O gráfico é construído com três funções:
+
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
 
     // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
@@ -379,6 +372,15 @@ const idSala = obterIdSalaDaUrl();
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
+
+    let proximaAtualizacao;
+
+    if (idSala) {
+        obterDadosGrafico(idSala);
+    } else {
+        alert('Nenhuma sala selecionada!');
+    }
+
     function obterDadosGrafico(idSala) {
 
         // alterarTitulo(idSala)
@@ -471,7 +473,6 @@ const idSala = obterIdSalaDaUrl();
 
         setTimeout(() => atualizarGrafico(idSala, dados, temp), 2000);
     }
-
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
     // buscando a última medida inserida em tabela contendo as capturas, 

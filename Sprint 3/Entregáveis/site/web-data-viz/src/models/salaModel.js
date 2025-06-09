@@ -27,7 +27,8 @@ function listarSalasPorSetor(email, senha, nomeSetor) {
 
 function cadastrar(setor, nome, descricao, andar, fkHospital) {
   
-  var instrucaoSql = `INSERT INTO (setor, nome, descricao, andar, fkHospital) sala VALUES (${setor}, ${nome}, ${descricao}, ${andar}, ${fkHospital})`;
+  var instrucaoSql = `INSERT INTO sala (fkSetor, nome, descricao, andar, fkHospital) VALUES ('${setor}', '${nome}', '${descricao}', '${andar}', '${fkHospital}');
+`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);

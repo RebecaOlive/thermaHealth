@@ -156,6 +156,14 @@ INSERT INTO sala (setor, nome, descricao, andar, fkHospital) VALUES
 ('Centro Cirúrgico', 'Sala de Cirurgia 2', 'Sala para procedimentos cirúrgicos de médio porte.', 2, 2),
 ('Administração', 'Sala da Diretoria', 'Sala administrativa da diretoria do hospital.', 3, 1);
 
+INSERT INTO sala (setor, nome, descricao, andar, fkHospital) VALUES
+('Emergência', 'Sala de Atendimento 1', 'Sala para atendimento inicial de emergência.', 1, 1),
+('Emergência', 'Sala de Atendimento 2', 'Sala equipada para primeiros socorros.', 1, 1),
+('Emergência', 'Sala de Triagem', 'Local para triagem de pacientes emergenciais.', 1, 1),
+('Emergência', 'Sala de Observação', 'Sala para observação de pacientes em emergência.', 2, 1),
+('Emergência', 'Sala de Estabilização', 'Sala para estabilização de pacientes críticos.', 2, 1);
+
+
 -- Inserção de parâmetros ideais de sensores
 INSERT INTO parametrosIdeais (idParametros, fkSala, temperatura_min, temperatura_max, umidade_min, umidade_max) VALUES
 (1, 1, 20.0, 22.0, 40, 60),

@@ -55,13 +55,6 @@
         <div class="card card-cadastro login">
 
           <div class="formulario">
-            <div class="campo">
-              <span>Insira o CNPJ da instituição <span class="azul">*</span></span>
-              <div class="organiza-campo">
-                <input id="cnpj_input" type="text" placeholder="xx.xxx.xxx/xxxx-xx" />
-                <img class="icon" src="assets/Tela de Cadastro/id-card-icon.png" alt="" srcset="">
-              </div>
-            </div>
 
             <div class="campo">
               <span>E-mail do representante<span class="azul">*</span></span>
@@ -170,16 +163,15 @@
 </html>
 <script>
 
-  const listaSalas = [];
+  // const listaSalas = [];
 
   function entrar() {
     aguardar();
 
-    // var cnpjVar = cnpj_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
 
-    if (/*cnpjVar == "" ||*/ emailVar == "" || senhaVar == "") {
+    if ( emailVar == "" || senhaVar == "") {
       cardErro.style.display = "block"
       mensagem_erro.innerHTML = `É necessário preencher todos os campos!`;
       finalizarAguardar();
@@ -205,7 +197,6 @@
       setInterval(sumirMensagem, 5000)
     }
 
-    // console.log("FORM LOGIN: ", cnpjVar);
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
 
@@ -215,7 +206,6 @@
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        // cnpjServer: cnpjVar,
         emailServer: emailVar,
         senhaServer: senhaVar
       }),
