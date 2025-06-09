@@ -26,16 +26,20 @@ function autenticar(req, res) {
                         console.log(resultadoAutenticar);
 
 
-
-                        
-                            res.json({
-                                idFuncionario: resultadoAutenticar[0].idFuncionario,
-                                email: resultadoAutenticar[0].email,
-                                nome: resultadoAutenticar[0].nome,
-                                senha: resultadoAutenticar[0].senha
-                            });
-                        
-
+                        salaModel.buscarSalasPorHopital(email, senha)
+                            .then((resultadoSalas) => {
+                                if (resultadoSalas.length > 0) {
+                                    res.json({
+                                        idFuncionario: resultadoAutenticar[0].idFuncionario,
+                                        email: resultadoAutenticar[0].email,
+                                        nome: resultadoAutenticar[0].nome,
+                                        senha: resultadoAutenticar[0].senha,
+                                        salas: resultadoSalas
+                                    });
+                                } else {
+                                    res.status(204).json({ salas: [] });
+                                }
+                            })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {

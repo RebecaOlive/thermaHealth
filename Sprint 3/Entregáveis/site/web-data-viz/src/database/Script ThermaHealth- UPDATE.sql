@@ -32,14 +32,9 @@ CREATE TABLE IF NOT EXISTS hospital(
 -- Criação da tabela de funcionários, permitindo hierarquia entre eles (supervisor)
 CREATE TABLE IF NOT EXISTS funcionario(
 	idFuncionario INT PRIMARY KEY AUTO_INCREMENT, 
-	matricula VARCHAR(10),
 	nome VARCHAR(100) NOT NULL,
 	senha VARCHAR(32) NOT NULL,
-	nivelAcesso CHAR(1),
 	email VARCHAR(255) NOT NULL,
-	fkSupervisor INT NULL,
-		constraint fkFuncSuper foreign key (fkSupervisor)
-			references funcionario(idFuncionario),
 	fkHospital INT NOT NULL,
 		constraint fkFuncHospital foreign key (fkHospital)
 			references hospital(idHospital)
@@ -73,8 +68,6 @@ CREATE TABLE IF NOT EXISTS parametrosIdeais(
 -- Criação da tabela de sensores, associando cada sensor a uma sala
 CREATE TABLE IF NOT EXISTS sensor(
 	idSensor INT PRIMARY KEY AUTO_INCREMENT,
-	tipo VARCHAR(10) NOT NULL,
-	numeroSerie VARCHAR(22) NOT NULL UNIQUE,
 	statusSensor VARCHAR(45) NOT NULL,
     constraint chkStatusSensor
 		check (statusSensor in('Ativo', 'Inativo', 'Manutenção')),
@@ -140,12 +133,12 @@ INSERT INTO hospital (nome,fkEndereco, sufixo, cnpj, digitoVerifica, razaoSocial
 
 
 -- Inserção de funcionários com diferentes níveis e supervisores
-INSERT INTO funcionario (matricula, nome, senha, nivelAcesso, email, fkSupervisor, fkHospital) VALUES
-('000001', 'João Silva', 'e10adc3949ba59abbe56e057f20f883e', 'A', 'joao.silva@hospital.com', NULL, 1),
-('000002', 'Maria Souza', 'e10adc3949ba59abbe56e057f20f883e', 'S', 'maria.souza@hospital.com', 1, 1),
-('000003', 'Carlos Lima', 'e10adc3949ba59abbe56e057f20f883e', 'C', 'carlos.lima@hospital.com', 2, 1),
-('000004', 'Fernanda Rocha', 'e10adc3949ba59abbe56e057f20f883e', 'S', 'fernanda.rocha@hospital.com', 1, 2),
-('000005', 'Bruno Martins', 'e10adc3949ba59abbe56e057f20f883e', 'C', 'bruno.martins@hospital.com', 4, 2);
+INSERT INTO funcionario (nome, senha, email, fkSupervisor, fkHospital) VALUES
+('João Silva', 'e10adc3949ba59abbe56e057f20f883e', 'joao.silva@hospital.com', NULL, 1),
+('Maria Souza', 'e10adc3949ba59abbe56e057f20f883e', 'maria.souza@hospital.com', 1, 1),
+('Carlos Lima', 'e10adc3949ba59abbe56e057f20f883e', 'carlos.lima@hospital.com', 2, 1),
+('Fernanda Rocha', 'e10adc3949ba59abbe56e057f20f883e', 'fernanda.rocha@hospital.com', 1, 2),
+('Bruno Martins', 'e10adc3949ba59abbe56e057f20f883e', 'bruno.martins@hospital.com', 4, 2);
 
 -- Inserção de salas hospitalares com diferentes setores e hospitais
 INSERT INTO sala (setor, nome, descricao, andar, fkHospital) VALUES
@@ -169,18 +162,18 @@ select * from sala;
 select * from parametrosIdeais;
  
 -- Inserção de sensores em diferentes salas e com status variados
-INSERT INTO sensor (tipo, numeroSerie, statusSensor, fkSala) VALUES -- ALTERAR TIPO DE SENSOR PARA A POSIÇÃO NO QUAL ELE ESTÁ INSTALADO 
+INSERT INTO sensor (statusSensor, fkSala) VALUES -- ALTERAR TIPO DE SENSOR PARA A POSIÇÃO NO QUAL ELE ESTÁ INSTALADO 
 -- SE O SENSOR ESTIVER INATIVO OU EM MANUTENÇÃO, ELE NÃO SERÁ CONSIDERADO PARA O MONITORAMENTO DAS SALAS 
-('TEMP', 'SN-TEMP-0001', 'Ativo', 1),
-('UMID', 'SN-UMID-0002', 'Ativo', 2),
-('AMBI', 'SN-AMBI-0003', 'Manutenção', 3),
-('TEMP', 'SN-TEMP-0004', 'Ativo', 4),
-('UMID', 'SN-UMID-0005', 'Inativo', 5),
-('AMBI', 'SN-AMBI-0006', 'Ativo', 6),
-('TEMP', 'SN-TEMP-0007', 'Ativo', 1),
-('TEMP', 'SN-TEMP-0008', 'Manutenção', 1),
-('UMID', 'SN-UMID-0009', 'Ativo', 1),
-('UMID', 'SN-UMID-0010', 'Ativo', 1);
+('Ativo', 1),
+('Ativo', 2),
+('Manutenção', 3),
+('Ativo', 4),
+('Inativo', 5),
+('Ativo', 6),
+('Ativo', 1),
+('Manutenção', 1),
+('Ativo', 1),
+('Ativo', 1);
 
 
 -- Inserção de registros de medições de sensores

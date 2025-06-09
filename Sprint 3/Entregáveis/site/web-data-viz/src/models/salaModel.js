@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarSetoresPorHospital(email, senha) {
+function buscarSalasPorHopital(email, senha) {
 
   var instrucaoSql = `
     SELECT s.* FROM sala s JOIN funcionario f ON f.fkHospital = s.fkHospital 
@@ -36,6 +36,6 @@ function cadastrar(setor, nome, descricao, andar, fkHospital) {
 
 module.exports = {
   listarSalasPorSetor,
-  buscarSetoresPorHospital,
+  buscarSalasPorHopital,
   cadastrar
 }
