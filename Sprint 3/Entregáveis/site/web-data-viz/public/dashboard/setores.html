@@ -151,9 +151,14 @@
 <script>
 
     function exibirSalas() {
+        const setoresCadastrados = [];
         // arrumar para só aparecer uma vez o setor
         JSON.parse(sessionStorage.SALAS).forEach(item => {
-            document.getElementById("cardSala").innerHTML += `
+            
+            let setorAtual = item.setor;
+            console.log(setorAtual)
+            if(!setoresCadastrados.includes(setorAtual)){
+                document.getElementById("cardSala").innerHTML += `
                     <div class="setores-caixa" onclick="irParaSetor(${item.idSala})">
                         <div class="caixa-texto">
                             <h2>${item.setor}</h2>
@@ -161,6 +166,9 @@
                         <div class="caixa-status">
                         </div>
                     </div>`
+                    setoresCadastrados.push(setorAtual)
+            }
+            
         }
     );
     }
