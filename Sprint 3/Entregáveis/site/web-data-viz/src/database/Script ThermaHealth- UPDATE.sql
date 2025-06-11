@@ -46,7 +46,6 @@ CREATE TABLE IF NOT EXISTS sala(
 	setor VARCHAR(45) NOT NULL, 
 	nome VARCHAR(45) NOT NULL,
 	descricao TEXT NOT NULL,
-	andar TINYINT NOT NULL,  
 	fkHospital INT NOT NULL,
 		constraint fkSalaHospital foreign key (fkHospital)
 			references hospital(idHospital)
@@ -91,8 +90,7 @@ CREATE TABLE IF NOT EXISTS registro(
 CREATE TABLE IF NOT EXISTS registroAlerta(
 	idRegistroAlerta INT AUTO_INCREMENT PRIMARY KEY,
 	aviso VARCHAR(10),
-	mensagem TEXT,
-	resolvido TINYINT
+	mensagem TEXT
 );
 
 -- Criação da tabela de alerta (para alertas de umidade, temperatura ou ambos)
@@ -100,8 +98,6 @@ CREATE TABLE IF NOT EXISTS alerta(
 	idAlerta int auto_increment primary key,
 	fkRegistro int,
     fkRegistroAlerta int,
-    alertaUmidade tinyint,
-    alertaTemperatura tinyint,
 	 -- CONSTRAINT pkComposta primary key(idAlerta,pkRegistro,pkRegistroAlerta),
 		CONSTRAINT fkAlerta_Registro FOREIGN KEY (fkRegistro) REFERENCES registro(idRegistro),
 		CONSTRAINT fkAlerta_RegistroAlerta FOREIGN KEY (fkRegistroAlerta) REFERENCES registroAlerta(idRegistroAlerta)
@@ -439,9 +435,32 @@ create view vw_acesso as
            HAVING 
            sala.idSala = 1
            ORDER BY sensor.numeroSerie DESC;
-           
--- ALTER VIEW ___ as tananã      
+            
 	SELECT * from vw_acesso;
+
+
+CREATE VIEW vw_sala_setor_param_regist_sensor as
+		SELECT  sa.nome as nomeSala, -- Pego o nome da sala
+				sa.setor as nomeSetor, -- Pego o nome do setor
+				p.temperatura_min as temp_min, -- Pego o parâmetro de temperatura mínima
+				p.temperatura_max as temp_max, -- Pego o parâmetro de temperatura máximo
+				p.umidade_min as umi_min, -- Pego o parâmetro de umidade mínima
+				p.umidade_max as umi_max, -- Pego o parâmetro de umidade máxima
+				r.temperatura as temperaturaAtual, -- Pego o registro de temperatura
+				r.umidade as umidadeAtual, -- Pego o registro de umidade
+				r.fkSensor as sensorDonoRegistro
+			FROM registro r
+			JOIN (SELECT fkSensor, Max(dtHora) as 'max_dtHora' -- Faço um join com esse select que
+				FROM registro JOIN sensor GROUP BY fkSensor) as recentes -- retorna a data do último registro 
+				ON r.fkSensor = recentes.fkSensor AND r.dtHora = recentes.max_dtHora  -- E faz com que exiba apenas quando 
+				JOIN sensor s -- o registro do sensor for == ao último registro e só 1 por sensor
+				ON s.idSensor = r.fkSensor
+				JOIN sala sa 
+				ON sa.idSala = s.fkSala
+				JOIN parametrosIdeais p
+				ON p.fkSala = sa.idSala
+				ORDER BY r.fkSensor; -- Ordenado pelo identificador de cada sensor que tenha registro
+
 
 
            
