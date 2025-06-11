@@ -205,7 +205,7 @@
 
             <div class="grafico1">
                 <div class="grafico-titulo-temp">
-                    <h4>TEMPERATURA</h4>
+                    <h4>GRÁFICO EM TEMPO REAL</h4>
                 </div>
                 <div class="grafico-temp">
                     <div>
@@ -351,9 +351,9 @@
             }
         }
     }
-    
+
     function name(params) {
-        
+
     }
 
     function trocarSala(idSala) {
@@ -427,16 +427,55 @@
                 label: 'Umidade',
                 data: [],
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)', // ver esta cor
+                borderColor: 'black',
+                borderWidth: 2,
+                pointRadius: 3,
+                backgroundColor: 'white',
                 tension: 0.1
             },
             {
                 label: 'Temperatura',
                 data: [],
                 fill: false,
-                borderColor: 'rgb(199, 52, 52)', // ver esta cor
+                borderColor: 'black',
+                borderWidth: 2,
+                pointRadius: 3,
+                backgroundColor: 'white',
                 tension: 0.1
-            }]
+            },
+            {
+                label: 'Umidade Máxima',
+                data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60],
+                borderWidth: 2,
+                borderColor: 'red',
+                backgroundColor: 'white',
+                pointRadius: 0
+            },
+            {
+                label: 'Umidade Mínima',
+                data: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+                borderWidth: 2,
+                borderColor: '#0089FF',
+                backgroundColor: 'white',
+                pointRadius: 0
+            },
+            {
+                label: 'Temperatura Máxima',
+                data: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+                borderWidth: 2,
+                borderColor: 'red',
+                backgroundColor: 'white',
+                pointRadius: 0
+            },
+            {
+                label: 'Temperatura Mínima',
+                data: [22, 22, 22, 22, 22, 22, 22, 22, 22, 22],
+                borderWidth: 2,
+                borderColor: '#0089FF',
+                backgroundColor: 'white',
+                pointRadius: 0
+            }
+            ]
         };
 
         console.log('----------------------------------------------')
@@ -453,15 +492,15 @@
             kpi_umid.innerHTML = registro.umidade;
         }
 
-        let random_temp = parseInt(Math.random()*2 +22);
-        let random_umid = parseInt(Math.random()*20 +60);
+        let random_temp = parseInt(Math.random() * 2 + 22);
+        let random_umid = parseInt(Math.random() * 20 + 60);
 
         kpi_random_temp.innerHTML = random_temp;
         kpi_random_umid.innerHTML = random_umid;
 
-        random_temp = parseInt(Math.random()*2 +22);
-        random_umid = parseInt(Math.random()*20 +60);
-        
+        random_temp = parseInt(Math.random() * 2 + 22);
+        random_umid = parseInt(Math.random() * 20 + 60);
+
         kpi_random_temp2.innerHTML = random_temp;
         kpi_random_umid2.innerHTML = random_umid;
 

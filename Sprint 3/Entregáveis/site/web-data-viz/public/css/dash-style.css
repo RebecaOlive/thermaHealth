@@ -574,6 +574,11 @@ body{
     background-color: #a3cdfc;
     border-radius: 0 0 5px 5px;
 }
+
+#grafico_temperatura {
+    width: 200%;
+    height: 490px;
+}
 /***************************** CHART.JS **********************************/
 canvas {
     width: 100% ;
