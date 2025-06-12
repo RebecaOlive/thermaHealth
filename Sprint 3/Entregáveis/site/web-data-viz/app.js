@@ -29,10 +29,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 app.use("/", indexRouter);
+app.use("/sala", salaRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
-app.use("/sala", salaRouter);
 app.use("/empresas", empresasRouter);
 
 app.listen(PORTA_APP, function () {

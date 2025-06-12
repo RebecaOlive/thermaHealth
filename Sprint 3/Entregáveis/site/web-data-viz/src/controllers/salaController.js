@@ -5,7 +5,7 @@ function buscarSalasPorHospital(req, res) {
   var senha = req.body.senhaServer;
 
   if (email == undefined) {
-    res.status(400).send("Seu email está undefined!");
+    res.status(400).send("Seu teste está undefined!");
   } else if (senha == undefined) {
     res.status(400).send("Sua senha está indefinida!");
   } else {
@@ -74,11 +74,38 @@ function listarSalasPorSetor(req, res) {
   }
 
 
+  function contextualizarSetores(req, res){
+
+    console.log(`req: `, req);
+
+    // return res.send(req);
+
+    var email = req.query.email;
+
+    salaModel.contextualizarSetores(email)
+      .then((resultadoBuscarSetores) => {
+          if (resultadoBuscarSetores){
+
+
+          }
+
+          console.log('Na controller está assim ', resultadoBuscarSetores)
+          res.status(200).json(resultadoBuscarSetores);
+      }
+    
+
+    )
+
+
+  }
+
+
 
 
 
 module.exports = {
   listarSalasPorSetor,
   buscarSalasPorHospital,
-  cadastrar
+  cadastrar,
+  contextualizarSetores
 }

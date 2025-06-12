@@ -34,9 +34,20 @@ function cadastrar(setor, nome, descricao, andar, fkHospital) {
   return database.executar(instrucaoSql);
 }
 
+function contextualizarSetores(email){
+  var instrucaoSql = `
+    SELECT * FROM vw_sala_setor_param_regist_sensor WHERE emailFuncionario = '${email}';
+  ` ;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+
+}
+
 
 module.exports = {
   listarSalasPorSetor,
   buscarSalasPorHopital,
-  cadastrar
+  cadastrar,
+  contextualizarSetores
 }
