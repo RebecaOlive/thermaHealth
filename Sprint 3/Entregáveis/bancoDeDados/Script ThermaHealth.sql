@@ -2,7 +2,7 @@
 CREATE DATABASE IF NOT EXISTS thermaHealth;
 USE thermaHealth;
 
---  DROP database thermaHealth;
+ --  DROP database thermaHealth;
 
 
 -- Criação da tabela de hospitais
@@ -20,12 +20,11 @@ CREATE TABLE IF NOT EXISTS endereco(
 CREATE TABLE IF NOT EXISTS hospital(
 	idHospital INT PRIMARY KEY AUTO_INCREMENT,
     fkEndereco INT,
-	nome VARCHAR(45) NOT NULL,
+	nome VARCHAR(50) NOT NULL,
 	sufixo CHAR(4) NOT NULL,
 	cnpj CHAR(8) NOT NULL,
 	digitoVerifica CHAR(2) NOT NULL,
-	razaoSocial VARCHAR(200) NOT NULL,
-    
+    razaoSocial varchar(200) NOT NULL,
     constraint fkHospitalEndereco 
 		foreign key (fkEndereco) references endereco(idEndereco)
 );
@@ -67,7 +66,7 @@ CREATE TABLE IF NOT EXISTS parametrosIdeais(
 -- Criação da tabela de sensores, associando cada sensor a uma sala
 CREATE TABLE IF NOT EXISTS sensor(
 	idSensor INT PRIMARY KEY AUTO_INCREMENT,
-	statusSensor VARCHAR(45) NOT NULL,
+	statusSensor VARCHAR(10) NOT NULL,
     constraint chkStatusSensor
 		check (statusSensor in('Ativo', 'Inativo', 'Manutenção')),
 	fkSala INT NOT NULL,
@@ -86,22 +85,14 @@ CREATE TABLE IF NOT EXISTS registro(
 			references sensor(idSensor)
 );
 
--- Criação da tabela de alertas gerados a partir de registros
-CREATE TABLE IF NOT EXISTS registroAlerta(
-	idRegistroAlerta INT AUTO_INCREMENT PRIMARY KEY,
-	aviso VARCHAR(10),
-	mensagem TEXT
-);
-
 -- Criação da tabela de alerta (para alertas de umidade, temperatura ou ambos)
 CREATE TABLE IF NOT EXISTS alerta(
 	idAlerta int auto_increment primary key,
 	fkRegistro int,
-    fkRegistroAlerta int,
     dataAlerta timestamp default current_timestamp,
-	 -- CONSTRAINT pkComposta primary key(idAlerta,pkRegistro,pkRegistroAlerta),
-		CONSTRAINT fkAlerta_Registro FOREIGN KEY (fkRegistro) REFERENCES registro(idRegistro),
-		CONSTRAINT fkAlerta_RegistroAlerta FOREIGN KEY (fkRegistroAlerta) REFERENCES registroAlerta(idRegistroAlerta)
+	 -- CONSTRAINT pkComposta primary key(idAlerta,pkRegistro),
+		CONSTRAINT fkAlerta_Registro FOREIGN KEY (fkRegistro) REFERENCES registro(idRegistro)
+	
 );
 
 
@@ -192,27 +183,20 @@ INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES
     
 SELECT * FROM registro;
 
--- Inserção de alertas com base nos registros
-INSERT INTO registroAlerta (idRegistroAlerta, aviso, mensagem) VALUES -- ALINHAR O GRUPO SOBRE A IMPORTÂNCIA DESSA TABELA SER DA RELAÇÃO NXN
-(default, 'ALERTA', 'Temperatura abaixo da faixa ideal. Ajuste necessário.'),
-(default, 'ALERTA', 'Temperatura acima da faixa ideal. Ação corretiva necessária.'),
-(default, 'ALERTA', 'Temperatura e umidade fora da faixa ideal. Necessário verificar.'),
-(default, 'ALERTA', 'Temperatura acima da faixa ideal. Necessário verificar'),
-(default, 'ALERTA', 'Umidade acima da faixa ideal. Necessário verificar.');
 
 
-INSERT INTO alerta (fkRegistro, fkRegistroAlerta) VALUES
-	(5, 2),
-    (7, 1),
-    (8, 2),
-    (9, 3),
-    (11, 5),
-    (12, 2),
-    (13, 3);
+INSERT INTO alerta (fkRegistro) VALUES
+	(5),
+    (7),
+    (8),
+    (9),
+    (11),
+    (12),
+    (13);
     
 SELECT * FROM alerta;
 SELECT * FROM registro;
-select * from RegistroAlerta;
+
 
 
 CREATE VIEW vw_funcHosp AS
@@ -262,16 +246,13 @@ JOIN sala sl ON s.fkSala = sl.idSala;
 
 	SELECT alerta.idAlerta as 'Identificação do Alerta',
 		   sala.nome as 'Nome da Sala',
-		   sensor.idSensor as 'Sensor',
-           registroAlerta.mensagem as 'Mensagem de Alerta'
+		   sensor.idSensor as 'Sensor'
            FROM sala JOIN sensor
            ON sala.idSala = sensor.fkSala
            JOIN registro
            ON sensor.idSensor = registro.fkSensor
            JOIN alerta
-           ON registro.idRegistro = alerta.fkRegistro
-           JOIN registroAlerta
-           ON registroAlerta.idRegistroAlerta = alerta.fkRegistroAlerta;
+           ON registro.idRegistro = alerta.fkRegistro;
 		
 -- SELECT QUANTIDADE DE ALERTAS POR SALAS
 	SELECT sala.nome as 'Nome da sala',
@@ -402,7 +383,7 @@ create view vw_acesso as
             
 	SELECT * from vw_acesso;
 
-
+ drop view vw_sala_setor_param_regist_sensor;
 CREATE VIEW vw_sala_setor_param_regist_sensor as
 		SELECT  sa.nome as nomeSala, -- Pego o nome da sala
 				sa.setor as nomeSetor, -- Pego o nome do setor
@@ -412,7 +393,8 @@ CREATE VIEW vw_sala_setor_param_regist_sensor as
 				p.umidade_max as umi_max, -- Pego o parâmetro de umidade máxima
 				r.temperatura as temperaturaAtual, -- Pego o registro de temperatura
 				r.umidade as umidadeAtual, -- Pego o registro de umidade
-				r.fkSensor as sensorDonoRegistro
+				r.fkSensor as sensorDonoRegistro,
+                f.email as emailFuncionario
 			FROM registro r
 			JOIN (SELECT fkSensor, Max(dtHora) as max_dtHora -- Faço um join com esse select que
 				FROM registro JOIN sensor GROUP BY fkSensor) as recentes -- retorna a data do último registro 
@@ -421,13 +403,16 @@ CREATE VIEW vw_sala_setor_param_regist_sensor as
 				ON s.idSensor = r.fkSensor
 				JOIN sala sa 
 				ON sa.idSala = s.fkSala
-				JOIN parametrosIdeais p
+				JOIN parametrosIdeais p 
 				ON p.fkSala = sa.idSala
+                JOIN funcionario f
+                ON sa.fkHospital = f.fkHospital
 				ORDER BY r.fkSensor; -- Ordenado pelo identificador de cada sensor que tenha registro
 
-           
+SELECT * FROM  vw_sala_setor_param_regist_sensor where emailFuncionario = 'fernanda.rocha@hospital.com';
 SELECT * FROM sala;
 SELECT * FROM registro;
-SELECT * FROM registroAlerta;
+SELECT * FROM funcionario;
+
 SELECT * FROM alerta;
 
