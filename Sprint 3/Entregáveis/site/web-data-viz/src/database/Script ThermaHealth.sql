@@ -2,7 +2,7 @@
 CREATE DATABASE IF NOT EXISTS thermaHealth;
 USE thermaHealth;
 
- -- DROP database thermaHealth;
+  -- DROP database thermaHealth;
 
 
 -- Criação da tabela de hospitais
@@ -20,26 +20,20 @@ CREATE TABLE IF NOT EXISTS endereco(
 CREATE TABLE IF NOT EXISTS hospital(
 	idHospital INT PRIMARY KEY AUTO_INCREMENT,
     fkEndereco INT,
-	nome VARCHAR(45) NOT NULL,
+	nome VARCHAR(50) NOT NULL,
 	sufixo CHAR(4) NOT NULL,
 	cnpj CHAR(8) NOT NULL,
 	digitoVerifica CHAR(2) NOT NULL,
-	razaoSocial VARCHAR(200) NOT NULL,
-    
+    razaoSocial varchar(200) NOT NULL,
     constraint fkHospitalEndereco 
 		foreign key (fkEndereco) references endereco(idEndereco)
 );
 -- Criação da tabela de funcionários, permitindo hierarquia entre eles (supervisor)
 CREATE TABLE IF NOT EXISTS funcionario(
 	idFuncionario INT PRIMARY KEY AUTO_INCREMENT, 
-	matricula VARCHAR(10),
 	nome VARCHAR(100) NOT NULL,
 	senha VARCHAR(32) NOT NULL,
-	nivelAcesso CHAR(1),
 	email VARCHAR(255) NOT NULL,
-	fkSupervisor INT NULL,
-		constraint fkFuncSuper foreign key (fkSupervisor)
-			references funcionario(idFuncionario),
 	fkHospital INT NOT NULL,
 		constraint fkFuncHospital foreign key (fkHospital)
 			references hospital(idHospital)
@@ -51,7 +45,6 @@ CREATE TABLE IF NOT EXISTS sala(
 	setor VARCHAR(45) NOT NULL, 
 	nome VARCHAR(45) NOT NULL,
 	descricao TEXT NOT NULL,
-	andar TINYINT NOT NULL,  
 	fkHospital INT NOT NULL,
 		constraint fkSalaHospital foreign key (fkHospital)
 			references hospital(idHospital)
@@ -73,9 +66,7 @@ CREATE TABLE IF NOT EXISTS parametrosIdeais(
 -- Criação da tabela de sensores, associando cada sensor a uma sala
 CREATE TABLE IF NOT EXISTS sensor(
 	idSensor INT PRIMARY KEY AUTO_INCREMENT,
-	tipo VARCHAR(10) NOT NULL,
-	numeroSerie VARCHAR(22) NOT NULL UNIQUE,
-	statusSensor VARCHAR(45) NOT NULL,
+	statusSensor VARCHAR(10) NOT NULL,
     constraint chkStatusSensor
 		check (statusSensor in('Ativo', 'Inativo', 'Manutenção')),
 	fkSala INT NOT NULL,
@@ -94,24 +85,14 @@ CREATE TABLE IF NOT EXISTS registro(
 			references sensor(idSensor)
 );
 
--- Criação da tabela de alertas gerados a partir de registros
-CREATE TABLE IF NOT EXISTS registroAlerta(
-	idRegistroAlerta INT AUTO_INCREMENT PRIMARY KEY,
-	aviso VARCHAR(10),
-	mensagem TEXT,
-	resolvido TINYINT
-);
-
 -- Criação da tabela de alerta (para alertas de umidade, temperatura ou ambos)
 CREATE TABLE IF NOT EXISTS alerta(
 	idAlerta int auto_increment primary key,
 	fkRegistro int,
-    fkRegistroAlerta int,
-    alertaUmidade tinyint,
-    alertaTemperatura tinyint,
-	 -- CONSTRAINT pkComposta primary key(idAlerta,pkRegistro,pkRegistroAlerta),
-		CONSTRAINT fkAlerta_Registro FOREIGN KEY (fkRegistro) REFERENCES registro(idRegistro),
-		CONSTRAINT fkAlerta_RegistroAlerta FOREIGN KEY (fkRegistroAlerta) REFERENCES registroAlerta(idRegistroAlerta)
+    dataAlerta timestamp default current_timestamp,
+	 -- CONSTRAINT pkComposta primary key(idAlerta,pkRegistro),
+		CONSTRAINT fkAlerta_Registro FOREIGN KEY (fkRegistro) REFERENCES registro(idRegistro)
+	
 );
 
 
@@ -140,29 +121,21 @@ INSERT INTO hospital (nome,fkEndereco, sufixo, cnpj, digitoVerifica, razaoSocial
 
 
 -- Inserção de funcionários com diferentes níveis e supervisores
-INSERT INTO funcionario (matricula, nome, senha, nivelAcesso, email, fkSupervisor, fkHospital) VALUES
-('000001', 'João Silva', 'e10adc3949ba59abbe56e057f20f883e', 'A', 'joao.silva@hospital.com', NULL, 1),
-('000002', 'Maria Souza', 'e10adc3949ba59abbe56e057f20f883e', 'S', 'maria.souza@hospital.com', 1, 1),
-('000003', 'Carlos Lima', 'e10adc3949ba59abbe56e057f20f883e', 'C', 'carlos.lima@hospital.com', 2, 1),
-('000004', 'Fernanda Rocha', 'e10adc3949ba59abbe56e057f20f883e', 'S', 'fernanda.rocha@hospital.com', 1, 2),
-('000005', 'Bruno Martins', 'e10adc3949ba59abbe56e057f20f883e', 'C', 'bruno.martins@hospital.com', 4, 2);
+INSERT INTO funcionario (nome, senha, email, fkHospital) VALUES
+('João Silva', 'e10adc3949ba59abbe56e057f20f883e', 'joao.silva@hospital.com',  1),
+('Maria Souza', 'e10adc3949ba59abbe56e057f20f883e', 'maria.souza@hospital.com', 1),
+('Carlos Lima', 'e10adc3949ba59abbe56e057f20f883e', 'carlos.lima@hospital.com', 1),
+('Fernanda Rocha', 'e10adc3949ba59abbe56e057f20f883e', 'fernanda.rocha@hospital.com', 2),
+('Bruno Martins', 'e10adc3949ba59abbe56e057f20f883e', 'bruno.martins@hospital.com', 2);
 
 -- Inserção de salas hospitalares com diferentes setores e hospitais
-INSERT INTO sala (setor, nome, descricao, andar, fkHospital) VALUES
-('Emergência', 'Sala de Atendimento 1', 'Sala equipada para primeiros socorros e emergências médicas.', 1, 1),
-('UTI', 'UTI Geral', 'Unidade de Terapia Intensiva para pacientes críticos.', 2, 1),
-('Pediatria', 'Sala de Brinquedos', 'Espaço lúdico para crianças internadas.', 1, 2),
-('Radiologia', 'Sala de Raio-X', 'Sala equipada com aparelho de raio-x digital.', 1, 1),
-('Centro Cirúrgico', 'Sala de Cirurgia 2', 'Sala para procedimentos cirúrgicos de médio porte.', 2, 2),
-('Administração', 'Sala da Diretoria', 'Sala administrativa da diretoria do hospital.', 3, 1);
-
-INSERT INTO sala (setor, nome, descricao, andar, fkHospital) VALUES
-('Emergência', 'Sala de Atendimento 1', 'Sala para atendimento inicial de emergência.', 1, 1),
-('Emergência', 'Sala de Atendimento 2', 'Sala equipada para primeiros socorros.', 1, 1),
-('Emergência', 'Sala de Triagem', 'Local para triagem de pacientes emergenciais.', 1, 1),
-('Emergência', 'Sala de Observação', 'Sala para observação de pacientes em emergência.', 2, 1),
-('Emergência', 'Sala de Estabilização', 'Sala para estabilização de pacientes críticos.', 2, 1);
-
+INSERT INTO sala (setor, nome, descricao, fkHospital) VALUES
+('Emergência', 'Sala de Atendimento 1', 'Sala equipada para primeiros socorros e emergências médicas.', 1),
+('UTI', 'UTI Geral', 'Unidade de Terapia Intensiva para pacientes críticos.', 1),
+('Pediatria', 'Sala de Brinquedos', 'Espaço lúdico para crianças internadas.', 2),
+('Radiologia', 'Sala de Raio-X', 'Sala equipada com aparelho de raio-x digital.', 1),
+('Centro Cirúrgico', 'Sala de Cirurgia 2', 'Sala para procedimentos cirúrgicos de médio porte.', 2),
+('Administração', 'Sala da Diretoria', 'Sala administrativa da diretoria do hospital.', 1);
 
 -- Inserção de parâmetros ideais de sensores
 INSERT INTO parametrosIdeais (idParametros, fkSala, temperatura_min, temperatura_max, umidade_min, umidade_max) VALUES
@@ -177,18 +150,18 @@ select * from sala;
 select * from parametrosIdeais;
  
 -- Inserção de sensores em diferentes salas e com status variados
-INSERT INTO sensor (tipo, numeroSerie, statusSensor, fkSala) VALUES -- ALTERAR TIPO DE SENSOR PARA A POSIÇÃO NO QUAL ELE ESTÁ INSTALADO 
+INSERT INTO sensor (statusSensor, fkSala) VALUES -- ALTERAR TIPO DE SENSOR PARA A POSIÇÃO NO QUAL ELE ESTÁ INSTALADO 
 -- SE O SENSOR ESTIVER INATIVO OU EM MANUTENÇÃO, ELE NÃO SERÁ CONSIDERADO PARA O MONITORAMENTO DAS SALAS 
-('TEMP', 'SN-TEMP-0001', 'Ativo', 1),
-('UMID', 'SN-UMID-0002', 'Ativo', 2),
-('AMBI', 'SN-AMBI-0003', 'Manutenção', 3),
-('TEMP', 'SN-TEMP-0004', 'Ativo', 4),
-('UMID', 'SN-UMID-0005', 'Inativo', 5),
-('AMBI', 'SN-AMBI-0006', 'Ativo', 6),
-('TEMP', 'SN-TEMP-0007', 'Ativo', 1),
-('TEMP', 'SN-TEMP-0008', 'Manutenção', 1),
-('UMID', 'SN-UMID-0009', 'Ativo', 1),
-('UMID', 'SN-UMID-0010', 'Ativo', 1);
+('Ativo', 1),
+('Ativo', 2),
+('Manutenção', 3),
+('Ativo', 4),
+('Inativo', 5),
+('Ativo', 6),
+('Ativo', 1),
+('Manutenção', 1),
+('Ativo', 1),
+('Ativo', 1);
 
 
 -- Inserção de registros de medições de sensores
@@ -210,27 +183,20 @@ INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES
     
 SELECT * FROM registro;
 
--- Inserção de alertas com base nos registros
-INSERT INTO registroAlerta (idRegistroAlerta, aviso, mensagem, resolvido) VALUES -- ALINHAR O GRUPO SOBRE A IMPORTÂNCIA DESSA TABELA SER DA RELAÇÃO NXN
-(default, 'ALERTA', 'Temperatura abaixo da faixa ideal. Ajuste necessário.', 0),
-(default, 'ALERTA', 'Temperatura acima da faixa ideal. Ação corretiva necessária.', 0),
-(default, 'ALERTA', 'Temperatura e umidade fora da faixa ideal. Necessário verificar.', 0),
-(default, 'ALERTA', 'Temperatura acima da faixa ideal. Necessário verificar', 1),
-(default, 'ALERTA', 'Umidade acima da faixa ideal. Necessário verificar.', 0);
 
 
-INSERT INTO alerta (fkRegistro, fkRegistroAlerta, alertaUmidade, AlertaTemperatura) VALUES
-	(5, 2, 0, 1),
-    (7, 1, 1, 1),
-    (8, 2, 0, 1),
-    (9, 3, 1, 0),
-    (11, 5, 1, 1),
-    (12, 2, 0, 1),
-    (13, 3, 1 ,1);
+INSERT INTO alerta (fkRegistro) VALUES
+	(5),
+    (7),
+    (8),
+    (9),
+    (11),
+    (12),
+    (13);
     
 SELECT * FROM alerta;
 SELECT * FROM registro;
-select * from RegistroAlerta;
+
 
 
 CREATE VIEW vw_funcHosp AS
@@ -241,26 +207,6 @@ SELECT
 FROM funcionario f
 JOIN hospital h ON f.fkHospital = h.idHospital;
 
--- Consulta: Funcionários e seus respectivos supervisores (ou "Sem supervisor")
-CREATE VIEW vw_FuncAndSupervisor AS
-SELECT
-    f.nome AS nomeFuncionario,
-    IFNULL(s.nome, 'Sem supervisor') AS nomeSupervisor
-FROM funcionario f
-LEFT JOIN funcionario s ON f.fkSupervisor = s.idFuncionario;
-
--- Consulta: Status dos sensores com mensagens descritivas
-CREATE VIEW vw_statusSensores AS
-SELECT
-    s.numeroSerie,
-    s.tipo,
-    CASE
-        WHEN s.statusSensor = 'Ativo' THEN 'Sensor operando normalmente'
-        WHEN s.statusSensor = 'Inativo' THEN 'Sensor desligado'
-        WHEN s.statusSensor = 'Manutenção' THEN 'Sensor em manutenção'
-        ELSE 'Status desconhecido'
-    END AS descricaoStatus
-FROM sensor s;
 
 -- Consulta: Funcionários que trabalham em hospitais com nome contendo 'Santa'
 CREATE VIEW vw_funcHospEspecifico AS
@@ -270,33 +216,20 @@ SELECT
 FROM funcionario f
 JOIN hospital h ON f.fkHospital = h.idHospital;
 
--- Consulta: Lista de alertas com descrição textual do status (resolvido ou pendente)
-CREATE VIEW vw_alertasStatus AS
-SELECT
-    ra.idRegistroAlerta,
-    ra.aviso,
-    ra.mensagem,
-    CASE
-        WHEN ra.resolvido = 1 THEN 'Resolvido'
-        ELSE 'Pendente'
-    END AS statusAlerta
-FROM registroAlerta ra;
-
 -- Consulta: Registros de temperatura e umidade com identificação da sala e sensor
 CREATE VIEW vw_registrosTemperatura AS
 SELECT
     r.dtHora,
     r.temperatura,
     r.umidade,
-    s.numeroSerie,
     sl.nome AS nomeSala
 FROM registro r
 JOIN sensor s ON r.fkSensor = s.idSensor
 JOIN sala sl ON s.fkSala = sl.idSala;
 
 -- Consulta: Sensores ativos em salas do setor 'UTI'
+/*
 CREATE VIEW vw_sensoresAlertasEspecifico AS SELECT
-    s.numeroSerie,
     s.tipo,
     sl.nome AS sala,
     CASE
@@ -307,22 +240,19 @@ FROM sensor s
 JOIN sala sl ON s.fkSala = sl.idSala;
 -- WHERE sl.setor LIKE '%UTI%' AND s.statusSensor = 'Ativo';
 
-
+*/
 
 -- SELECT DE ALERTAS QUE OCORRERAM EM SALAS
 
 	SELECT alerta.idAlerta as 'Identificação do Alerta',
 		   sala.nome as 'Nome da Sala',
-		   sensor.numeroSerie as 'Sensor',
-           registroAlerta.mensagem as 'Mensagem de Alerta'
+		   sensor.idSensor as 'Sensor'
            FROM sala JOIN sensor
            ON sala.idSala = sensor.fkSala
            JOIN registro
            ON sensor.idSensor = registro.fkSensor
            JOIN alerta
-           ON registro.idRegistro = alerta.fkRegistro
-           JOIN registroAlerta
-           ON registroAlerta.idRegistroAlerta = alerta.fkRegistroAlerta;
+           ON registro.idRegistro = alerta.fkRegistro;
 		
 -- SELECT QUANTIDADE DE ALERTAS POR SALAS
 	SELECT sala.nome as 'Nome da sala',
@@ -380,29 +310,29 @@ SELECT * from parametrosIdeais;
            
         
 -- SELECT QUAIS SÃO OS SENSORES POR SALA (Exemplo, sala 1)
-		SELECT sala.idSala as 'Número da sala',
-		   sala.nome as 'Nome da sala',
-           sensor.numeroSerie as 'Número de Série do Sensor'
+CREATE VIEW vw_sensores_das_salas as
+		SELECT sala.idSala as numeroSala,
+		   sala.nome as nomeSala,
+           sensor.idSensor as idSensor
            FROM sala RIGHT JOIN sensor
-           ON sala.idSala = sensor.fkSala
-           HAVING
-           sala.idSala = 1;
+           ON sala.idSala = sensor.fkSala;
            
+SELECT * FROM vw_sensores_das_salas;
+    
 -- SELECT DE TODOS OS REGISTROS DE TEMPERATURA E UMIDADE DE CADA SENSOR POR SALA
-		SELECT sala.idSala as 'Número da sala',
-		   sala.nome as 'Nome da sala',
-           sensor.numeroSerie as 'Número de Série do Sensor',
-           registro.umidade as 'Umidade captada',
-           registro.temperatura as 'Temperatura captada'
+CREATE VIEW vw_registros_sala_parametros as
+		SELECT sala.idSala as numeroSala,
+		   sala.nome as nomeSala,
+           registro.umidade as umidade,
+           registro.temperatura as temperatura
            FROM sala JOIN sensor
            ON sala.idSala = sensor.fkSala
            JOIN registro
            ON sensor.idSensor = registro.fkSensor
            GROUP BY
-           sala.idSala, sala.nome, registro.idRegistro, registro.fkSensor
-           HAVING 
-           sala.idSala = 1
-           ORDER BY sensor.numeroSerie DESC;
+           sala.idSala, sala.nome, registro.idRegistro, registro.fkSensor;
+
+SELECT * FROM vw_registros_sala_parametros;
 
 -- SELECT MÉDIA DA TEMPERATURA DA SALA PELO ÚLTIMO REGISTRO DE CADA SENSOR
 
@@ -440,28 +370,45 @@ SELECT * from parametrosIdeais;
 -- ---------------------------------------------------------------------------------------------------------------------
            
 create view vw_acesso as 
-	SELECT sala.idSala as 'Número da sala',
-		   sala.nome as 'Nome da sala',
-           sensor.numeroSerie as 'Número de Série do Sensor',
-           registro.umidade as 'Umidade captada',
-           registro.temperatura as 'Temperatura captada'
+	SELECT sala.idSala as numeroSala,
+		   sala.nome as nomeSala,
+           registro.umidade as umidade,
+           registro.temperatura as temperatura
            FROM sala JOIN sensor
            ON sala.idSala = sensor.fkSala
            JOIN registro
            ON sensor.idSensor = registro.fkSensor
            GROUP BY
-           sala.idSala, sala.nome, registro.idRegistro, registro.fkSensor
-           HAVING 
-           sala.idSala = 1
-           ORDER BY sensor.numeroSerie DESC;
-           
--- ALTER VIEW ___ as tananã      
+           sala.idSala, sala.nome, registro.idRegistro, registro.fkSensor;
+            
 	SELECT * from vw_acesso;
 
+
+CREATE VIEW vw_sala_setor_param_regist_sensor as
+		SELECT  sa.nome as nomeSala, -- Pego o nome da sala
+				sa.setor as nomeSetor, -- Pego o nome do setor
+				p.temperatura_min as temp_min, -- Pego o parâmetro de temperatura mínima
+				p.temperatura_max as temp_max, -- Pego o parâmetro de temperatura máximo
+				p.umidade_min as umi_min, -- Pego o parâmetro de umidade mínima
+				p.umidade_max as umi_max, -- Pego o parâmetro de umidade máxima
+				r.temperatura as temperaturaAtual, -- Pego o registro de temperatura
+				r.umidade as umidadeAtual, -- Pego o registro de umidade
+				r.fkSensor as sensorDonoRegistro
+			FROM registro r
+			JOIN (SELECT fkSensor, Max(dtHora) as max_dtHora -- Faço um join com esse select que
+				FROM registro JOIN sensor GROUP BY fkSensor) as recentes -- retorna a data do último registro 
+				ON r.fkSensor = recentes.fkSensor AND r.dtHora = recentes.max_dtHora  -- E faz com que exiba apenas quando 
+				JOIN sensor s -- o registro do sensor for == ao último registro e só 1 por sensor
+				ON s.idSensor = r.fkSensor
+				JOIN sala sa 
+				ON sa.idSala = s.fkSala
+				JOIN parametrosIdeais p
+				ON p.fkSala = sa.idSala
+				ORDER BY r.fkSensor; -- Ordenado pelo identificador de cada sensor que tenha registro
 
            
 SELECT * FROM sala;
 SELECT * FROM registro;
-SELECT * FROM registroAlerta;
+
 SELECT * FROM alerta;
 
