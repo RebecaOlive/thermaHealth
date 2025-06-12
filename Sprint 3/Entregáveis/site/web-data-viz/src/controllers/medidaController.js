@@ -41,8 +41,56 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
+function contarSensoresForaPadrao(req, res) {
+    const idSala = req.params.idSala;
+
+    medidaModel.contarSensoresForaPadrao(idSala)
+        .then(resultado => res.status(200).json(resultado))
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function contarTotalSensores(req, res) {
+
+    medidaModel.contarTotalSensores()
+        .then(resultado => res.status(200).json(resultado))
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+
+function buscarParametros(req, res) {
+    const idSala = req.params.idSala;
+
+    medidaModel.buscarParametrosPorSetor(idSala)
+        .then(result => res.status(200).json(result))
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+
+function buscarSalasForaDosParametros(req, res) {
+    medidaModel.buscarSalasForaDosParametros()
+        .then(resultado => {
+            res.status(200).json(resultado[0]);
+        })
+        .catch(erro => {
+            console.error("Erro ao buscar resumo de salas:", erro);
+            res.status(500).json({ erro: "Erro ao buscar dados das salas." });
+        });
+}
+
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
-}
+    buscarMedidasEmTempoReal,
+    contarSensoresForaPadrao,
+    contarTotalSensores,
+    buscarParametros,
+    buscarSalasForaDosParametros
+};

@@ -21,7 +21,8 @@
 
 </head>
 
-<body onload="obterIdSalaDaUrl(),pegarInfoSetor(), obterDadosGrafico(idSala), listarSalasPorSetor(setor)">
+<body
+    onload="obterIdSalaDaUrl(),pegarInfoSetor(), obterDadosGrafico(idSala), listarSalasPorSetor(setor), carregarKpisSensores(idSala), carregarParametrosIdeais(idSala), atualizarKpiSalasFora()">
     <!----------------------------------------------------------- MENU DE NAVEGAÇÃO  ------------->
     <nav class="menu">
         <div class="logo">
@@ -68,29 +69,31 @@
             <div class="principal-direito">
 
                 <div class="principal-kpis">
-
                     <div class="kpis">
                         <div class="icone-emergencia">
                             <img src="../assets/icone-emergencia.png" alt="">
                         </div>
                         <div class="texto-salas">
-                            <h3>Há " " salas fora dos parâmetros ideais</h3>
+                            <h3>Há <span id="qtd_salas_fora">--</span> salas fora dos parâmetros ideais</h3>
                         </div>
                         <div class="num-salas">
-                            <h1>--/-- salas</h1>
+                            <h1><span id="qtd_salas_fora_ratio">--/--</span> salas</h1>
                         </div>
-
                     </div>
+
+
                     <div class="kpis">
                         <div class="icone-sensor">
                             <img src="../assets/icone-sensor.png" alt="">
                         </div>
                         <div class="texto-sensores">
-                            <h3>Há " " sensores fora dos parâmetros ideais</h3>
+                            <h3>Há <span id="qtd_sensores_fora">--</span> sensores fora dos parâmetros ideais</h3>
                         </div>
                         <div class="num-salas">
-                            <h1>--/-- sensores</h1>
+                            <h1><span id="qtd_sensores_fora">--</span>/<span id="qtd_total_sensores">--</span> sensores
+                            </h1>
                         </div>
+
                     </div>
                     <div class="kpis block">
                         <div class="parametros-titulo">
@@ -352,7 +355,56 @@
         }
     }
 
-    function name(params) {
+    function carregarKpisSensores(idSala) {
+        fetch(`http://localhost:3333/medidas/sensores-fora/${idSala}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data && data[0]) {
+                    const sensoresFora = data[0].sensores_fora;
+                    document.querySelectorAll('#qtd_sensores_fora').forEach(el => el.textContent = sensoresFora);
+                }
+            });
+
+        fetch(`http://localhost:3333/medidas/total`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(`os resultados: ${data}`)
+                if (data && data[0]) {
+                    const totalSensores = data[0].total;
+                    document.getElementById('qtd_total_sensores').textContent = totalSensores;
+                }
+            });
+    }
+
+    function carregarParametrosIdeais(idSala) {
+        fetch(`http://localhost:3333/medidas/${idSala}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const params = data[0];
+                    document.querySelector(".texto-temp-ideal h4").textContent =
+                        `${params.temperatura_min} - ${params.temperatura_max}°C`;
+
+                    document.querySelector(".texto-umi-ideal h4").textContent =
+                        `${params.umidade_min} - ${params.umidade_max}%`;
+                }
+            })
+            .catch(err => console.error("Erro ao buscar parâmetros ideais:", err));
+    }
+
+    function atualizarKpiSalasFora() {
+        fetch('http://localhost:3333/medidas/salas-fora')
+            .then(res => res.json())
+            .then(data => {
+                const salasFora = data.salas_fora;
+                const totalSalas = data.total_salas;
+
+                document.getElementById("qtd_salas_fora").innerText = salasFora;
+                document.getElementById("qtd_salas_fora_ratio").innerText = `${salasFora}/${totalSalas}`;
+            })
+            .catch(err => {
+                console.error("Erro ao carregar dados das salas fora dos parâmetros:", err);
+            });
 
     }
 
