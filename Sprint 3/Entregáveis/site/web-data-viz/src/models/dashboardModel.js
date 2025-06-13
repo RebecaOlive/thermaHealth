@@ -1,36 +1,5 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idSala, limite_linhas) {
-
-    var instrucaoSql = `SELECT 
-        r.temperatura AS temperatura, 
-        r.umidade AS umidade,
-                        r.dtHora AS momento,
-                        DATE_FORMAT(r.dtHora, '%H:%i:%s') AS momento_grafico
-                FROM registro r
-                JOIN sensor s ON r.fkSensor = s.idSensor
-                WHERE s.fkSala = ${idSala}
-            ORDER BY r.idRegistro DESC LIMIT ${limite_linhas}`;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
-function buscarMedidasEmTempoReal(idSala) {
-
-    var instrucaoSql = `SELECT 
-        r.temperatura AS temperatura, 
-        r.umidade AS umidade,
-                        DATE_FORMAT(r.dtHora, '%H:%i:%s') AS momento_grafico,
-                        s.fkSala AS fkSala
-                FROM registro r
-                JOIN sensor s ON r.fkSensor = s.idSensor
-                WHERE s.fkSala = ${idSala}
-            ORDER BY r.idRegistro DESC LIMIT 1`;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
 function contarSensoresForaPadrao(idSala) {
     const instrucaoSql = `
         SELECT COUNT(*) AS sensores_fora
@@ -47,26 +16,27 @@ function contarSensoresForaPadrao(idSala) {
     return database.executar(instrucaoSql);
 }
 
-function contarTotalSensores(idSala) {
+function contarTotalSensores() {
     const instrucaoSql = `
-        SELECT COUNT(idSensor) AS 'Total'
-        FROM sensor WHERE fkSala = '${idSala}';
+        SELECT COUNT(idSensor)
+        FROM sensor;
     `;
     return database.executar(instrucaoSql);
 }
 
+
 function buscarParametrosPorSetor(idSala) {
-    const instrucaoSql = `
+  const instrucaoSql = `
         SELECT temperatura_min, temperatura_max, umidade_min, umidade_max
         FROM parametrosIdeais
         WHERE fkSala = ${idSala}
         LIMIT 1;
     `;
-    return database.executar(instrucaoSql);
+  return database.executar(instrucaoSql);
 }
 
 function buscarSalasForaDosParametros() {
-    const instrucaoSql = `
+  const instrucaoSql = `
         SELECT 
             (SELECT COUNT(DISTINCT s.idSala)
              FROM sala s
@@ -88,14 +58,21 @@ function buscarSalasForaDosParametros() {
 
             (SELECT COUNT(*) FROM sala) AS total_salas;
     `;
-    return database.executar(instrucaoSql);
+  return database.executar(instrucaoSql);
 }
 
+function primeiraKPI(email, nomeSala) {
+  const instrucaoSql = `
+        SELECT * FROM  vw_sala_setor_param_regist_sensor where emailFuncionario = '${email}' && nomeSala = '${nomeSala}';
+    `;
+  return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal,
-    contarSensoresForaPadrao,
-    contarTotalSensores,
-    buscarParametrosPorSetor,
-    buscarSalasForaDosParametros
+  contarSensoresForaPadrao,
+  contarTotalSensores,
+  buscarParametrosPorSetor,
+  buscarSalasForaDosParametros,
+  primeiraKPI
 };

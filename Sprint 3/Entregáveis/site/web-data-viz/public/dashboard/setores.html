@@ -151,10 +151,10 @@
     // arrumar para só aparecer uma vez o setor
     JSON.parse(sessionStorage.SALAS).forEach((item) => {
       let setorAtual = item.setor;
-      console.log(setorAtual);
+      console.log(item);
       if (!setoresCadastrados.includes(setorAtual)) {
         document.getElementById("cardSala").innerHTML += `
-                    <div class="setores-caixa" onclick="irParaSetor(${item.idSala})">
+                    <div class="setores-caixa" onclick="irParaSetor(${item.idSala} , '${item.nome}')">
                         <div class="caixa-texto">
                             <h2>${item.setor}</h2>
                         </div>
@@ -177,6 +177,7 @@
 
          resposta.json().then( function(dados){
           console.log(dados.nomeSetor)
+          console.log(dados)
           let listaSetores = []; // isso deve ser uma array?
           
 
@@ -192,7 +193,7 @@
             let setorAtual = listaSetores[i]; // A ideia é percorrer o FOR e identificar de qual setor estamos tratando
 
             for (let j = 0; j < dados.length; j++) { // percorre os dados novamente
-              if (setorAtual == dados.nomeSetor[i]) { // Se o setorAtual do for[i] e o do for[j] forem iguais...
+              if (setorAtual == dados[i].nomeSetor) { // Se o setorAtual do for[i] e o do for[j] forem iguais...
                 // listaSetores[j] {
                   console.log(j)
                 // Ele deve receber o conteudo json de "dados" e colocar somente dentro do setorAtual
@@ -205,7 +206,10 @@
     });
   }
 
-  function irParaSetor(idSala) {
+  function irParaSetor(idSala , nomeSetor) {
+    console.log(nomeSetor)
+    sessionStorage.NOME_SETOR = nomeSetor;
+
     console.log("Fui para a transferência", idSala);
     window.location.href = `dashboard-atual.html?idSala=${idSala}`;
   }

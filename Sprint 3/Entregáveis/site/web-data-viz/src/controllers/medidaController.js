@@ -53,8 +53,8 @@ function contarSensoresForaPadrao(req, res) {
 }
 
 function contarTotalSensores(req, res) {
-
-    medidaModel.contarTotalSensores()
+    let idSala = req.params.idSala;
+    medidaModel.contarTotalSensores(idSala)
         .then(resultado => res.status(200).json(resultado))
         .catch(erro => {
             console.log(erro);
@@ -63,7 +63,7 @@ function contarTotalSensores(req, res) {
 }
 
 
-function buscarParametros(req, res) {
+function buscarParametrosPorSetor(req, res) {
     const idSala = req.params.idSala;
 
     medidaModel.buscarParametrosPorSetor(idSala)
@@ -91,6 +91,6 @@ module.exports = {
     buscarMedidasEmTempoReal,
     contarSensoresForaPadrao,
     contarTotalSensores,
-    buscarParametros,
+    buscarParametrosPorSetor,
     buscarSalasForaDosParametros
 };

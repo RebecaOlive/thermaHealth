@@ -9,7 +9,7 @@ router.get("/tempo-real/:idSala", medidaController.buscarMedidasEmTempoReal);
 router.get("/sensores-fora/:idSala", medidaController.contarSensoresForaPadrao);
 router.get("/total-sensores/:idSala", medidaController.contarTotalSensores);
 
-router.get("/:idSala", medidaController.buscarParametros);
+// router.get("/:idSala", medidaController.buscarParametros);
 
 router.get('/salas-fora', medidaController.buscarSalasForaDosParametros);
 

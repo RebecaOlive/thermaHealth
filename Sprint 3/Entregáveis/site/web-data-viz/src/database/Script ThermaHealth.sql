@@ -2,7 +2,7 @@
 CREATE DATABASE IF NOT EXISTS thermaHealth;
 USE thermaHealth;
 
-  -- DROP database thermaHealth;
+ --  DROP database thermaHealth;
 
 
 -- Criação da tabela de hospitais
@@ -383,7 +383,7 @@ create view vw_acesso as
             
 	SELECT * from vw_acesso;
 
-
+ -- drop view vw_sala_setor_param_regist_sensor;
 CREATE VIEW vw_sala_setor_param_regist_sensor as
 		SELECT  sa.nome as nomeSala, -- Pego o nome da sala
 				sa.setor as nomeSetor, -- Pego o nome do setor
@@ -393,7 +393,8 @@ CREATE VIEW vw_sala_setor_param_regist_sensor as
 				p.umidade_max as umi_max, -- Pego o parâmetro de umidade máxima
 				r.temperatura as temperaturaAtual, -- Pego o registro de temperatura
 				r.umidade as umidadeAtual, -- Pego o registro de umidade
-				r.fkSensor as sensorDonoRegistro
+				r.fkSensor as sensorDonoRegistro,
+                f.email as emailFuncionario
 			FROM registro r
 			JOIN (SELECT fkSensor, Max(dtHora) as max_dtHora -- Faço um join com esse select que
 				FROM registro JOIN sensor GROUP BY fkSensor) as recentes -- retorna a data do último registro 
@@ -402,13 +403,21 @@ CREATE VIEW vw_sala_setor_param_regist_sensor as
 				ON s.idSensor = r.fkSensor
 				JOIN sala sa 
 				ON sa.idSala = s.fkSala
-				JOIN parametrosIdeais p
+				JOIN parametrosIdeais p 
 				ON p.fkSala = sa.idSala
+                JOIN funcionario f
+                ON sa.fkHospital = f.fkHospital
 				ORDER BY r.fkSensor; -- Ordenado pelo identificador de cada sensor que tenha registro
 
-           
+SELECT * FROM  vw_sala_setor_param_regist_sensor where emailFuncionario = 'fernanda.rocha@hospital.com';
 SELECT * FROM sala;
 SELECT * FROM registro;
+SELECT * FROM funcionario;
 
 SELECT * FROM alerta;
 
+        SELECT * FROM sensor WHERE fkSala = 1 AND statusSensor = 'Ativo';
+
+ SELECT COUNT(idSensor)
+        FROM sensor;
+        SELECT * FROM  vw_sala_setor_param_regist_sensor where emailFuncionario = 'joao.silva@hospital.com' && nomeSala = 'Sala de Atendimento 1';

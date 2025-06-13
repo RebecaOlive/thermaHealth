@@ -306,17 +306,17 @@
         // Mostra o nome do usuário na tela
         b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-        console.log(idSala)
+        // console.log(idSala)
         var salas = JSON.parse(sessionStorage.SALAS);
         var setor;
 
-        console.log(salas)
+        // console.log(salas)
         for (var i = 0; i < salas.length; i++) {
 
 
             if (salas[i].idSala == idSala) {
                 setor = JSON.parse(sessionStorage.SALAS)[i].setor;
-                console.log(setor)
+                // console.log(setor)
 
                 break;
             }
@@ -332,18 +332,18 @@
         const parametros = new URLSearchParams(window.location.search);
         return parametros.get('idSala');
 
-        console.log('Eu recebi o nome do setor que é ', parametros.get('setor'))
+        // console.log('Eu recebi o nome do setor que é ', parametros.get('setor'))
     }
 
     function listarSalasPorSetor(setor) {
 
-        console.log(idSala);
+        // console.log(idSala);
         var salas = JSON.parse(sessionStorage.SALAS);
 
         for (var i = 0; i < salas.length; i++) {
 
-            console.log('Entrou no for ' + i)
-            console.log(salas[i].idSala == idSala)
+            // console.log('Entrou no for ' + i)
+            // console.log(salas[i].idSala == idSala)
 
             if (salas[i].setor == setor) {
                 document.getElementById("card_salas").innerHTML += `
@@ -360,24 +360,25 @@
             .then(res => res.json())
             .then(data => {
                 if (data && data[0]) {
+                    console.log(data[0])
                     const sensoresFora = data[0].sensores_fora;
                     document.querySelectorAll('#qtd_sensores_fora').forEach(el => el.textContent = sensoresFora);
                 }
             });
 
-        fetch(`http://localhost:3333/medidas/total`)
+        fetch(`http://localhost:3333/medidas/total-sensores/${idSala}`)
             .then(res => res.json())
-            .then(data => {
-                console.log(`os resultados: ${data}`)
-                if (data && data[0]) {
-                    const totalSensores = data[0].total;
+            .then(data2 => {
+                console.log(data2)
+                if (data2 && data2[0]) {
+                    const totalSensores = data2[0].Total;
                     document.getElementById('qtd_total_sensores').textContent = totalSensores;
                 }
             });
     }
 
     function carregarParametrosIdeais(idSala) {
-        fetch(`http://localhost:3333/medidas/${idSala}`)
+        fetch(`http://localhost:3333/dashboard/${idSala}`)
             .then(res => res.json())
             .then(data => {
                 if (data.length > 0) {
@@ -393,7 +394,7 @@
     }
 
     function atualizarKpiSalasFora() {
-        fetch('http://localhost:3333/medidas/salas-fora')
+        fetch('http://localhost:3333/dashboard/salas-fora')
             .then(res => res.json())
             .then(data => {
                 const salasFora = data.salas_fora;
@@ -409,7 +410,7 @@
     }
 
     function trocarSala(idSala) {
-        console.log('Fui para a transferência', idSala);
+       // console.log('Fui para a transferência', idSala);
         window.location.href = `dashboard-atual.html?idSala=${idSala}`;
     }
 
@@ -447,7 +448,7 @@
         fetch(`/medidas/ultimas/${idSala}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
                     plotarGrafico(resposta, idSala);
@@ -530,13 +531,15 @@
             ]
         };
 
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
+        // console.log('----------------------------------------------')
+        // console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        // // console.log(resposta)
 
+        console.log(resposta)
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
+
             labels.push(registro.momento_grafico);
             dados.datasets[0].data.push(registro.umidade);
             dados.datasets[1].data.push(registro.temperatura);
@@ -556,13 +559,13 @@
         kpi_random_temp2.innerHTML = random_temp;
         kpi_random_umid2.innerHTML = random_umid;
 
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
+        // console.log('----------------------------------------------')
+        // console.log('O gráfico será plotado com os respectivos valores:')
+        // console.log('Labels:')
+        // console.log(labels)
+        // console.log('Dados:')
+        // console.log(dados.datasets)
+        // console.log('----------------------------------------------')
 
         // Criando estrutura para plotar gráfico - config
         const config = {
@@ -595,23 +598,23 @@
 
                     // obterdados(idSala);
                     // alertar(novoRegistro, idSala);
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico:`);
-                    console.log(dados);
+                    // console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    // console.log(`Dados atuais do gráfico:`);
+                    // console.log(dados);
 
                     let avisoCaptura = document.getElementById(`avisoCaptura${idSala}`)
                     // avisoCaptura.innerHTML = ""
 
 
                     if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                        console.log("---------------------------------------------------------------")
-                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        // console.log("---------------------------------------------------------------")
+                        // console.log("Como não há dados novos para captura, o gráfico não atualizará.")
                         // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                        console.log("Horário do novo dado capturado:")
-                        console.log(novoRegistro[0].momento_grafico)
-                        console.log("Horário do último dado capturado:")
-                        console.log(dados.labels[dados.labels.length - 1])
-                        console.log("---------------------------------------------------------------")
+                        // console.log("Horário do novo dado capturado:")
+                        // console.log(novoRegistro[0].momento_grafico)
+                        // console.log("Horário do último dado capturado:")
+                        // console.log(dados.labels[dados.labels.length - 1])
+                        // console.log("---------------------------------------------------------------")
                     } else {
                         // tirando e colocando valores no gráfico
                         dados.labels.shift(); // apagar o primeiro
@@ -619,17 +622,18 @@
 
                         dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                         dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-                        kpi_umid.innerHTML = dados.datasets[0].data.push(novoRegistro[0].umidade);
+                        kpi_umid.innerHTML = dados.datasets[0].data.push(novoRegistro[6].umidade);
 
                         dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
                         dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-                        kpi_temp.innerHTML = dados.datasets[1].data.push(novoRegistro[0].temperatura);
+                        kpi_temp.innerHTML = dados.datasets[1].data.push(novoRegistro[6].temperatura);
 
                         myChart.update();
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idSala, dados, myChart), 2000);
+                    setTimeout(KPI1(), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -642,4 +646,23 @@
             });
 
     }
+
+function KPI1(){
+         let setorVar = sessionStorage.NOME_SETOR;
+        let email = sessionStorage.EMAIL_USUARIO;
+        // console.log('KPI', setor)
+    fetch(`http://localhost:3333/dashboard/kpi1/${email}/${setorVar}`, {
+      method: "GET",
+    }).then(function (resposta) {
+        
+         resposta.json().then( function(dados){
+        //   console.log(dados.nomeSetor)
+          let listaSetores = []; // 
+            console.log(dados)
+         })
+         
+    });
+
+    
+}
 </script>
