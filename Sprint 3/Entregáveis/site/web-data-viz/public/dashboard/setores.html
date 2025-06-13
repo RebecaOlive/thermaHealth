@@ -149,62 +149,82 @@
   function exibirSalas() {
     const setoresCadastrados = [];
     // arrumar para só aparecer uma vez o setor
+    let contador=0
     JSON.parse(sessionStorage.SALAS).forEach((item) => {
       let setorAtual = item.setor;
       console.log(item);
       if (!setoresCadastrados.includes(setorAtual)) {
         document.getElementById("cardSala").innerHTML += `
-                    <div class="setores-caixa" onclick="irParaSetor(${item.idSala} , '${item.nome}')">
+                    <div class="setores-caixa" id="card${contador}" onclick="irParaSetor(${item.idSala} , '${item.nome}')">
                         <div class="caixa-texto">
                             <h2>${item.setor}</h2>
                         </div>
                         <div class="caixa-status">
                         </div>
                     </div>`;
+        contador++
         setoresCadastrados.push(setorAtual);
       }
     });
   }
 
+
   function atualizarSetores() {
     const email = sessionStorage.getItem('EMAIL_USUARIO');
 
     console.log("chamando fetch");
-    
+   
     fetch(`http://localhost:3333/sala/resultadoBuscarSetores/?email=${email}`, {
       method: "GET",
     }).then(function (resposta) {
 
          resposta.json().then( function(dados){
-          console.log(dados.nomeSetor)
-          console.log(dados)
-          let listaSetores = []; // isso deve ser uma array?
-          
+          console.log(dados);
+         
+          let listaSetores = [];
 
-          for (let i = 0; i < dados.length; i++) { // FOR para pegar nome dos setores
-            let setorAtual = dados[i].nomeSetor;
-
-            if (!listaSetores.includes(setorAtual)) {
-              listaSetores.push(setorAtual); // essa logica funciona, os nomes do setores são inseridos na listaSetores
-            }
+          for (let i = 0; i < dados.length; i++) {
+            let dadosAtuais = dados[i];
+            listaSetores.push(dadosAtuais);
           }
+
+          console.log(listaSetores);
 
           for (let i = 0; i < listaSetores.length; i++) {
-            let setorAtual = listaSetores[i]; // A ideia é percorrer o FOR e identificar de qual setor estamos tratando
+            let setorAtual = listaSetores[i].nomeSetor;
+            let temperaturaAtual = listaSetores[i].temperaturaAtual;
+            let umidadeAtual = listaSetores[i].umidadeAtual;
+            let umidadeMin = listaSetores[i].umi_min;
+            let umidadeMax = listaSetores[i].umi_max;
+            let temperaturaMax = listaSetores[i].temp_max;
+            let temperaturaMin = listaSetores[i].temp_min;
+            let contador =0
+            console.log("Setor Atual: ",setorAtual);
 
-            for (let j = 0; j < dados.length; j++) { // percorre os dados novamente
-              if (setorAtual == dados[i].nomeSetor) { // Se o setorAtual do for[i] e o do for[j] forem iguais...
-                // listaSetores[j] {
-                  console.log(j)
-                // Ele deve receber o conteudo json de "dados" e colocar somente dentro do setorAtual
-                
+       
+            for (let j = 0; j < listaSetores.length; j++) {
+              if (setorAtual == listaSetores[j]) {
+                if ((temperaturaAtual >= temperaturaMin || temperaturaAtual <= temperaturaMax) && (umidadeAtual >= umidadeMin || umidadeAtual <= umidadeMax)) {
+                  console.log("Ta tudo certo");
+                  
+                } else if (temperaturaAtual >= (temperaturaMin - (temperaturaMin * 0.05)) || temperaturaAtual <= (temperaturaMax + (temperaturaMax * 0.05))) {
+                 let card = document.querySelector(`card${contador}`)
+                  card.className = 'setores-caixa-cuidado';
+                }
+                else{
+                  let card = document.querySelector(`card${contador}`)
+                  card.className = 'setores-caixa-perigo';
+                }
               }
-            }
-          }
-          
+              contador++
+              }
+              }
+
          })
     });
   }
+
+
 
   function irParaSetor(idSala , nomeSetor) {
     console.log(nomeSetor)

@@ -49,8 +49,8 @@ function contarSensoresForaPadrao(idSala) {
 
 function contarTotalSensores(idSala) {
     const instrucaoSql = `
-        SELECT COUNT(idSensor) AS 'Total'
-        FROM sensor WHERE fkSala = '${idSala}';
+        SELECT * , (SELECT COUNT(*) FROM sensor where fksala = ${idSala} )as 'Total'FROM sensor WHERE fkSala = ${idSala};
+
     `;
     return database.executar(instrucaoSql);
 }

@@ -143,7 +143,31 @@ body{
 .setores-caixa {
     width: 320px;
     height: 200px;
-    background-color: #B6D8FF;
+    background-color: #0075fa;
+    border-radius: 20px;
+    margin: 10px auto;
+    border: 2px solid black;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.495);
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+}
+.setores-caixa-cuidado {
+    width: 320px;
+    height: 200px;
+    background-color: #FFEA2A;
+    border-radius: 20px;
+    margin: 10px auto;
+    border: 2px solid black;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.495);
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+}
+.setores-caixa-perigo {
+    width: 320px;
+    height: 200px;
+    background-color: #E74D39;
     border-radius: 20px;
     margin: 10px auto;
     border: 2px solid black;
@@ -153,14 +177,26 @@ body{
     transition: all 0.2s ease-in-out;
 }
 
+
 .setores-caixa:hover{
+    transform: scale(1.05);
+}
+.setores-caixa-cuidado:hover{
+    transform: scale(1.05);
+}
+.setores-caixa-perigo:hover{
     transform: scale(1.05);
 }
 
 .setores-caixa:active{
     transform: scale(1);
 }
-
+.setores-caixa-cuidado:active{
+    transform: scale(1);
+}
+.setores-caixa-perigo:active{
+    transform: scale(1);
+}
 .caixa-texto{
     width: 90%;
     height: 55px;

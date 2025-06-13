@@ -90,7 +90,7 @@
                             <h3>Há <span id="qtd_sensores_fora">--</span> sensores fora dos parâmetros ideais</h3>
                         </div>
                         <div class="num-salas">
-                            <h1><span id="qtd_sensores_fora">--</span>/<span id="qtd_total_sensores">--</span> sensores
+                            <h1><span id="qtd_sensores_fora2">--</span>/<span id="qtd_total_sensores">--</span> sensores
                             </h1>
                         </div>
 
@@ -297,6 +297,7 @@
 </html>
 
 <script>
+    let temp;
     const idSala = obterIdSalaDaUrl();
     const setor = pegarInfoSetor();
 
@@ -356,24 +357,22 @@
     }
 
     function carregarKpisSensores(idSala) {
-        fetch(`http://localhost:3333/medidas/sensores-fora/${idSala}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data && data[0]) {
-                    console.log(data[0])
-                    const sensoresFora = data[0].sensores_fora;
-                    document.querySelectorAll('#qtd_sensores_fora').forEach(el => el.textContent = sensoresFora);
-                }
-            });
 
         fetch(`http://localhost:3333/medidas/total-sensores/${idSala}`)
-            .then(res => res.json())
+        .then(res => res.json())
             .then(data2 => {
                 console.log(data2)
-                if (data2 && data2[0]) {
-                    const totalSensores = data2[0].Total;
-                    document.getElementById('qtd_total_sensores').textContent = totalSensores;
-                }
+                let contador = 0;
+                for(let i = 0; i < data2.length; i++){
+                    if(data2[i].statusSensor == 'Ativo'){
+                        contador++;
+                    }
+                }   
+                console.log(contador)
+                document.getElementById('qtd_sensores_fora').innerText = contador;
+                document.getElementById('qtd_sensores_fora2').innerText = contador;
+                document.getElementById('qtd_total_sensores').textContent = data2.length;
+
             });
     }
 
@@ -573,16 +572,24 @@
             data: dados,
         };
 
-        // Adicionando gráfico criado em div na tela
-        let temp = new Chart(
+        console.log(`config: `, config)
+
+
+        if (temp) {
+            temp.destroy();
+            // Adicionando gráfico criado em div na tela
+            
+        }
+        
+        temp = new Chart(
             // document.getElementById(`myChartCanvas${idSala}`),
             document.getElementById(`grafico_temperatura`),
-
             config
         );
+       
 
-
-        setTimeout(() => atualizarGrafico(idSala, dados, temp), 2000);
+        setTimeout(() => obterDadosGrafico(idSala), 2000);
+        // setTimeout(() => atualizarGrafico(idSala, dados, temp), 2000);
     }
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
